@@ -1,38 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Home</title>
-	<link rel="stylesheet" type="text/css" href="views/libs/style.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-</head>
-<body>
-
-	<div class="header">
-		<div class="header_upper">
-			<div class="logo">
-				<img class="logo_img" src="views/assets/logo.png">
-			</div>	
-
-			<div class="search_bar">
-				<input type="text" name="search" placeholder="search">
-				<input type="submit" value="search">
-			</div>
-		</div>
-
-		<div class="header_lower">
-			<ul>
-				<li><a href="#">Shop By Department</a></li>
-				<li><a href="#">Phones and Tablets</a></li>
-				<li><a href="#">Cameras</a></li>
-				<li><a href="#">TV and Video</a></li>
-				<li><a href="#">Home Appliances</a></li>
-				<li><a href="#">Shop By Department</a></li>
-				<li><a href="#">Copmuters and Laptops</a></li>
-				<li><a href="#">Daily Deals</a></li>
-			</ul>
-		</div>
-	</div>
-
+	<?php 
+		require_once("views/libs/header.php");
+	 ?>
 	
 
 	<div class="slider" id="home_slider">
@@ -56,6 +24,25 @@
 			<i class="fas fa-angle-left"></i></div>
 	</div>
 
+<div class="container">
+	<div class="sidebar">
+		
+	</div>
+	<div class="products">
+		<?php for($i = 0; $i < 10; $i++){ ?>
+		<div class="product">
+
+			<div class="img">
+				<img src="https://static-01.daraz.pk/p/97c35056441532d75bd76d924a2d67c1.jpg_340x340q80.jpg">
+			</div>
+			<p class="title">Samsung Galaxy J4 core 6.0 1GB 16GB</p>
+			<p class="price">PKR 1200</p>
+			<button class="add_to_cart">ADD To Cart</button>
+
+		</div>
+		<?php } ?>
+	</div>
+</div>
 	<script type="text/javascript" src="views/libs/script.js"></script>
 </body>
 </html>
