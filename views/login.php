@@ -1,15 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Login</title>
-	<link rel="stylesheet" type="text/css" href="<?php echo APPROOT;?>/views/libs/style.css">
-</head>
-<body>
+<?php 
+	require_once("views/libs/header.php");
+ ?>
 	
 	<div class="sign_up_form">
 		<h3 class="heading">Login to your Account</h3>
-		<form method="post" action="<?php echo APPROOT ?>/login/auth">
 
+		<form method="post" action="<?php echo APPROOT ?>/login/auth">
+			<div class="error">
+				<?php if(isset($data['error'])){ ?>
+					<p><?php echo $data['errors'][0] ?></p>
+				<?php } ?>
+			</div>
 			<div class="form_group">
 				<input type="text" name="username" placeholder="username">
 			</div>

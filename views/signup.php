@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Sign Up</title>
-	<link rel="stylesheet" type="text/css" href="<?php echo APPROOT?>/views/libs/style.css">
-</head>
-<body>
-	
+<?php 
+	require_once("views/libs/header.php");
+ ?>
 	<div class="sign_up_form">
 		<?php if(isset($data['error'])) { ?>
 			<div> There were some errors.</div>
