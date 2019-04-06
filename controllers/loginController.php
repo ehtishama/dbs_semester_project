@@ -21,10 +21,20 @@
 
 			$isValidUser = $this -> model -> logUserIn($username, $password);
 			if($isValidUser)
-				echo 'valid user';
-			else {
-				echo "username or password incorrect";
-				$this -> index();
+			{
+				// do some session work
+				// redirect to other page
+
+				echo "welcome home";
+			}
+			else 
+			{
+				// write some errors
+				// show the login page again
+				$data['error'] = true;
+				$data['errors'] = ['invalid username or password'];
+				$this -> loadView('login', $data);
+
 			}
 
 		}
