@@ -1,0 +1,273 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+body
+{
+	font-family: sans-serif;
+	color: #424242;
+	background-color: #eff0f5;
+	margin: 0;
+	padding: 0;
+
+}
+
+a
+{
+	text-decoration: none;
+	color: #333;
+}
+.header
+{
+	background-color: white;
+	padding: 20px 20px 0 20px;
+}
+
+.header .header_upper
+{
+	display: flex;
+	/*justify-content: space-between;*/
+	width: 80%;
+	margin: 0 auto;
+}
+
+.header .header_upper .logo
+{
+	width: 200px;
+	height: 39px;
+}
+
+.header .header_upper .logo img
+{
+	height: 100%;
+}
+
+.header .search_bar input[type="text"]
+{
+	border: 1px solid rgba(128, 128, 128, .1);
+	width: 600px;
+	background-color: rgba(128, 128, 128, .105);
+	height: 100%;
+	box-sizing: border-box;
+	padding: 5px 15px;
+	border-radius: 4px;
+
+}
+
+.header .search_bar input[type="submit"]
+{
+	padding: 5px;
+	border: none;
+	background-color: orange;
+	color: white;
+	box-sizing: border-box;
+	height: 100%;
+
+
+}
+
+.header .header_lower
+{
+	padding: 15px 0;
+}
+
+.header .header_lower ul
+{
+	display: flex;
+	justify-content: space-around;
+}
+
+.header .header_lower ul li
+{
+	list-style: none;
+
+}
+
+.header .header_lower ul li a
+{
+	text-decoration: none;
+	color: #333;
+	font-family: sans-serif;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+.slider
+{
+ position: relative;
+}
+.slider .slide
+{
+	height: 400px;
+	width: 100%;
+	display:none;
+	
+	
+}
+.slider .slide img
+{
+  width: 100%;
+	height: 100%;
+	object-fit: cover;
+	overflow-x: hidden;
+}
+
+.slider .next, .slider .pre
+{
+  font-size: 2em;
+	position: absolute;
+	color: gray;
+	background: rgba(0,0,0,.5);
+	padding: 10px;
+	top: 50%;
+	border-radius: 4px;
+	margin: 2px;
+	transition: all 1s;
+	
+	
+}
+.slider .next:hover, .slider .pre:hover
+{
+	background: rgba(120, 128, 120, 1);
+	color: black;
+}
+.slider .next
+{
+	right: 0;
+	
+}
+.products{
+	display: flex;
+	margin: 2px;
+	border-radius: 6px;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	
+}
+.products .product
+{
+	background: white;
+	padding: 10px;
+	border-radius: 6px;
+	margin: 12px;
+	box-shadow: 0px 0px 6px lightgray;
+	width: 250px;
+	height: 300px;
+}
+.products .product .img
+{
+	width: 100%;
+	height: 150px;
+	
+}
+.products .product .img img
+{
+  width: 100%;
+	height: 100%;
+}
+
+.products .product .title
+{
+  max-height: 18px;
+	overflow: hidden;
+}
+.product .title, .product .price, .product .add_to_cart
+{
+	margin: 10px  0 0;
+	
+}
+/* styling for signup,php form starts here */
+
+.sign_up_form
+{
+	background: white;
+	width: 650px;
+	padding:50px  70px;
+	margin: 10px auto;
+	border-radius: 5px;
+	box-shadow: 0px 0px 10px lightgray;
+	
+	
+}
+
+.sign_up_form .heading
+{
+  margin: 0px 0 40px;
+	font-weight: 400;
+}
+
+.sign_up_form form
+{
+	
+}
+
+.sign_up_form form input, .sign_up_form form select
+{
+	width: 100%;
+	margin: 0 auto;
+	border: 1px solid lightgray;
+	padding: 8px;
+	border-radius: 5px;
+	margin: 1px 0 10px 0;
+	font-size: 14px;
+
+	
+
+}
+
+.sign_up_form form input[placeholder]
+{
+	color: black;
+}
+
+.sign_up_form form input:focus {
+  
+  border: 2px solid #4285f4;
+}
+
+
+.sign_up_form form label
+{
+	color: #333;
+	font-size: 0.9em;
+	
+}
+
+.error
+{
+	font-weight:bold;
+	color: red;
+	padding: 10px 0;
+	font-size: 12px;
+}
+
+/* styling for product page starts here */
+.product_page .container
+{
+  width: 80%;
+	margin: 20px auto;
+	background: white;
+	padding: 10px;
+	border-radius: 5px;
+	box-shadow: 0px 0px 5px lightgray;
+}
+.product_page .img
+{
+  width: 400px;
+	
+}
+
+.product_page .title
+{
+  font-weight: bold;
+	color: black;
+	padding: 10px 0;
+	width: 50%;
+}
+.product_page .description
+{
+  width: 50%;
+}
+
+
