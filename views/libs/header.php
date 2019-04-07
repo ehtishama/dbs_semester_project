@@ -11,15 +11,23 @@
 		<div class="header_upper">
 			<div class="logo">
 				<a href="<?php echo APPROOT ?>">
-					
+
 					<img class="logo_img" src="<?php echo APPROOT ?>/views/assets/logo.png">
 				</a>
-			</div>	
+			</div>
 
 			<div class="search_bar">
 				<input type="text" name="search" placeholder="search">
 				<input type="submit" value="search">
 			</div>
+
+			<div class="login">
+
+					<a href="<?php echo APPROOT ?>/signup">Register </a>or
+					<a href="<?php echo APPROOT ?>/login"> Login</a>
+
+			</div>
+
 		</div>
 
 		<div class="header_lower">

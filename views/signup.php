@@ -1,4 +1,4 @@
-<?php 
+<?php
 	require_once("views/libs/header.php");
  ?>
 	<div class="sign_up_form">
@@ -10,7 +10,7 @@
 			<?php } ?>
 			</ul>
 		<?php } else {?>
-			
+
 		<?php } ?>
 		<h3 class="heading">Create Your Account</h3>
 		<form action="<?php echo APPROOT?>/signup/authenticate" method="post">
@@ -21,7 +21,7 @@
 				</label>
 				<input type="text" name="first_name" placeholder="Enter Your First Name">
 			</div>
-			
+
 
 			<div class="form_group">
 				<label for="first_name">
@@ -59,8 +59,8 @@
 					Gender
 				</label>
 				<select name = "gender">
-					<option value = "m">Male</option>	
-					<option value = "f">Female</option>	
+					<option value = "m">Male</option>
+					<option value = "f">Female</option>
 				</select>
 			</div>
 
@@ -68,6 +68,12 @@
 			<div class="form_group">
 				<input type="submit" value="Sign UP" name="reg">
 			</div>
+
+			<div class="extra_links">
+				<p>Already have an account? <a href="<?php echo APPROOT; ?>/login">Login</a>
+				</p>
+			</div>
+
 
 		</form>
 	</div>

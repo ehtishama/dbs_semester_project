@@ -66,6 +66,27 @@ a
 
 
 }
+.header_upper .login
+{
+	align-self: center;
+	margin-left: auto;
+}
+.header_upper .login
+{
+	padding-left: 10px;
+	font-weight: bold;
+	color: black;
+	font-size: 12px;
+}
+.header_upper .login a
+{
+	color: darkgreen;
+}
+
+.header_upper .login a:hover
+{
+	color: limegreen;
+}
 
 .header .header_lower
 {
@@ -102,8 +123,8 @@ a
 	height: 400px;
 	width: 100%;
 	display:none;
-	
-	
+
+
 }
 .slider .slide img
 {
@@ -124,8 +145,8 @@ a
 	border-radius: 4px;
 	margin: 2px;
 	transition: all 1s;
-	
-	
+
+
 }
 .slider .next:hover, .slider .pre:hover
 {
@@ -135,7 +156,7 @@ a
 .slider .next
 {
 	right: 0;
-	
+
 }
 .products{
 	display: flex;
@@ -143,7 +164,7 @@ a
 	border-radius: 6px;
 	flex-wrap: wrap;
 	justify-content: space-around;
-	
+
 }
 .products .product
 {
@@ -159,7 +180,7 @@ a
 {
 	width: 100%;
 	height: 150px;
-	
+
 }
 .products .product .img img
 {
@@ -175,7 +196,7 @@ a
 .product .title, .product .price, .product .add_to_cart
 {
 	margin: 10px  0 0;
-	
+
 }
 /* styling for signup,php form starts here */
 
@@ -187,8 +208,8 @@ a
 	margin: 10px auto;
 	border-radius: 5px;
 	box-shadow: 0px 0px 10px lightgray;
-	
-	
+
+
 }
 
 .sign_up_form .heading
@@ -199,7 +220,7 @@ a
 
 .sign_up_form form
 {
-	
+
 }
 
 .sign_up_form form input, .sign_up_form form select
@@ -212,7 +233,7 @@ a
 	margin: 1px 0 10px 0;
 	font-size: 14px;
 
-	
+
 
 }
 
@@ -222,7 +243,7 @@ a
 }
 
 .sign_up_form form input:focus {
-  
+
   border: 2px solid #4285f4;
 }
 
@@ -231,7 +252,7 @@ a
 {
 	color: #333;
 	font-size: 0.9em;
-	
+
 }
 
 .error
@@ -242,32 +263,114 @@ a
 	font-size: 12px;
 }
 
+.extra_links
+{
+	padding: 10px 5px;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+.extra_links a
+{
+	color: limegreen;
+	font-size: 13px;
+}
+
 /* styling for product page starts here */
 .product_page .container
 {
-  width: 80%;
+	width: 960px;
 	margin: 20px auto;
+	display: flex;
 	background: white;
 	padding: 10px;
-	border-radius: 5px;
-	box-shadow: 0px 0px 5px lightgray;
+	border: radius: 16px;
+	box-shadow: 0px 0px 3px lightgray;
+
 }
-.product_page .img
-{
-  width: 400px;
-	
+.product_img{
+  width: 580px;
+	padding: 0 20px ;
+
 }
 
-.product_page .title
-{
-  font-weight: bold;
-	color: black;
-	padding: 10px 0;
-	width: 50%;
-}
-.product_page .description
-{
-  width: 50%;
+.product_img img{
+  width: 100%;
+
 }
 
 
+.product_info{
+  width: 260px;
+  text-align: justify;
+}
+
+.product_title{
+  font-size: 1.6em;
+  color: #233F59;
+  padding: 10px;
+}
+.product_model{
+  padding: 10px;
+  color: #878686;
+  font-size: .8rem;
+
+}
+.product_price{
+  padding: 10px;
+  color: #615F5F;
+  font-size: 1.8rem;
+}
+.product_descr{
+  color: #615F5F;
+  padding: 10px;
+}
+.product_color{
+  color: #878686;
+  padding: 10px;
+}
+
+.add_to_cart{
+  width: 100%;
+  padding: 12px 0;
+  background-color: #BF9860;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+}
+.add_to_cart:hover{
+  background-color: #d8b88a;
+
+}
+.product_quantity {
+color: #878686;
+padding: 10px;}
+
+.product_quantity input[type="number"]{
+  border: 1px solid lightgray;
+  width: 80px;
+  font-size: 1.8em;
+  margin: 10px 0;
+  padding: 5px;
+  text-align:center;
+  color: #878686;
+  box-sizing: border-box;
+}
+
+@media(max-width: 960px)
+{
+  body{
+    //background-color: red;
+  }
+  .body{
+    width: 100%;
+  }
+
+}
+@media (max-width: 640px)
+{
+    .product_info{
+    width: 100%;
+    text-align: center;
+   }
+}
