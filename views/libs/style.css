@@ -66,6 +66,16 @@ a
 
 
 }
+.header .cart_logo
+{
+		align-self: center;
+		padding: 0 10px;
+		font-size: 19px;
+		cursor: pointer;
+		
+
+}
+
 .header_upper .login
 {
 	align-self: center;
@@ -117,12 +127,20 @@ a
 .slider
 {
  position: relative;
+	padding: 10px;
+	background-color: white;
+	margin: 14px 10px;
+	border-radius: 6px;
+	box-shadow: 0px 0px 6px rgba(0,0,0,.5);
 }
 .slider .slide
 {
 	height: 400px;
 	width: 100%;
 	display:none;
+	
+	border-radius: 4px;
+	overflow: hidden;
 
 
 }
@@ -155,49 +173,77 @@ a
 }
 .slider .next
 {
-	right: 0;
+	right: 10px;
 
 }
 .products{
 	display: flex;
-	margin: 2px;
+	margin: 2px auto;
 	border-radius: 6px;
 	flex-wrap: wrap;
-	justify-content: space-around;
+	justify-content: space-between;
+	width: 980px;
+	
+	
 
+}
+.products .product:hover
+{
+	box-shadow: 2px 2px 14px rgba(0, 0, 128, .35);
 }
 .products .product
 {
 	background: white;
 	padding: 10px;
 	border-radius: 6px;
-	margin: 12px;
+	margin: 12px 2px;
 	box-shadow: 0px 0px 6px lightgray;
-	width: 250px;
-	height: 300px;
+	width: 230px;
+	/*! height: 300px; */
 }
 .products .product .img
 {
 	width: 100%;
 	height: 150px;
+	
 
 }
 .products .product .img img
 {
   width: 100%;
 	height: 100%;
+	
 }
 
 .products .product .title
 {
   max-height: 18px;
 	overflow: hidden;
+	font-size: 10px;
+	font-weight: bold;
+	
+}
+
+.products .product .price
+{
+	font-size: 13px;
+	color: #333;
+	font-family: 'Anton', sans-serif;
+	font-weight: ;
+	text-align: right;
+	
 }
 .product .title, .product .price, .product .add_to_cart
 {
 	margin: 10px  0 0;
 
 }
+.product .add_to_cart
+{
+  border: 0;
+}
+
+
 /* styling for signup,php form starts here */
 
 .sign_up_form
@@ -259,9 +305,15 @@ a
 {
 	font-weight:bold;
 	color: red;
-	padding: 10px 0;
+	padding: 10px 4px;
 	font-size: 12px;
 }
+.success
+{
+	color: green;
+}
+
+
 
 .extra_links
 {
@@ -290,25 +342,37 @@ a
 }
 .product_img{
   width: 580px;
-	padding: 0 20px ;
+	height: 400px;
+	
+	
 
+  /*! border-radius: 6px; */
 }
 
 .product_img img{
   width: 100%;
+  height: 100%;
+	border-radius: 16px;
+	padding: 16px;
+	object-fit: cover;
+	
 
+  
 }
 
 
 .product_info{
-  width: 260px;
+  width: 380px;
   text-align: justify;
 }
 
 .product_title{
-  font-size: 1.6em;
-  color: #233F59;
-  padding: 10px;
+  font-size: 26px;
+  color: black;
+  padding: 16px 0 0 6px;
+	font-weight: bold;
+	font-family: 'Varela Round', sans-serif;
+	text-align: left;
 }
 .product_model{
   padding: 10px;
@@ -317,13 +381,18 @@ a
 
 }
 .product_price{
-  padding: 10px;
-  color: #615F5F;
-  font-size: 1.8rem;
+  padding: 0 10px ;
+  font-size: 15px;
+	font-weight: bold;
+	font-family: 'Varela Round', sans-serif;
+	color: #333;
 }
 .product_descr{
   color: #615F5F;
-  padding: 10px;
+  padding:10px;
+	font-size: 12px;
+	text-align: left;
+	font-family: 'Varela Round', sans-serif;
 }
 .product_color{
   color: #878686;
@@ -333,10 +402,11 @@ a
 .add_to_cart{
   width: 100%;
   padding: 12px 0;
-  background-color: #BF9860;
+  background-color: black;
   text-align: center;
   color: white;
   cursor: pointer;
+	border-radius: 3px;
 }
 .add_to_cart:hover{
   background-color: #d8b88a;

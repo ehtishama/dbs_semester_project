@@ -1,7 +1,7 @@
-<?php 
+<?php
 	require_once('core/Controller.php');
 
-	
+
 class SignupController extends Controller
 	{
 		public $model;
@@ -18,11 +18,12 @@ class SignupController extends Controller
 		public function authenticate()
 		{
 			if(!isset($_POST['reg']))
-			{ 
+			{
 
 				$this -> index();
 				die();
 			}
+
 
 			$firstName 	= $_POST['first_name'];
 			$username 	= $_POST['username'];
@@ -37,18 +38,19 @@ class SignupController extends Controller
 
 			$user = new User($firstName, $lastName, $username, $email, $password, $gender);
 			$errors = validate_reg($user);
-			
+
 			if(count($errors) > 0)
 			{
-				$data['error']  = 'true'; 
+				$data['error']  = 'true';
 				$data['errors'] = $errors;
 
 				$this -> loadView('signup', $data);
 
 
-			}else 
+			}else
 
-			$data = $this -> model -> addUser([
+			{
+				$isAdded = $this -> model -> addUser([
 
 					'firstName' => $firstName,
 					'lastName' => $lastName,
@@ -59,8 +61,19 @@ class SignupController extends Controller
 
 
 			]);
+			if($isAdded)
+			{
+				$data['success'] = true;
 
-			
+			}
+			else
+			{
+				$data['error']  = 'true';
+				$data['errors'] = [];
+				$data['errors'][] = 'username already taken';
+			}
+			$this -> loadView('signup', $data);
+		}
 
 		}
 	}

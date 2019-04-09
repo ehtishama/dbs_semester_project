@@ -2,6 +2,9 @@
 	require_once("views/libs/header.php");
  ?>
 	<div class="sign_up_form">
+		<?php if (isset($data['success'])) { ?>
+			<li class="error success">You account has been created. Please <a href="<?php echo APPROOT ?>/login">Login</a> </li>
+		<?php } ?>
 		<?php if(isset($data['error'])) { ?>
 			<div> There were some errors.</div>
 			<ul>

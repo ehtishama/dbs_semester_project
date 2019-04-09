@@ -16,8 +16,9 @@
 	  <div class="product_info">
 
 	    <div class="product_title"><?php echo $product['title'] ?></div>
+			<div class="product_price">$<?php echo $product['price'] ?></div>
 	    <div class="product_model">SKU: 21354654</div>
-	    <div class="product_price">PKR <?php echo $product['price'] ?></div>
+
 	    <div class="product_descr"> <?php echo $product['description'] ?> </div>
 	    <div class="product_quantity">Quantity:<br>
 	      <input type="number">

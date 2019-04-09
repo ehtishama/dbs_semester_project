@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Home</title>
+	<link href="https://fonts.googleapis.com/css?family=Anton|Varela+Round" rel="stylesheet"> 
 	<link rel="stylesheet" type="text/css" href="<?php echo APPROOT ?>/views/libs/style.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
@@ -21,6 +22,9 @@
 				<input type="submit" value="search">
 			</div>
 
+			<div class="cart_logo">
+				<i class="fas fa-shopping-cart"></i>
+			</div>
 			<div class="login">
 
 					<a href="<?php echo APPROOT ?>/signup">Register </a>or

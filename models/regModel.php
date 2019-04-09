@@ -1,4 +1,4 @@
-<?php 
+<?php
 	require_once("core/Model.php");
 
 	class RegModel extends model
@@ -20,11 +20,10 @@
 
 		public function addUser($data = [])
 		{
-			
-			
-
 			if(!$this -> isUsernameAvailable($data['username']))
-				echo 'username not available';
+			{
+				return false;
+			}
 			else
 			{
 				$query = "INSERT INTO customers values(NULL, '" . $data['username'] .
@@ -32,10 +31,10 @@
 
 				$result = $this -> db -> query($query);
 				echo $this -> db -> error;
-				
-				
+				return true;
+
 			}
-			
+
 		}
 
 		public function logUserIn($username, $password)

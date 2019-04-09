@@ -1,4 +1,4 @@
-<?php 
+<?php
 	require_once('core/Controller.php');
 
 
@@ -25,9 +25,9 @@
 				// do some session work
 				// redirect to other page
 
-				echo "welcome home";
+				echo "$username, logged in successfully";
 			}
-			else 
+			else
 			{
 				// write some errors
 				// show the login page again

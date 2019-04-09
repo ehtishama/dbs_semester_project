@@ -1,8 +1,8 @@
-	<?php 
+	<?php
 		require_once("views/libs/header.php");
-		
+
 	 ?>
-	
+
 
 	<div class="slider" id="home_slider">
 		<div class="slide slide1">
@@ -27,7 +27,7 @@
 
 <div class="container">
 	<div class="sidebar">
-		
+
 	</div>
 	<div class="products">
 		<?php foreach($data['products']['products'] as $product){?>
@@ -40,7 +40,7 @@
 			</div>
 			<p class="title"><?php echo $product['title'] ?></p>
 			<p class="price">PKR <?php echo $product['price']?></p>
-			<button class="add_to_cart">ADD To Cart</button>
+
 
 
 			</div>
