@@ -325,11 +325,9 @@ a
 .sign_up_form form input, .sign_up_form form select
 {
 	width: 100%;
-	margin: 0 auto;
 	border: 1px solid lightgray;
 	padding: 8px;
-	border-radius: 5px;
-	margin: 1px 0 10px 0;
+	margin: 1px 0 20px 0;
 	font-size: 14px;
 
 
@@ -350,7 +348,7 @@ a
 .sign_up_form form label
 {
 	color: #333;
-	font-size: 0.9em;
+	font-size: 12px;
 
 }
 
