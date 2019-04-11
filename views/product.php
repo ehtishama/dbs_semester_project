@@ -23,7 +23,7 @@
 	    <div class="product_quantity">Quantity:<br>
 	      <input type="number">
 	    </div>
-	    <div class="add_to_cart">Add to cart</div>
+	    <div class="add_to_cart"> <a href="<?php echo APPROOT ?>/cart/add_cart/<?php echo $product['id'] ?>">Add to cart</a></div>
 	  </div>
   </div>
 	</div>

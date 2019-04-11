@@ -19,13 +19,16 @@
 			$username = $_POST['username'];
 			$password = $_POST['password'];
 
-			$isValidUser = $this -> model -> logUserIn($username, $password);
-			if($isValidUser)
+			$user = $this -> model -> logUserIn($username, $password);
+			if($user)
 			{
 				// do some session work
-				// redirect to other page
+				$_SESSION['logged_in'] = true;
+				$_SESSION['user'] = $user -> fetch_assoc();
 
-				echo "$username, logged in successfully";
+				// redirect to other page
+				header("Location:" . APPROOT);
+
 			}
 			else
 			{

@@ -44,7 +44,7 @@
 
 			echo $this -> db -> error;
 			if($result -> num_rows == 1)
-				return true;
+				return $result;
 			else return false;
 		}
 	}

@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Home</title>
-	<link href="https://fonts.googleapis.com/css?family=Anton|Varela+Round" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Anton|Varela+Round" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="<?php echo APPROOT ?>/views/libs/style.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
@@ -12,8 +12,7 @@
 		<div class="header_upper">
 			<div class="logo">
 				<a href="<?php echo APPROOT ?>">
-
-					<img class="logo_img" src="<?php echo APPROOT ?>/views/assets/logo.png">
+					LOGO
 				</a>
 			</div>
 
@@ -23,14 +22,27 @@
 			</div>
 
 			<div class="cart_logo">
-				<i class="fas fa-shopping-cart"></i>
+				<a href="<?php echo APPROOT ?>/cart">
+					<i class="fas fa-shopping-cart"></i>
+				</a>
 			</div>
+
+			<?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] = true){ ?>
+				<div class="username">
+					<a href="<?php echo APPROOT ?>/profile">Account</a>
+					<a href="<?php echo APPROOT ?>/logout">Logout</a>
+				</div>
+			<?php }else { ?>
+
+
 			<div class="login">
 
 					<a href="<?php echo APPROOT ?>/signup">Register </a>or
 					<a href="<?php echo APPROOT ?>/login"> Login</a>
 
 			</div>
+
+		<?php } ?>
 
 		</div>
 

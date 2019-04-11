@@ -1,8 +1,13 @@
+php_value short_open_tag 1
 RewriteEngine On
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
 RewriteRule ^(.*)$ index.php?url=$1
+
+
+
+
 
 #RewriteRule    ^index$    index.html    [NC,L]
