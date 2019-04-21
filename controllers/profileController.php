@@ -11,6 +11,7 @@ class ProfileController extends Controller
   public function index()
   {
     $this -> model -> loadProfile();
+    $this -> loadView("profile");
   }
 
 

@@ -12,7 +12,8 @@ class SignupController extends Controller
 
 		public function index()
 		{
-			$this -> loadView('signup');
+			$data['title'] = 'Signup';
+			$this -> loadView('signup', $data);
 		}
 
 		public function authenticate()
@@ -72,6 +73,7 @@ class SignupController extends Controller
 				$data['errors'] = [];
 				$data['errors'][] = 'username already taken';
 			}
+			$data['title'] = 'Signup';
 			$this -> loadView('signup', $data);
 		}
 

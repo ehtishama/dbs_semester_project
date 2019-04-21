@@ -1,5 +1,5 @@
-<?php 
-	
+<?php
+
 	require_once('core/Controller.php');
 
 	class ProductsController extends Controller
@@ -17,7 +17,7 @@
 		public function product($id)
 		{
 			$data = $this -> model -> getProductById($id);
-
+			$data['title'] = 'Product';
 			$this -> loadView('product', $data);
 		}
 	}

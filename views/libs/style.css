@@ -10,8 +10,11 @@ body
 	background-color: #eff0f5;
 	margin: 0;
 	padding: 0;
+	min-height: 100vh;
 
 }
+
+/* styling for homepage */
 
 a
 {
@@ -31,7 +34,7 @@ a
 	width: 80%;
 	margin: 0 auto;
 	padding:0 0 20px 0;
-	
+
 }
 
 .header .header_upper input
@@ -55,7 +58,7 @@ a
 
 .header .header_upper .logo a
 {
-	
+
 	font-size: 28px;
 	font-weight:bold;
 }
@@ -92,7 +95,7 @@ a
 	color:black;
 	background-color: white;
 	border: 1px solid black;
-	
+
 }
 .header .cart_logo
 {
@@ -100,7 +103,7 @@ a
 		padding: 0 10px;
 		font-size: 19px;
 		cursor: pointer;
-		
+
 
 }
 
@@ -109,11 +112,11 @@ a
 	align-self: center;
 	font-weight: bold;
 	font-family: 'Roboto', monospace, sans-serif;
-  
+
 }
 .header_upper .username a
 {
-  color: gray;	
+  color: gray;
 }
 .header_upper .username a:hover
 {
@@ -148,8 +151,8 @@ a
 {
 	padding: 15px 0;
 	border-top: 1px solid lightgray;
-	
-	
+
+
 }
 
 .header .header_lower ul
@@ -184,14 +187,14 @@ a
 	background-color: white;
 	margin: 14px 10px;
 	border-radius: 6px;
-	box-shadow: 0px 0px 6px rgba(0,0,0,.5);
+	box-shadow: 0px 0px 3px 1px rgba(0,0,0,.15);
 }
 .slider .slide
 {
 	height: 400px;
 	width: 100%;
 	display:none;
-	
+
 	border-radius: 4px;
 	overflow: hidden;
 
@@ -229,15 +232,39 @@ a
 	right: 10px;
 
 }
+
+.products-wrapper
+{
+	max-width: 980px;
+	margin: 0 auto;
+	
+	
+}
+.products-wrapper>p
+{
+	color: black;
+	font-size: 24px;
+	text-decoration: underline;
+	color: black
+	
+	
+}
+.products-wrapper p:hover
+{
+	text-decoration: none;
+	cursor: pointer;
+	color: burlywood
+}
 .products{
 	display: flex;
 	margin: 2px auto;
 	border-radius: 6px;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	width: 980px;
+	margin-bottom:  100px;
 	
-	
+
+
 
 }
 .products .product:hover
@@ -252,29 +279,30 @@ a
 	margin: 12px 2px;
 	box-shadow: 0px 0px 6px lightgray;
 	width: 230px;
-	/*! height: 300px; */
+	height: 300px;
+	/*! overflow: hidden; */
 }
 .products .product .img
 {
 	width: 100%;
-	height: 150px;
-	
-
+	height: 220px;
+	overflow: hidden;
+	text-align: center
 }
 .products .product .img img
 {
-  width: 100%;
 	height: 100%;
-	
+	text-align: ;
+
 }
 
 .products .product .title
 {
-  max-height: 18px;
+  max-height: 15px;
 	overflow: hidden;
 	font-size: 10px;
 	font-weight: bold;
-	
+
 }
 
 .products .product .price
@@ -284,7 +312,7 @@ a
 	font-family: 'Anton', sans-serif;
 	font-weight: ;
 	text-align: right;
-	
+
 }
 .product .title, .product .price, .product .add_to_cart
 {
@@ -395,21 +423,21 @@ a
   width: 580px;
 	height: 400px;
 	padding: 16px;
-	
-	
+  text-align: center;
+
 
   /*! border-radius: 6px; */
 }
 
 .product_img img{
-  width: 100%;
+  
   height: 100%;
 	border-radius: 3px;
 	box-shadow: 3px 8px 6px gray;
-	
-	
 
-  
+
+
+
 }
 
 
@@ -520,19 +548,19 @@ padding: 10px;}
 }
 .cart_page table th
 {
-	
+
 }
 .cart_page table td, .cart_page table th
 {
   border-bottom: 1px solid lightgray;
-	
+
 	padding: 10px;
-	
+
 }
 .cart_page .cart .checkout
 {
   text-align: right;
-  
+
 }
 .cart_page .cart .checkout a
 {
@@ -541,7 +569,7 @@ padding: 10px;}
 	padding: 10px;
 	display: inline-block;
 	margin-top: 20px;
-	
+
 }
 .cart_page .cart  .checkout .total
 {
@@ -549,4 +577,137 @@ padding: 10px;}
 	color: black;
 	font-weight: bold;
 	font-size: 13px;
+}
+
+
+
+/* styling for profile page starts here */
+.profile_page
+{
+  display: flex;
+}
+.profile_page .main_area
+{
+  flex: 1;
+	background-color: white;
+}
+
+.profile_page .sidebar
+{
+
+	order: -1;
+	background-color: white;
+	margin: 10px;
+	box-shadow: 0px 2px 4px lightgray;
+	border-radius: 5px;
+
+
+}
+
+.profile_page .sidebar .links ul li
+{
+
+	list-style: none;
+	padding: 10px;
+}
+
+.profile_page .sidebar .links ul li:hover
+{
+	background-color: black;
+
+}
+.profile_page .sidebar .links ul li:hover a
+{
+  color: white;
+}
+
+.profile_page .sidebar .selected
+{
+  background: black;
+}
+.profile_page .sidebar .selected a
+{
+  color: white;
+}
+
+
+.profile_page .main_area
+{
+	margin: 10px
+}
+.profile_page .main_area .personal_profile
+{
+  padding: 10px;
+}
+
+.profile_page .main_area .personal_profile .personal_profile_head
+{
+  font-size: 17px;
+	color: black;
+}
+
+.profile_page .main_area p
+{
+	padding: 3px;
+	font-size: 12px;
+}
+.profile_page .main_area .personal_profile .personal_profile_head a
+{
+  font-size: 12px;
+	color: green;
+}
+.footer{
+	  background-color: #1D1E30;
+}
+
+.footer .footer-wrapper
+{
+
+	color: white;
+	display: flex;
+	padding-top: 100px;
+}
+
+.footer .section
+{
+  flex-grow: 1;
+
+}
+
+.footer .section li
+
+{
+  list-style: none;
+	padding: 10px;
+
+
+}
+
+.footer .section li a
+{
+  color: lightgray;
+	font-weight: bold;
+	font-size: 13px;
+	border-bottom: 1px solid rgba(128, 128, 128,.09);
+
+}
+
+.footer .section li a:hover
+{
+  border-bottom: 1px solid rgba(128, 128, 128, 1);
+}
+
+.footer .section.logo
+{
+  font-weight: bold;
+	padding: 20px;
+}
+
+.footer p
+{
+  color: lightgreen;
+	padding: 10px;
+	text-align: right;;
+	font-size: 10px;
+
 }

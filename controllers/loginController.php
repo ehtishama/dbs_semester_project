@@ -11,7 +11,9 @@
 
 		public function index()
 		{
-			$this -> loadView('login');
+
+			$data['title'] = 'Login';
+			$this -> loadView('login', $data);
 		}
 
 		public function auth()

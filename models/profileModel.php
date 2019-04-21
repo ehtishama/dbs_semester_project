@@ -11,7 +11,7 @@ class ProfileModel extends Model
 
   public function loadProfile()
   {
-    echo "Loading profile";
+    // Load profile data and return;
   }
 
 };
