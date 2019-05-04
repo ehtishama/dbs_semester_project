@@ -80,5 +80,8 @@
 
 		</form>
 	</div>
-</body>
-</html>
+
+
+
+	<?php
+		require_once("views/libs/footer.php");

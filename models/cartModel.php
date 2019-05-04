@@ -9,23 +9,32 @@
       parent:: __construct();
     }
 
-    public function getCartData($ids)
+    public function getCartData($prods)
     {
-      $query = 'select * from products where id in (';
-      foreach ($ids as  $id) {
-        $query .= $id . ',';
+      // return data as [0] => {
+      //                          [quantity] => 12,
+      //                          [product] => [name, id, id],
+      //                        }
+      $data = array();
+
+      foreach ($prods as  $prod) {
+        $id = $prod['id'];
+        $query = "select * from products where id = {$id}";
+        $result = $this -> db -> query($query);
+        echo $this -> db -> error;
+
+        if($result -> num_rows > 0)
+        {
+          $temp['product'] = $result -> fetch_assoc();
+          $temp['product']['quantity'] = $prod['quantity'];
+
+          $data[] = $temp;
+        }
+
+
       }
-      $query = substr($query, 0, strlen($query) - 1);
-      $query .= ')';
 
-      // echo $query;
-      $result = $this -> db -> query($query);
-
-      $data = [];
-      while($row = $result -> fetch_assoc())
-        $data[] = $row;
-
-        return $data;
+      return $data;
     }
   }
 
