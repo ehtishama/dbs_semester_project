@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 21, 2019 at 12:06 PM
+-- Generation Time: May 07, 2019 at 07:31 AM
 -- Server version: 5.7.24-0ubuntu0.18.04.1
 -- PHP Version: 7.2.15-0ubuntu0.18.04.1
 
@@ -41,10 +41,45 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `username`, `first_name`, `last_name`, `password`) VALUES
-(1, 'abc', 'firstname', 'hassan', '123456789'),
-(2, 'afda', 'afdf', 'afdsaf', 'asfadfafadfadfaf'),
-(3, 'faf', 'afd', 'afdad', 'adfafafffsdf'),
-(4, 'ewrq', 'fafdaf', 'fasdfad', 'fadfafafafaf');
+(1, 'username', 'Ehtisham', 'Hassan', '123456789'),
+(2, 'asim', 'Muhammad', 'Asim', 'abcdefghi'),
+(3, 'shahzaib', 'Shahzaib', '', 'xyzxyzxyx'),
+(4, 'sakib', 'Sakib', 'Faraz', 'abcdefgh');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ordered_products`
+--
+
+CREATE TABLE `ordered_products` (
+  `id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `prod_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `discount` decimal(10,0) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `charges` decimal(10,0) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `customer_id`, `charges`, `created_at`, `updated_at`) VALUES
+(1, 4, '2500', '2019-05-04 15:57:34', '2019-05-04 15:57:34');
 
 -- --------------------------------------------------------
 
@@ -133,6 +168,18 @@ ALTER TABLE `customers`
   ADD UNIQUE KEY `username` (`username`);
 
 --
+-- Indexes for table `ordered_products`
+--
+ALTER TABLE `ordered_products`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
@@ -159,6 +206,18 @@ ALTER TABLE `product_properties`
 --
 ALTER TABLE `customers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `ordered_products`
+--
+ALTER TABLE `ordered_products`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `products`

@@ -15,9 +15,12 @@
       //                          [quantity] => 12,
       //                          [product] => [name, id, id],
       //                        }
-      $data = array();
+        $total = 0.0;
 
-      foreach ($prods as  $prod) {
+        $data['products'] = array();
+        $data['total'] = 0.0;
+        
+        foreach ($prods as  $prod) {
         $id = $prod['id'];
         $query = "select * from products where id = {$id}";
         $result = $this -> db -> query($query);
@@ -25,17 +28,24 @@
 
         if($result -> num_rows > 0)
         {
-          $temp['product'] = $result -> fetch_assoc();
-          $temp['product']['quantity'] = $prod['quantity'];
+            $temp = $result -> fetch_assoc();
+            $temp['quantity'] = $prod['quantity'];
 
-          $data[] = $temp;
+            $total += ($temp['price'] * $temp['quantity']);
+
+            $data['products'][] = $temp;
         }
 
 
-      }
 
+
+      }
+      $data['total'] = $total;
       return $data;
     }
+
+
+
   }
 
 

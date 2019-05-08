@@ -17,7 +17,8 @@
 		public function product($id)
 		{
 			$data = $this -> model -> getProductById($id);
-			$data['title'] = 'Product';
+			$data['title'] = "Ecom - " . $data['product']['title'];
+
 			$this -> loadView('product', $data);
 		}
 	}

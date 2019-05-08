@@ -3,17 +3,21 @@
   class CartController extends Controller
   {
 
-    public function __consturct()
+    public function __construct()
     {
-
+        $this -> model = $this -> model('cartModel');
     }
     public function index()
     {
-      $this -> model = $this -> model('cartModel');
+
+
 
       if(isset($_SESSION['cart']))
         $data = $this -> model -> getCartData($_SESSION['cart']);
-      else $data = [];
+      else $data['products'] = [];
+
+      //  $data["title" => "Cart Page - Ecom shop online"];
+
       $this -> loadView('cart', $data);
     }
 
@@ -94,6 +98,40 @@
 
 
 
+    public function submitOrder()
+    {
+
+        $data['submitOrder'] = true;
+
+        // is user logged in
+        // if not, log user in and comeback here
+        if(! (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true ))
+        {
+            header("Location: " . APPROOT . "/login");
+            die();
+        }
+
+
+        // show order summary
+        // list of products from the session
+        if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true)
+        {
+            if(isset($_SESSION['cart']))
+              $data['cart'] = $this -> model -> getCartData($_SESSION['cart']);
+
+        }
+        $this -> loadView("cart", $data);
+
+
+
+
+        // confirm order or edit order
+        // choose a payment option
+        // process payment
+        
+        // if successfull, place order to db
+
+    }
   }
 
  ?>

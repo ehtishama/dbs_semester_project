@@ -22,6 +22,7 @@
 			$password = $_POST['password'];
 
 			$user = $this -> model -> logUserIn($username, $password);
+			
 			if($user)
 			{
 				// do some session work

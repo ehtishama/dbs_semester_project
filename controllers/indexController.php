@@ -11,6 +11,8 @@
 
 		public function index($args = [])
 		{
+			$args['title'] = 'Ecom - Shop Online with ease.';
+
 			$this -> model = $this -> model('prodModel');
 			$data = $this -> model -> getRecentProducts(18);
 
@@ -30,7 +32,7 @@
 
 
 
-			$args['title'] = 'Home';
+
 
 			$this -> loadView('home', $args);
 

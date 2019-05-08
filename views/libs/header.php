@@ -4,6 +4,8 @@
 	<title><?php echo isset($data['title'])? $data['title'] : 'home' ?></title>
 	<link rel="shortcut icon" type="image/ico" href="views/assets/favicon.png">
 	<link href="https://fonts.googleapis.com/css?family=Anton|Varela+Round" rel="stylesheet">
+
+	<link rel="stylesheet" href="<?php echo APPROOT ?>/views/libs/bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo APPROOT ?>/views/libs/style.css">
 
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -50,7 +52,7 @@
 
 		<div class="header_lower">
 			<ul>
-				<li><a href="#">Shop By Department</a></li>
+				<li><a href="<?php echo APPROOT ?>/lab2">Lab Sessional 2</a></li>
 				<li><a href="#">Phones and Tablets</a></li>
 				<li><a href="#">Cameras</a></li>
 				<li><a href="#">TV and Video</a></li>

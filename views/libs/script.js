@@ -45,7 +45,6 @@ function addToCart(prodId) {
 
   request.onreadystatechange = function() {
     if (request.readyState == 4 && request.status == 200) {
-
       showAlert(request.responseText);
 
     }
@@ -79,7 +78,7 @@ function removeProduct(prodId, row, price) {
 }
 
 function showAlert(msg) {
-
+    console.log("showing alert");
   var alertDiv = document.createElement("div");
   alertDiv.className += "alert";
   alertDiv.className += " alert-success";
@@ -120,6 +119,21 @@ function grandTotal() {
 }
 
 
-function profilePageMenu() {
+function profilePageMenu(tabClicked, divId) {
+    // hide previous section
+    var tabs = document.getElementsByClassName("tab");
+    for(i = 0; i<tabs.length; i++)
+    {
+        tabs[i].style.display = "none";
+    }
+
+    // load new one
+    document.getElementById(divId).style.display = "block";
+
+    // update the sidebar
+    console.log(tabClicked);
+    tabClicked.parentNode.getElementsByClassName("selected")[0].classList.remove("selected");
+    tabClicked.classList.add("selected");
+
 
 }
