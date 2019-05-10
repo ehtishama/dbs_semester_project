@@ -44,7 +44,36 @@ require_once("views/libs/header.php");
 
     <div class="tab orders_page" id="orders" style="display: none;">
         <div class="main_area">
-            <p>These are orders.</p>
+        <?php if(isset($data['orders'])) { ?>
+            <table class="table table-border">
+                <thead class="thead thead-dark">
+                    <th>Order Id</th>
+                    <th>Product Id</th>
+                    <th>Product Title</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Creatd At</th>
+                    <th>Status</th>
+                </thead>
+
+                <?php foreach ($data['orders'] as $order){ ?>
+                <tr>
+                    <td><?php echo $order['id'] ?></td>
+                    <td><?php echo $order['prod_id'] ?></td>
+                    <td><?php echo $order['title'] ?></td>
+                    <td><?php echo $order['quantity'] ?></td>
+                    <td><?php echo $order['price'] ?></td>
+                    <td><?php echo $order['created_at'] ?></td>
+                    <td>Pending</td>
+
+                </tr>
+                <?php } ?>
+
+
+
+
+            </table>
+        <?php } ?>
         </div>
 
     </div>

@@ -5,6 +5,8 @@ class Router
 	protected $method;
 	protected $args = [];
 
+
+
 	public function __construct()
 	{
 		if(isset($_GET['url']))
@@ -22,6 +24,15 @@ class Router
 			$this -> args 			= [];
 
 		}
+
+		$urlPieces = explode("?", $_SERVER['REQUEST_URI']);
+		if(count($urlPieces) == 2)
+		{
+
+			$query = $urlPieces[1];
+			$this -> args['query'] = $query;
+		}
+
 		$this -> init();
 	}
 
@@ -34,8 +45,8 @@ class Router
 		$parts = explode('/', $url);
 
 		$this -> controller 	= isset($parts[0]) ? $parts[0] : 'index';
-		$this -> method 		= isset($parts[1]) ? $parts[1] : 'index';
 		$this -> controller    .= 'Controller';
+		$this -> method 		= isset($parts[1]) ? $parts[1] : 'index';
 
 		unset($parts[0]);
 		unset($parts[1]);

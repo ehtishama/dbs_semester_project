@@ -7,12 +7,13 @@
 		public function __construct()
 		{
 			//echo "This is index Controller" ;
+
 		}
 
 		public function index($args = [])
 		{
 			$args['title'] = 'Ecom - Shop Online with ease.';
-
+			
 			$this -> model = $this -> model('prodModel');
 			$data = $this -> model -> getRecentProducts(18);
 

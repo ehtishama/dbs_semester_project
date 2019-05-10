@@ -12,10 +12,12 @@ class ProfileController extends Controller
   public function index()
   {
     $data = ["title" => "Ehtisham Hassan - Profile Page"];
+    $userId = $_SESSION['user']['id'];
 
     // this function will load profile data from db
     $this -> model -> loadProfile();
-
+    $orderedProducts = $this -> model -> getOrderedProducts($userId);
+    $data['orders'] = $orderedProducts;
     // concat data from db with data[] array
     $this -> loadView("profile", $data);
   }

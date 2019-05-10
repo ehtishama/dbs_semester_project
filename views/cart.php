@@ -44,7 +44,7 @@
           Grand Total:  <span id="gTotal"> <?php echo $total; ?> </span>
          </div>
 
-         <a href="<?php echo APPROOT ?>/cart/submitOrder">Checkout</a>
+         <a href="<?php echo APPROOT ?>/cart/ordersummary">Checkout</a>
        </div>
      </div>
 
@@ -63,7 +63,7 @@
 
 
                 <table class="invoice_table table">
-                <thead class="thead" class="noline">
+                <thead class="thead noline">
                     <td>Title</td>
                     <td>Quantity</td>
                     <td>Price</td>
@@ -99,7 +99,7 @@
                     </tr>
                 </table>
             </div>
-
+            <a href="<?php echo APPROOT ?>/cart/placeorder" class="btn btn-lg btn-success">Confirm Order</a>
         </div>
     <?php } ?>
   </div>
