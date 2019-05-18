@@ -1,8 +1,37 @@
+/* general rules for unity in components */
+form
+{
+  background: white;
+	width: 100%;
+	padding:50px  70px;
+	margin: 10px auto;
+	border-radius: 5px;
+	
+}
+input, select
+{
+	width: 100%;
+	border: 1px solid lightgray;
+	padding: 8px;
+	margin: 1px 0 20px 0;
+	font-size: 14px;
+}
+form input:focus {
+
+  border: 2px solid #4285f4;
+}
+form input[placeholder]
+{
+	color: black;
+}
+
 *{
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
 }
+
+
 body
 {
 	font-family: sans-serif;
@@ -46,6 +75,12 @@ a
 {
 	flex-grow: 1;
   display: flex;
+}
+.header .header_upper .search_bar input[type="submit"]
+{
+	width: 100px;
+	padding: 0;
+	height: 35px;
 }
 
 .header .header_upper .logo
@@ -350,7 +385,7 @@ a
 {
   visibility: visible;
 }
-/* styling for signup,php form starts here */
+/* styling for signup,php form starts here, sign in page */
 
 .sign_up_form
 {
@@ -430,6 +465,18 @@ a
 {
 	color: limegreen;
 	font-size: 13px;
+}
+
+form .social_login p
+{
+	text-align: center;
+	color: gray;
+}
+
+form .social_login .google
+{
+  overflow: hidden;
+	text-align: center;
 }
 
 /* styling for product page starts here */
@@ -714,6 +761,7 @@ padding: 10px;}
 	min-width: 250px;
 	border-radius:4px;
 	overflow: hidden;
+	
 
 
 }
@@ -798,6 +846,32 @@ padding: 10px;}
 	height: 100%;
 	
 }
+.profile_page_container #address h3 span a
+{
+  font-size: 11px;
+	color: limegreen;
+	font-weight: bold;
+	
+}
+.profile_page_container #address p
+{
+	margin: 2px;
+}
+.profile_page_container #address p span
+{
+	color: gray;
+	display: inline-block;
+	min-width: 60px;
+	font-size: 11px;
+	
+}
+.profile_page_container #address p span::before
+{
+  content: "# ";
+	font-size: 12px;
+	color: lightgray;
+}
+
 
 /* styling for foote */
 

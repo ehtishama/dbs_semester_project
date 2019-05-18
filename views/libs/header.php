@@ -31,7 +31,7 @@
 				</a>
 			</div>
 
-			<?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] = true){ ?>
+			<?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true){ ?>
 				<div class="username">
 					<a href="<?php echo APPROOT ?>/profile">Account</a>
 					<a href="<?php echo APPROOT ?>/logout">Logout</a>

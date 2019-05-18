@@ -1,0 +1,13 @@
+{
+    "name": "ehtisham/ecom",
+    "authors": [
+        {
+            "name": "Ehtisham Hassan",
+            "email": "ehtishamhassan9@gmail.com"
+        }
+    ],
+    "require": {
+        "facebook/graph-sdk": "^5.7",
+        "google/apiclient": "^2.2"
+    }
+}

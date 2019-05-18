@@ -33,6 +33,14 @@ class SignupController extends Controller
 			$gender 	= $_POST['gender'];
 			$password 	= $_POST['password'];
 
+
+
+			$data['firstname'] = $firstName;
+			$data['lastname'] = $lastName;
+			$data['email'] = $email;
+			$data['gender'] = $gender;
+			$data['username'] = $username;
+
 			require_once('helpers/User.php');
 			require_once('helpers/helper.php');
 
@@ -46,38 +54,54 @@ class SignupController extends Controller
 				$data['errors'] = $errors;
 
 				$this -> loadView('signup', $data);
-
+				die();
 
 			}else
 
 			{
-				$isAdded = $this -> model -> addUser([
+				// if email or username not exist add the user
+				if($this -> model -> emailExist($email))
+				{
+					$data['error']  = 'true';
+					$data['errors'][] = 'email already exists.';
+				}else
+				{
+					$gid = 0;
+					if(isset($_POST['gid']))
+						$gid = $_POST['gid'];
+					$isAdded = $this -> model -> addUser([
 
-					'firstName' => $firstName,
-					'lastName' => $lastName,
-					'username' => $username,
-					'email' => $email,
-					'gender' => $gender,
-					'password' => $password
+						'firstName' => $firstName,
+						'lastName' => $lastName,
+						'username' => $username,
+						'email' => $email,
+						'gender' => $gender,
+						'password' => $password,
+						'glogin' => $gid
 
 
-			]);
-			if($isAdded)
-			{
-				$data['success'] = true;
+					]);
 
+					if($isAdded)
+					{
+						$data['success'] = true;
+
+					}else
+					{
+						$data['error']  = 'true';
+						$data['errors'][] = 'username already taken';
+					}
+				}
+
+
+				$data['title'] = 'Signup';
+				$this -> loadView('signup', $data);
 			}
-			else
-			{
-				$data['error']  = 'true';
-				$data['errors'] = [];
-				$data['errors'][] = 'username already taken';
-			}
-			$data['title'] = 'Signup';
-			$this -> loadView('signup', $data);
+
 		}
 
-		}
+
+
 	}
 
  ?>

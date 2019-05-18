@@ -24,6 +24,15 @@
 				<input type="submit" value="Login">
 			</div>
 
+			<div class="social_login">
+				<p>or</p>
+				<div class="google">
+					<a href="<?php echo APPROOT ?>/glogin.php">
+						<img src="<?php echo APPROOT ?>/views/assets/glogin.png" alt="">
+					</a>
+				</div>
+
+			</div>
 			<div class="extra_links">
 				<p>Don't have an account? <a href="<?php echo APPROOT; ?>/signup">Register</a>
 				</p>

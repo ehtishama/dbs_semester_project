@@ -9,6 +9,11 @@ class Model
 	public $password;
 	public $db_name;
 
+	public static function db_static()
+	{
+		return new mysqli("localhost", "root", "Ahsankhan142!", "ecom");
+	}
+
 	public function __construct()
 	{
 		$this -> host = "localhost";
@@ -20,7 +25,7 @@ class Model
 
 		if($this -> db -> connect_errno)
 			echo $this -> db -> connect_error;
-		 
+
 	}
 
 

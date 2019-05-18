@@ -22,7 +22,7 @@
 				<label for="first_name">
 					First Name
 				</label>
-				<input type="text" name="first_name" placeholder="Enter Your First Name">
+				<input type="text" name="first_name" placeholder="Enter Your First Name" value="<?php @print($data['firstname']) ?>">
 			</div>
 
 
@@ -30,7 +30,7 @@
 				<label for="first_name">
 					Last Name
 				</label>
-				<input type="text" name="last_name" placeholder="Enter Your Last Name">
+				<input type="text" name="last_name" placeholder="Enter Your Last Name" value="<?php @print($data['lastname']) ?>">
 			</div>
 
 
@@ -38,14 +38,14 @@
 				<label for="first_name">
 					username
 				</label>
-				<input type="text" name="username" placeholder="Enter a unique username">
+				<input type="text" name="username" placeholder="Enter a unique username" value="<?php @print($data['username']) ?>">
 			</div>
 
 			<div class="form_group">
 				<label for="first_name">
 					Email
 				</label>
-				<input type="text" name="email" placeholder="Enter Your Email Address">
+				<input type="text" name="email" placeholder="Enter Your Email Address" value="<?php @print($data['email']) ?>">
 			</div>
 
 
@@ -70,6 +70,16 @@
 
 			<div class="form_group">
 				<input type="submit" value="Sign UP" name="reg">
+			</div>
+
+			<div class="social_login">
+				<p>or</p>
+				<div class="google">
+					<a href="<?php echo APPROOT ?>/glogin.php">
+						<img src="<?php echo APPROOT ?>/views/assets/glogin.png" alt="">
+					</a>
+				</div>
+
 			</div>
 
 			<div class="extra_links">
