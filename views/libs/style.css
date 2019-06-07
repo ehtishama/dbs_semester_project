@@ -1,3 +1,7 @@
+:root{
+  --logo-color: #5AD974;
+}
+
 /* general rules for unity in components */
 form
 {
@@ -13,7 +17,7 @@ input, select
 	width: 100%;
 	border: 1px solid lightgray;
 	padding: 8px;
-	margin: 1px 0 20px 0;
+	/*! margin: 1px 0 20px 0; */
 	font-size: 14px;
 }
 form input:focus {
@@ -40,6 +44,7 @@ body
 	margin: 0;
 	padding: 0;
 	min-height: 100vh;
+	
 
 }
 
@@ -53,7 +58,7 @@ a, a:hover
 .header
 {
 	background-color: white;
-	padding: 20px 20px 0 20px;
+	padding: 20px;
 }
 
 .header .header_upper
@@ -62,33 +67,37 @@ a, a:hover
 	/*justify-content: space-between;*/
 	width: 80%;
 	margin: 0 auto;
-	padding:0 0 20px 0;
+	padding:0 0 0 0;
+	align-items: center;
 
 }
 
 .header .header_upper input
 {
-  display: block;
+/*   display: block; */
+	
+	
 
 }
 .header .header_upper .search_bar
 {
-	flex-grow: 1;
+/* 	flex-grow: 1; */
   display: flex;
-}
-.header .header_upper .search_bar input[type="submit"]
-{
-	width: 100px;
-	padding: 0;
-	height: 35px;
+	margin-left: auto;
 }
 
 .header .header_upper .logo
 {
-	width: 200px;
-	height: 39px;
+	width: 185px;
+	height: 72px;
 	text-align: center;
 	align-self: end;
+	background: url("../assets/logo_green.png") no-repeat;
+	background-position: center;
+	
+	background-size: contain;
+/* 	border: 2px solid #5AD974; */
+	
 }
 
 .header .header_upper .logo a
@@ -96,6 +105,15 @@ a, a:hover
 
 	font-size: 28px;
 	font-weight:bold;
+	padding: 20px;
+/* 	border: 1px solid; */
+	color: transparent;
+}
+
+.header .search_bar {
+	position: relative;
+	margin: 0 20px;
+	
 }
 
 .header .search_bar input[type="text"]
@@ -103,45 +121,46 @@ a, a:hover
 	border: 1px solid rgba(128, 128, 128, .1);
 	box-sizing: border-box;
 	padding: 5px 15px;
-	border-radius: 4px;
-	flex-grow: 1;
+	border-radius: 50px;	
+	width: 110px;
+	margin: 0;
+	transition: all 500ms ease-out;
+	font-size: 16px;
+	
 
 }
 .header .search_bar input[type="text"]:focus
 {
-	background-color: #eff0f5;
-	border: 1px solid black;
+	background-color: rgba(155, 155, 155, .12);
+	width: 190px;
+	border:1px solid #2D2667;
+	
 }
-
-.header .search_bar input[type="submit"]
+.header svg, .header circle 
 {
-	box-sizing: border-box;
-	border: none;
-	background-color: black;
-	color: white;
-	border-radius: 3px;
-	font-weight: bold;
-	padding: 10px;
-	margin: 0 10px;
+  width: 25px;
+	height: 25px;
+	stroke: #2D2667;
+	stroke-width: 2px;
+	fill: --var(logo-color);
+	fill: rgb(255, 0, 0, .13);
+	
+	
 }
-
-.header .search_bar input[type="submit"]:hover
-{
-	color:black;
-	background-color: white;
-	border: 1px solid black;
-
+.header .search_bar svg {
+  stroke: gray;
+	stroke-width: 2px;
+	align-self: center;
+	fill: transparent;
+	position: absolute;
+	right: 10px;
+	
 }
 .header .cart_logo
 {
-		align-self: center;
-		padding: 0 10px;
-		font-size: 19px;
-		cursor: pointer;
-	  width: 40px;
-	  height: 40px;
-
-
+	stroke: gray;
+	stroke-width: 2px;
+	margin-right: 20px;
 }
 
 .header_upper .username
@@ -162,26 +181,25 @@ a, a:hover
 }
 
 
-.header_upper .login
-{
-	align-self: center;
-	margin-left: auto;
-}
-.header_upper .login
-{
-	padding-left: 10px;
-	font-weight: bold;
-	color: black;
-	font-size: 12px;
-}
 .header_upper .login a
 {
-	color: darkgreen;
+	
+	font-weight: bold;
+	color: white;
+	background: linear-gradient(45deg, rgba(90,217,112,1), rgba(29,253,224,1));
+	border: none;
+	border-radius: 50px;
+	min-width: 100px;
+	box-shadow: 3px 3px 8px 0px lightgray;
+	margin-left: 10px;
+	transition: all 500ms ease;
+	font-size: 16px;
 }
 
 .header_upper .login a:hover
 {
-	color: limegreen;
+/* 	color: black; */
+	box-shadow: 1px 1px 8px 0px lightgray;
 }
 
 .header_lower
@@ -232,12 +250,13 @@ a, a:hover
 }
 .products-wrapper>p
 {
-	color: white;
-	background: linear-gradient(90deg, rgba(11, 249, 134, 0.5662464815) 0%, rgba(9, 121, 103, 0.6082632882) 50%, rgba(0, 212, 255, 0.6670868176) 100%);
+	color: transparent;
+	background: linear-gradient(45deg, rgba(90,217,112,1), rgba(29,253,224,1));
 	display: inline-block;
 	padding: 10px;
 	font-size: 18px;
 	font-weight: bold;
+	background-clip: text;
 	
 /* 	color: transparent; */
 
@@ -289,7 +308,7 @@ a, a:hover
 	width: 100%;
 	object-fit: center;
 	overflow: hidden;
-	transition: all 500ms ease-out;
+	transition: all 500ms ease-in;
 	
 	
 
@@ -334,7 +353,7 @@ a, a:hover
 .products .product:hover .img img
 {
   transform: scale(1.1, 1.1);
-	filter: blur(10px);
+	filter: blur(1px);
 }
 
 .products .product .prod_extra_links ul
