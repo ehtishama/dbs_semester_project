@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><?php echo isset($data['title'])? $data['title'] : 'home' ?></title>
+	<link rel="shortcut icon" type="image/ico" href="views/assets/favicon.png">
+	<link href="https://fonts.googleapis.com/css?family=Anton|Varela+Round" rel="stylesheet">
+
+	<link rel="stylesheet" href="<?php echo APPROOT ?>/views/libs/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo APPROOT ?>/views/libs/style.css">
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+<body>
+
+	<div class="header">
+		<div class="header_upper">
+			<div class="logo">
+				<a href="<?php echo APPROOT ?>">
+					eCom
+				</a>
+			</div>
+
+			<div class="search_bar">
+												
+				<input type="text" name="search" placeholder="search">
+				<i class="fa fa-search"></i>
+				
+			</div>
+
+			
+
+			<?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true){ ?>
+			
+				<div class="username">
+					<a href="<?php echo APPROOT ?>/profile" >
+						<i class="far fa-user-circle"></i>
+					</a>					
+					<ul class="dropdown">
+					<li>
+						<i class="fa fa-address-card"></i>
+						<a href="<?php echo APPROOT ?>/profile">Profile</a>
+					</li>
+					<li>
+						<i class="fas fa-door-open"></i>
+						<a href="<?php echo APPROOT ?>/logout">Logout</a>
+					</li>
+					</ul>
+				</div>
+
+			<?php }else { ?>
+
+
+			<div class="login">
+
+					<a href="<?php echo APPROOT ?>/signup">Register </a>or
+					<a href="<?php echo APPROOT ?>/login"> Login</a>
+
+			</div>
+			
+			
+			
+			
+
+		<?php } ?>
+		
+			<div class="cart_logo">
+				<a href="<?php echo APPROOT ?>/cart">
+					<i class="fas fa-shopping-cart"></i>
+				</a>
+			</div>
+
+		</div>
+
+		<div class="header_lower">
+			<ul>
+				<li><a href="<?php echo APPROOT ?>/lab2">Lab Sessional 2</a></li>
+				<li><a href="#">Phones and Tablets</a></li>
+				<li><a href="#">Cameras</a></li>
+				<li><a href="#">TV and Video</a></li>
+				<li><a href="#">Home Appliances</a></li>
+				<li><a href="#">Shop By Department</a></li>
+				<li><a href="#">Copmuters and Laptops</a></li>
+				<li><a href="#">Daily Deals</a></li>
+			</ul>
+		</div>
+	</div>

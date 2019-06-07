@@ -12,7 +12,7 @@ require_once("views/libs/header.php");
           <li onclick="profilePageMenu(this, 'profile');" class="selected"> <a href="#profile"> <i class="fa fa-address-card"></i> Profile</a> </li>
           <li onclick="profilePageMenu(this, 'payments');"> <a href="#payments"> <i class="fas fa-money-bill-alt"></i> Payments Options</a> </li>
           <li onclick="profilePageMenu(this, 'address');"> <a href="#address"> <i class="fa fa-address-card"></i> Address Info</a></li>
-          <li onclick="profilePageMenu(this, 'orders');"> <a href="#orders" > <i class="fas fa-shopping-basket"></i> Orders</a></li>
+          <li onclick="profilePageMenu(this, 'orders');"> <a href="#orders" > <i class="fal fa-shopping-basket"></i> Orders</a></li>
           <li onclick="profilePageMenu(this, 'reviews');"> <a href="#reviews"> <i class="far fa-comment-dots"></i> Reviews</a> </li>
 
         </ul>
