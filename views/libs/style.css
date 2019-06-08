@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Varela+Round&display=swap');
+
 :root{
   --logo-color: #5AD974;
 }
@@ -33,6 +35,7 @@ form input[placeholder]
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
+	font-family: 'Varela Round', sans serif;
 }
 
 
@@ -143,7 +146,7 @@ a, a:hover
 	stroke: #2D2667;
 	stroke-width: 2px;
 	fill: --var(logo-color);
-	fill: rgb(255, 0, 0, .13);
+	fill: rgb(0, 170, 0, .13);
 	
 	
 }
@@ -167,9 +170,45 @@ a, a:hover
 {
 	align-self: center;
 	font-weight: bold;
-	font-family: 'Roboto', monospace, sans-serif;
+	
 
 }
+.header_upper .username:hover ul
+{
+  opacity: 1;
+	height: auto;
+}
+.header_upper .username ul
+{
+	 opacity: 0;
+	 height: 0;
+   position: absolute;
+	 background: white;
+	 padding: 5px;
+   z-index: 3;
+	border-radius: 3px;
+	box-shadow: 3px 3px 12px lightgray;
+	transition: all 500ms ease-out;
+	
+}
+.header_upper .username ul li {
+	list-style: none;
+	margin: 1px;
+	
+}
+
+.header_upper .username ul li a {
+  padding: 10px;
+  border-radius: 2px;
+	display: block;
+	transition: all 500ms ease-out;
+	
+	
+}
+.header_upper .username ul li a:hover {
+	background: lightgray;
+}
+
 .header_upper .username a
 {
   color: gray;
@@ -420,14 +459,11 @@ a, a:hover
 
 .sign_up_form .heading
 {
-  margin: 0px 0 40px;
+  /*! margin: 0px 0 40px; */
 	font-weight: 400;
+  text-align: center;
 }
 
-.sign_up_form form
-{
-
-}
 
 .sign_up_form form input, .sign_up_form form select
 {
