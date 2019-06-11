@@ -14,7 +14,7 @@
 		{
 			$args['title'] = 'Ecom - Shop Online with ease.';
 			
-			$this -> model = $this -> model('prodModel');
+			$this -> model = $this -> model('prodModel'); // initiating model property
 			$data = $this -> model -> getRecentProducts(18);
 
 			$trenGames = $this -> model -> getProdByCat(7);
@@ -30,6 +30,9 @@
 
 			if(isset($trenGames['products_success']))
 					$args['tren2'] = $trenBooks['tren'];
+
+			$args['best_selling'] = $this -> model -> fiveMostSoldProducts();
+			$args['categories'] = $this -> model -> getCategoriesList();
 
 
 

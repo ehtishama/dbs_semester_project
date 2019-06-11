@@ -24,12 +24,27 @@
          <?php if (isset($data['products'])) ?>
          <?php foreach ($data['products'] as $product){ ?>
            <tr class="product_row">
-             <td class="cross" onclick="removeProduct(<?php echo $product['id'] ?>, this, <?php echo $product['price']?>);">x</td>
-             <td><img src="<?php echo $product['image'] ?>" alt="">  </td>
-              <td><?php  echo $product['id'] ?></td>
-              <td><?php  echo $product['title'] ?></td>
-              <td id="quantitiy_cell"><input id="quantitiy" type="number" name="quantity" value="<?php echo $product['quantity']?>"></td>
-              <td id="price_cell">PKR <span id="price"><?php  echo $product['price']; $total += $product['price']; ?></span></td>
+              <td class="cross" onclick="removeProduct(<?php echo $product['id'] ?>, this, <?php echo $product['price']?>);">
+                x
+              </td>
+             <td>
+                <img src="<?php echo $product['image'] ?>" alt="">  
+              </td>
+              <td>
+                <?php  echo $product['id'] ?>
+              </td>
+              <td>
+                <?php  echo $product['title'] ?>
+              </td>
+              <td id="quantitiy_cell">
+                <input id="quantitiy" type="number" name="quantity" value="<?php echo $product['quantity']?>" min="1" max="10">
+              </td>
+              <td id="price_cell">
+                PKR 
+                <span id="price">
+                  <?php  echo $product['price']; $total += $product['price']; ?>    
+                </span>
+              </td>
            </tr>
          <?php } ?>
 

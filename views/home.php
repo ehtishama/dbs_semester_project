@@ -1,203 +1,192 @@
 
-	<?php
+<?php
 	// add user validation and redirection
+	// data array contains all the products to be shown on the homepage
+	// print_r($data['best_selling']);
 
-		require_once("views/libs/header.php");
+	require_once("views/libs/header.php");
+	require_once("views/libs/categories_horizontal.php");
 
-	 ?>
+?>
+	<!-- featured products -->
 
-	 <!-- slider on the home page -->
-  
-	<div class="slider" id="slider9">
-		
-		<div class="slide active" style="background-image: url(https://cdn.pixabay.com/photo/2015/11/26/00/14/fashion-1063100_960_720.jpg);">
-			<div class="slide_inner">
-				<div class="slide_body">
-					<p class="title">
-						Slide One
-					</p>
-					<p class="desc">
-						
-					</p>
-					<div class="action">
-						Action
-					</div>
+	<div class="body_wrapper">
+		<div class="best_selling" id="content">
+			<div class="one">
+				<div class="inner">
+					<img src="<?php echo $data['best_selling'][0]['image'] ?>">
+					<p class="title"><?php echo $data['best_selling'][0]['title'] ?></p>
+					<p class="price">$<?php echo $data['best_selling'][0]['price'] ?></p>
 				</div>
 			</div>
-		</div>	
-		
-		<div class="slide" style="background-image: url(https://cdn.pixabay.com/photo/2016/11/20/12/03/brown-leather-shoes-1842606_960_720.jpg);" >
-			<div class="slide_inner">
-				<div class="slide_body">
-					<p class="title">
-						The second Slide with long title
-					</p>
-					<p class="desc">
-						
-					</p>
-					<button class="action">
-						Action
-					</button>
+			<div class="two">
+				<div class="inner">
+					<img src="<?php echo $data['best_selling'][1]['image'] ?>">
+					<p class="title"><?php echo $data['best_selling'][1]['title'] ?></p>
+					<p class="price">$<?php echo $data['best_selling'][1]['price'] ?></p>
 				</div>
 			</div>
-		</div>
-		
-		<div class="slide" style="background-image: url(https://cdn.pixabay.com/photo/2016/03/09/09/39/shoes-1245920_960_720.jpg)">
-			<div class="slide_inner">
-				<div class="slide_body">
-					<p class="title">
-						Slide No 3
-					</p>
-					<p class="desc">
-						
-					</p>
-					<button class="action">
-						Action
-					</button>
+			<div class="three">
+				<img src="<?php echo $data['best_selling'][2]['image'] ?>">
+					<p class="title"><?php echo $data['best_selling'][2]['title'] ?></p>
+					<p class="price">$<?php echo $data['best_selling'][2]['price'] ?></p>
+			</div>
+			<div class="four">
+				<div class="inner">
+					<img src="<?php echo $data['best_selling'][3]['image'] ?>">
+					<p class="title"><?php echo $data['best_selling'][3]['title'] ?></p>
+					<p class="price">$<?php echo $data['best_selling'][3]['price'] ?></p>
 				</div>
 			</div>
+			
 		</div>
-		<div class="slide" style="background-image: url(https://cdn.pixabay.com/photo/2015/02/02/11/09/office-620822_960_720.jpg)">
-			<div class="slide_inner">
-				<div class="slide_body">
-					<p class="title">
-						This is fourth piece.
-					</p>
-					<p class="desc">
-						
-					</p>
-					<button class="action">
-						Action
-					</button>
-				</div>
-			</div>
-		</div>
-		<div class="slide" style="background-image: url(https://cdn.pixabay.com/photo/2015/03/26/10/08/dj-690986_960_720.jpg)">
-			<div class="slide_inner">
-				<div class="slide_body">
-					<p class="title">
-						Last but not least.
-					</p>
-					<p class="desc">
-						
-					</p>
-					<button class="action">
-						Action
-					</button>
-				</div>
-			</div>
-		</div>
+
+	
+
 		
+		<!-- products in a grid form container -->
 		
-		<div class="left" id="slider_back">
-			<svg role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-labelledby="arrowLeftIconTitle">
-	    <title id="arrowLeftIconTitle">Previous</title>    
-	    <path d="M9 6l-6 6 6 6"/>
-	    <path d="M21 12H4"/>
-	    <path stroke-linecap="round" d="M3 12h1"/>
-		</svg>
-		</div>
-		<div class="right" id="slider_next">
-			<svg role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-labelledby="arrowRightIconTitle">
-	    	<title id="arrowRightIconTitle">Next</title>    
-	    	<path d="M15 18l6-6-6-6"/>
-	    	<path d="M3 12h17"/>
-	    	<path stroke-linecap="round" d="M21 12h-1"/>
-			</svg>
-		</div>
+			<div class="sidebar">
 
-	</div>
-	  
-	<?php require_once("views/libs/categories_horizontal.php"); ?>
+			</div>
+			<div class="products-wrapper">
+
+				<div class="title_line">
+					<p>Newly and Updated</p>
+					<b></b>
+					<i id="prev_product" class="btn btn-light">Back</i>
+					<i id="next_product" class="btn btn-light">Next</i>
+				</div>
+
+				<div class="products updated_products">
+
+					<?php foreach($data['products'] as $product){?>
 
 
-	<div class="grad_bar"></div>
-	<!-- products in a grid form container -->
-	<div class="container">
-		<div class="sidebar">
-
-		</div>
-		<div class="products-wrapper">
-
-
-			<p>Newly and Updated</p>
-			<div class="products">
-
-				<?php foreach($data['products'] as $product){?>
-
-
-					<div class="product">
-						<a href="<?php echo APPROOT?>/products/product/<?php echo $product['id']?>">
-							<div class="img">
-								<img src="<?php echo $product['image'] ?>">
+						<div class="product">
+							<a href="<?php echo APPROOT?>/products/product/<?php echo $product['id']?>">
+								<div class="img">
+									<img src="<?php echo $product['image'] ?>">
+								</div>
+								<div class="product_info">
+									<p class="title"><?php echo $product['title'] ?></p>
+									<p class="price">$<?php echo $product['price']?></p>
+								</div>
+							</a>
+							
+							<div class="prod_extra_links">
+								<ul>
+									<li title="Add to wishlist">
+										<svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="1em" width="1em" viewBox="0 0 512 512" class="_1UJnU _255P_" style="vertical-align: middle;">
+											<title>Add to Favorites</title>
+											<g>
+												<path d="M256 475.8c-4.9 0-9.1-1.7-12.5-5.1l-176.7-170.5c-1.9-1.5-4.5-4-7.8-7.4-3.3-3.4-8.5-9.6-15.7-18.6-7.2-9-13.6-18.2-19.3-27.6-5.7-9.4-10.7-20.9-15.2-34.3-4.3-13.3-6.5-26.3-6.5-38.9 0-41.5 12-74 36-97.4 24-23.4 57.1-35.1 99.4-35.1 11.7 0 23.6 2 35.8 6.1 12.2 4.1 23.5 9.5 34 16.4 10.5 6.9 19.5 13.4 27 19.4 7.5 6 14.7 12.5 21.5 19.3 6.8-6.8 14-13.2 21.5-19.3 7.5-6 16.6-12.5 27-19.4 10.5-6.9 21.8-12.4 34-16.4 12.2-4.1 24.1-6.1 35.8-6.1 42.3 0 75.4 11.7 99.4 35.1 24 23.4 36 55.9 36 97.4 0 41.7-21.6 84.2-64.9 127.4l-176.3 169.9c-3.4 3.4-7.6 5.1-12.5 5.1z">
+												</path>
+											</g>
+										</svg>
+									</li>
+									<li onclick="addToCart(<?php echo $product['id'] ?>);" title="Add to Cart">
+										<svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="1em" width="1em" viewBox="0 0 16 16" style="vertical-align: middle;">
+											<title>Add to Cart</title>
+											<g>
+												<path d="M 0.009 1.349 C 0.009 1.753 0.347 2.086 0.765 2.086 C 0.765 2.086 0.766 2.086 0.767 2.086 L 0.767 2.09 L 2.289 2.09 L 5.029 7.698 L 4.001 9.507 C 3.88 9.714 3.812 9.958 3.812 10.217 C 3.812 11.028 4.496 11.694 5.335 11.694 L 14.469 11.694 L 14.469 11.694 C 14.886 11.693 15.227 11.36 15.227 10.957 C 15.227 10.552 14.886 10.221 14.469 10.219 L 14.469 10.217 L 5.653 10.217 C 5.547 10.217 5.463 10.135 5.463 10.031 L 5.487 9.943 L 6.171 8.738 L 11.842 8.738 C 12.415 8.738 12.917 8.436 13.175 7.978 L 15.901 3.183 C 15.96 3.08 15.991 2.954 15.991 2.828 C 15.991 2.422 15.65 2.09 15.23 2.09 L 3.972 2.09 L 3.481 1.077 L 3.466 1.043 C 3.343 0.79 3.084 0.612 2.778 0.612 C 2.777 0.612 0.765 0.612 0.765 0.612 C 0.347 0.612 0.009 0.943 0.009 1.349 Z M 3.819 13.911 C 3.819 14.724 4.496 15.389 5.335 15.389 C 6.171 15.389 6.857 14.724 6.857 13.911 C 6.857 13.097 6.171 12.434 5.335 12.434 C 4.496 12.434 3.819 13.097 3.819 13.911 Z M 11.431 13.911 C 11.431 14.724 12.11 15.389 12.946 15.389 C 13.784 15.389 14.469 14.724 14.469 13.911 C 14.469 13.097 13.784 12.434 12.946 12.434 C 12.11 12.434 11.431 13.097 11.431 13.911 Z"></path>
+											</g>
+										</svg>
+									</li>
+								</ul>
 							</div>
-							<p class="title"><?php echo $product['title'] ?></p>
-							<p class="price">PKR <?php echo $product['price']?></p>
-						</a>
-						
-						<div class="prod_extra_links">
-							<ul>
-								<li><svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="1em" width="1em" viewBox="0 0 512 512" class="_1UJnU _255P_" style="vertical-align: middle;"><title>Add to Favorites</title><g><path d="M256 475.8c-4.9 0-9.1-1.7-12.5-5.1l-176.7-170.5c-1.9-1.5-4.5-4-7.8-7.4-3.3-3.4-8.5-9.6-15.7-18.6-7.2-9-13.6-18.2-19.3-27.6-5.7-9.4-10.7-20.9-15.2-34.3-4.3-13.3-6.5-26.3-6.5-38.9 0-41.5 12-74 36-97.4 24-23.4 57.1-35.1 99.4-35.1 11.7 0 23.6 2 35.8 6.1 12.2 4.1 23.5 9.5 34 16.4 10.5 6.9 19.5 13.4 27 19.4 7.5 6 14.7 12.5 21.5 19.3 6.8-6.8 14-13.2 21.5-19.3 7.5-6 16.6-12.5 27-19.4 10.5-6.9 21.8-12.4 34-16.4 12.2-4.1 24.1-6.1 35.8-6.1 42.3 0 75.4 11.7 99.4 35.1 24 23.4 36 55.9 36 97.4 0 41.7-21.6 84.2-64.9 127.4l-176.3 169.9c-3.4 3.4-7.6 5.1-12.5 5.1z"></path></g></svg></li>
-								<li><svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="1em" width="1em" viewBox="0 0 16 16" style="vertical-align: middle;"><title>Cart</title><g><path d="M 0.009 1.349 C 0.009 1.753 0.347 2.086 0.765 2.086 C 0.765 2.086 0.766 2.086 0.767 2.086 L 0.767 2.09 L 2.289 2.09 L 5.029 7.698 L 4.001 9.507 C 3.88 9.714 3.812 9.958 3.812 10.217 C 3.812 11.028 4.496 11.694 5.335 11.694 L 14.469 11.694 L 14.469 11.694 C 14.886 11.693 15.227 11.36 15.227 10.957 C 15.227 10.552 14.886 10.221 14.469 10.219 L 14.469 10.217 L 5.653 10.217 C 5.547 10.217 5.463 10.135 5.463 10.031 L 5.487 9.943 L 6.171 8.738 L 11.842 8.738 C 12.415 8.738 12.917 8.436 13.175 7.978 L 15.901 3.183 C 15.96 3.08 15.991 2.954 15.991 2.828 C 15.991 2.422 15.65 2.09 15.23 2.09 L 3.972 2.09 L 3.481 1.077 L 3.466 1.043 C 3.343 0.79 3.084 0.612 2.778 0.612 C 2.777 0.612 0.765 0.612 0.765 0.612 C 0.347 0.612 0.009 0.943 0.009 1.349 Z M 3.819 13.911 C 3.819 14.724 4.496 15.389 5.335 15.389 C 6.171 15.389 6.857 14.724 6.857 13.911 C 6.857 13.097 6.171 12.434 5.335 12.434 C 4.496 12.434 3.819 13.097 3.819 13.911 Z M 11.431 13.911 C 11.431 14.724 12.11 15.389 12.946 15.389 C 13.784 15.389 14.469 14.724 14.469 13.911 C 14.469 13.097 13.784 12.434 12.946 12.434 C 12.11 12.434 11.431 13.097 11.431 13.911 Z"></path></g></svg></li>
-							</ul>
+
 						</div>
 
-					</div>
+					<?php } ?>
+				</div>
 
-				<?php } ?>
 			</div>
 
-		</div>
-		<div class="products-wrapper">
+			<section class="features">
+				<div class="feature">
+					<span class="icon">
+						<svg role="img" xmlns="http://www.w3.org/2000/svg" width="48px" height="48px" viewBox="0 0 24 24" aria-labelledby="dolarIconTitle" stroke="#000" stroke-width="1" stroke-linecap="square" stroke-linejoin="miter" fill="none" color="#000"> <title id="dolarIconTitle">Dolar</title> <path d="M12 4L12 6M12 18L12 20M15.5 8C15.1666667 6.66666667 14 6 12 6 9 6 8.5 7.95652174 8.5 9 8.5 13.140327 15.5 10.9649412 15.5 15 15.5 16.0434783 15 18 12 18 10 18 8.83333333 17.3333333 8.5 16"/> </svg>
+					</span>
+					<h3>Money Back Gaurantee</h3>
+					<p>Shop without any worries, If anything goes wrong we provide a 100% money back guarantee. </p>
+				</div>
 
+				<div class="feature">
+					<span class="icon">
+						<svg role="img" xmlns="http://www.w3.org/2000/svg" width="48px" height="48px" viewBox="0 0 24 24" aria-labelledby="bagIconTitle" stroke="#000" stroke-width="1" stroke-linecap="square" stroke-linejoin="miter" fill="none" color="#000"> <title id="bagIconTitle">Bag</title> <rect width="14" height="12" x="5" y="7"/> <path d="M8 7a4 4 0 1 1 8 0"/> </svg>
+					</span>
+					<h3>Free Shipping Countrywide</h3>
+					<p>Shop without any worries, If anything goes wrong we provide a 100% money back guarantee. </p>
+				</div>
 
-			<p>Trending Video Games</p>
-			<div class="products tren">
+				<div class="feature">
+					<span class="icon">
+						<svg role="img" xmlns="http://www.w3.org/2000/svg" width="48px" height="48px" viewBox="0 0 24 24" aria-labelledby="lockAltIconTitle" stroke="#000" stroke-width="1" stroke-linecap="square" stroke-linejoin="miter" fill="none" color="#000"> <title id="lockAltIconTitle">Lock</title> <rect width="14" height="10" x="5" y="11"/> <path d="M12,3 L12,3 C14.7614237,3 17,5.23857625 17,8 L17,11 L7,11 L7,8 C7,5.23857625 9.23857625,3 12,3 Z"/> <circle cx="12" cy="16" r="1"/> </svg>
+					</span>
+					<h3>Secure Payment Gateways</h3>
+					<p>Shop without any worries, If anything goes wrong we provide a 100% money back guarantee. </p>
+				</div>
 
-				<?php foreach($data['tren1'] as $product){?>
+				<div class="feature">
+					<span class="icon">
+						<svg width="48px" height="48px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="supportIconTitle" stroke="#000" stroke-width="1" stroke-linecap="square" stroke-linejoin="miter" fill="none" color="#000"> <title id="supportIconTitle">Support</title> <path d="M11 8L9.42229 7.21115C9.14458 7.07229 8.83835 7 8.52786 7H7.82843C7.29799 7 6.78929 7.21071 6.41421 7.58579L5.58579 8.41421C5.21071 8.78929 5 9.29799 5 9.82843L5 14.9296C5 15.5983 5.3342 16.2228 5.8906 16.5937L9.75746 19.1716C10.4944 19.663 11.4668 19.611 12.1472 19.044L17 15"/> <path fill-rule="evenodd" clip-rule="evenodd" d="M14.4549 12.9142C13.8515 12.1062 12.741 11.8739 11.8643 12.3721L10.009 13.4266C9.41298 13.7653 8.66412 13.6641 8.17937 13.1794V13.1794C7.54605 12.546 7.59324 11.5056 8.2813 10.9323L12.4437 7.46356C12.8032 7.16403 13.2562 7 13.7241 7H14.5279C14.8384 7 15.1446 7.07229 15.4223 7.21115L17.8944 8.44721C18.572 8.786 19 9.47852 19 10.2361L19 12.9796C19 14.9037 16.5489 15.718 15.3976 14.1764L14.4549 12.9142Z"/> <path d="M1 17V8"/> <path d="M1 17V8"/> <path d="M23 17V8"/> </svg>
+					</span>
+					<h3>24/7 Customer Care Service</h3>
+					<p>Shop without any worries, If anything goes wrong we provide a 100% money back guarantee. </p>
+				</div>
+			</section>
+		
+			<div class="products-wrapper">
+				<p>Trending Video Games</p>
+				<div class="products tren">
 
-				<a href="<?php echo APPROOT?>/products/product/<?php echo $product['id']?>">
-					<div class="product">
+					<?php foreach($data['tren1'] as $product){?>
 
-					<div class="img">
-						<img src="<?php echo $product['image'] ?>">
-					</div>
-					<p class="title"><?php echo $product['title'] ?></p>
-					<p class="price">PKR <?php echo $product['price']?></p>
+					<a href="<?php echo APPROOT?>/products/product/<?php echo $product['id']?>">
+						<div class="product">
 
-
-
-					</div>
-				</a>
-				<?php } ?>
-			</div>
-
-		</div>
-
-
-		<div class="products-wrapper">
-
-
-			<p>Trending in Books</p>
-			<div class="products tren">
-
-				<?php foreach($data['tren2'] as $product){?>
-
-				<a href="<?php echo APPROOT?>/products/product/<?php echo $product['id']?>">
-					<div class="product">
 						<div class="img">
 							<img src="<?php echo $product['image'] ?>">
 						</div>
-						<p class="title"><?php echo $product['title'] ?></p>
-						<p class="price">PKR <?php echo $product['price']?></p>
-					</div>
-				</a>
-				<?php } ?>
-			</div>
-		</div>
+						<div class="product_info"> 
+							<p class="title"><?php echo $product['title'] ?></p>
+							<p class="price">$<?php echo $product['price']?></p>
+						</div>
 
+
+
+						</div>
+					</a>
+					<?php } ?>
+				</div>
+
+			</div>
+
+
+			<div class="products-wrapper">
+				<p>Trending in Books</p>
+				<div class="products tren">
+					<?php foreach($data['tren2'] as $product){?>
+
+					<a href="<?php echo APPROOT?>/products/product/<?php echo $product['id']?>">
+						<div class="product">
+							<div class="img">
+								<img src="<?php echo $product['image'] ?>">
+							</div>
+							<div class="product_info">
+								<p class="title"><?php echo $product['title'] ?></p>
+								<p class="price">PKR <?php echo $product['price']?></p>
+							</div>
+						</div>
+					</a>
+					<?php } ?>
+				</div>
+			</div>
+
+		
 	</div>
-	
+		
 	<div class="notification_container" id="notification_container">
 		<div class="notification" id="notification_test" style="display: none;">
 			<span class="cross">X</span>
@@ -207,10 +196,14 @@
 			</div>
 		</div>
 	</div>
+	
+
+
+
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
 	<script type="text/javascript" src="<?php echo APPROOT ?>/views/libs/jquery.js"></script>
 	<script type="text/javascript" src="<?php echo APPROOT ?>/views/libs/script.js"></script>
-	<script type="text/javascript" src="<?php echo APPROOT ?>/views/libs/slider/js/index.js"></script>
+	
 
 	
 <?php

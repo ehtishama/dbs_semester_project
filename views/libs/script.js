@@ -117,10 +117,21 @@ function notify(notification) {
 	});
 	element.find(".body").html(notification.body); 
 	element.find(".head").html(notification.head);
-	element.click(function(){$(this).fadeOut();});
+	element.click(function(){
+    $(this).fadeOut(500, function(){
+      element.remove();
+    });
+  });
 	
 	$("#notification_container").append(element);
 }
+
+$(document).ready(function(){
+  $("#next_product").click(function(){
+    $(".updated_products")[0].style.left -= -265;  
+  })
+  
+})
 
 
 

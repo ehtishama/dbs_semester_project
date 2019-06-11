@@ -23,7 +23,7 @@
 
 			<form action="<?php echo APPROOT ?>/cart/add_cart/<?php echo $product['id'] ?>" method="post">
 				<div class="product_quantity">Quantity:<br>
-		      <input type="number" value="1" name="quantity">
+		      <input type="number" value="1" name="quantity" min="1" max="10">
 		    </div>
 
 				<div onclick="addToCart(<?php echo $product['id'] ?>);" class="add_to_cart">

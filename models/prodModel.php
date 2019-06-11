@@ -62,6 +62,56 @@
 			return $data;
 		}
 
+		public function fiveMostSoldProducts()
+		{
+			$data = [];
+
+			$query = 
+			"
+				SELECT * FROM products WHERE id in(
+				SELECT prod_id FROM(
+				select count(*) as n, prod_id FROM ordered_products GROUP BY prod_id ORDER BY n DESC LIMIT 5
+				)
+			    AS T	    
+				)
+			";
+
+			$result = $this -> db -> query($query);
+			echo $this -> db -> error;
+
+			if($result)
+				while($row = $result -> fetch_assoc())
+					$data[] = $row;
+			return $data;
+		}
+
+		public function getCategoriesList()
+		{
+			$data = [];
+			$query = "SELECT * FROM product_categories";
+			$result = $this -> db -> query($query);
+
+			if($result)
+				while($row = $result -> fetch_assoc())
+					$data[] = $row;
+
+			return $data;
+
+		}
+
+		public function getProductsFromCategoryId($categoryId)
+		{
+			$data = [];
+			$query = "SELECT * FROM products WHERE category = $categoryId";
+			$result = $this -> db -> query($query);
+
+			if($result)
+				while($row = $result -> fetch_assoc())
+					$data[] = $row;
+
+			return $data;			
+		}
+
 
 	}
 
