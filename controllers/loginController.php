@@ -22,8 +22,10 @@
 			// if already logged in, no need to come here
 			$this -> redirect();
 			$data['title'] = 'Login - Ecom';
+
 			if(isset($args['query']))
 				$data['query'] = $args['query'];
+			
 			$this -> loadView('login', $data);
 		}
 

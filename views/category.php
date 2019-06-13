@@ -12,14 +12,19 @@
 
 
 		<section class="products_list">
-			<div class="list_item">
-				<img src="<?php echo $product['image'] ?>">
-				<div class="item_info">
-					<p class="title"><?php echo $product['title'] ?></p>
-					<p class="desc"><?php echo $product['description']; ?></p>
-					<p class="price">$<?php echo $product['price'] ?></p>
+			
+				<div class="list_item">
+					<img src="<?php echo $product['image'] ?>">
+					<div class="item_info">
+						<p class="title">
+							<a href="<?php echo APPROOT ?>/products/product/<?php echo $product['id'] ?>">
+								<?php echo $product['title'] ?>
+							</a>			
+						</p>
+						<p class="desc"><?php echo $product['description']; ?></p>
+						<p class="price">$<?php echo $product['price'] ?></p>
+					</div>
 				</div>
-			</div>
 		</section>
 
 		<?php endforeach; ?>

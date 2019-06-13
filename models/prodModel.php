@@ -8,6 +8,18 @@
 			parent:: __construct();
 		}
 
+		private function select($query, $limit = 20)
+		{
+			$data = [];
+			$result = $this -> db -> query($query . " LIMIT " . $limit);
+			echo $this -> db -> error;
+			if($result)
+				while ($row = $result -> fetch_assoc()) {
+					$data[] = $row;
+				}
+
+			return $data;				
+		}
 		public function getRecentProducts($n)
 		{
 			$q = "SELECT * FROM products ORDER BY id DESC LIMIT $n";
@@ -110,6 +122,10 @@
 					$data[] = $row;
 
 			return $data;			
+		}
+		public function searchProducts($keyword)
+		{
+			return $this -> select("SELECT * FROM products WHERE `title` LIKE '%$keyword%'");
 		}
 
 

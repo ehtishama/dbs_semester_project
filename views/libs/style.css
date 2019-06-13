@@ -90,7 +90,10 @@ a, a:hover
   display: flex;
 	margin-left: auto;
 }
-
+.search_bar form
+{
+	padding: 0;
+}
 .header .header_upper .logo
 {
 	width: 185px;
@@ -1397,6 +1400,10 @@ padding: 10px;}
 .products_list
 {
 	margin-top: 10px;
+}
+.product_list a
+{
+	color: red;
 }
 .list_item
 {

@@ -20,14 +20,17 @@
 				</a>
 			</div>
 
-			<div class="search_bar">
-												
-				<input type="text" name="search" placeholder="search">
+			<div class="search_bar" >
+				
+				<form method="get" action="<?php echo APPROOT ?>/category/search">
+					<input type="text" name="q" placeholder="search">
+				</form>												
 				<svg role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-labelledby="searchIconTitle">
     				<title id="searchIconTitle">Search</title>    
     				<path d="M14.4121122,14.4121122 L20,20"/>
     				<circle cx="10" cy="10" r="6"/>
 				</svg>
+				
 				
 			</div>
 
