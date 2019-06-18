@@ -16,8 +16,43 @@ class SignupController extends Controller
 			$this -> loadView('signup', $data);
 		}
 
+
+		private function verifyreCaptcha($token)
+		{
+			//
+			// A very simple PHP example that sends a HTTP POST to a remote site
+			//
+
+			$ch = curl_init();
+
+			curl_setopt($ch, CURLOPT_URL,"https://www.google.com/recaptcha/api/siteverify");
+			curl_setopt($ch, CURLOPT_POST, 1);
+			curl_setopt($ch, CURLOPT_POSTFIELDS,
+			            "secret=6Lc6hqkUAAAAACyPKa3qL_LaZGFTNGxTp923oPXh&response=$token");
+
+			
+			// curl_setopt($ch, CURLOPT_POSTFIELDS, 
+			//          http_build_query(array('postvar1' => 'value1')));
+
+			// Receive server response ...
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			$response = curl_exec($ch);
+			curl_close ($ch);
+
+			
+			$response = json_decode($response, true);
+			
+			
+
+			if($response['success'] == true)
+				return true;
+			else return false;
+		}
+
+
 		public function authenticate()
 		{
+			
 			if(!isset($_POST['reg']))
 			{
 
@@ -32,7 +67,7 @@ class SignupController extends Controller
 			$email 		= $_POST['email'];
 			$gender 	= $_POST['gender'];
 			$password 	= $_POST['password'];
-
+			$recaptcha 	= $_POST['g-recaptcha-response'];
 
 
 			$data['firstname'] = $firstName;
@@ -46,7 +81,10 @@ class SignupController extends Controller
 
 
 			$user = new User($firstName, $lastName, $username, $email, $password, $gender);
+
 			$errors = validate_reg($user);
+			if(empty($recaptcha) || !($this -> verifyreCaptcha($recaptcha)))
+				$errors[] = "Are you Robot? Complete the captcha then.";
 
 			if(count($errors) > 0)
 			{

@@ -8,6 +8,7 @@
 		{
 			$this -> model = $this -> model('regModel');
 		}
+
 		private function redirect()
 		{
 			// helper function, returns true if SESSION['logged_in'] == true
@@ -74,6 +75,7 @@
 			}
 
 		}
+
 
 
 	}

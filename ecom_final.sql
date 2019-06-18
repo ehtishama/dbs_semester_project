@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 07, 2019 at 07:31 AM
--- Server version: 5.7.24-0ubuntu0.18.04.1
--- PHP Version: 7.2.15-0ubuntu0.18.04.1
+-- Generation Time: Jun 12, 2019 at 11:07 PM
+-- Server version: 5.7.26-0ubuntu0.18.04.1
+-- PHP Version: 7.2.19-0ubuntu0.18.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,6 +25,29 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `address`
+--
+
+CREATE TABLE `address` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `street` varchar(535) NOT NULL,
+  `city` varchar(255) NOT NULL,
+  `postal_code` varchar(255) NOT NULL,
+  `country` varchar(255) NOT NULL,
+  `phone_no` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `address`
+--
+
+INSERT INTO `address` (`id`, `user_id`, `street`, `city`, `postal_code`, `country`, `phone_no`) VALUES
+(1, 1, '23 Maynell Street, Derbyshire', 'DerbyShire', '44300', 'United Kingdome', '03089154203');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `customers`
 --
 
@@ -33,18 +56,40 @@ CREATE TABLE `customers` (
   `username` varchar(255) NOT NULL,
   `first_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `gender` char(1) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `address` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`id`, `username`, `first_name`, `last_name`, `password`) VALUES
-(1, 'username', 'Ehtisham', 'Hassan', '123456789'),
-(2, 'asim', 'Muhammad', 'Asim', 'abcdefghi'),
-(3, 'shahzaib', 'Shahzaib', '', 'xyzxyzxyx'),
-(4, 'sakib', 'Sakib', 'Faraz', 'abcdefgh');
+INSERT INTO `customers` (`id`, `username`, `first_name`, `last_name`, `gender`, `password`, `email`, `address`) VALUES
+(1, 'username', 'Ehtisham', 'Hassan', '', '123456789', '', 0),
+(2, 'asim', 'Muhammad', 'Asim', '', 'abcdefghi', '', 0),
+(3, 'shahzaib', 'Shahzaib', '', '', 'xyzxyzxyx', '', 0),
+(4, 'sakib', 'Sakib', 'Faraz', '', 'abcdefgh', '', 0),
+(8, 'aunique', 'Ehtisham', 'Hassan', 'm', 'alongpassword', 'ehtishamhassan9@gmail.com', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `glogin`
+--
+
+CREATE TABLE `glogin` (
+  `id` varchar(255) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `glogin`
+--
+
+INSERT INTO `glogin` (`id`, `user_id`) VALUES
+('113399735165931281262', 8);
 
 -- --------------------------------------------------------
 
@@ -59,6 +104,31 @@ CREATE TABLE `ordered_products` (
   `quantity` int(11) NOT NULL,
   `discount` decimal(10,0) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ordered_products`
+--
+
+INSERT INTO `ordered_products` (`id`, `order_id`, `prod_id`, `quantity`, `discount`) VALUES
+(1, 4, 18, 1, '0'),
+(2, 4, 17, 1, '0'),
+(3, 5, 18, 1, '0'),
+(4, 5, 17, 1, '0'),
+(5, 6, 22, 1, '0'),
+(6, 6, 19, 1, '0'),
+(7, 7, 20, 1, '0'),
+(8, 8, 27, 1, '0'),
+(9, 8, 26, 1, '0'),
+(10, 8, 25, 1, '0'),
+(11, 8, 23, 1, '0'),
+(12, 9, 26, 1, '0'),
+(13, 10, 22, 1, '0'),
+(14, 11, 25, 1, '0'),
+(15, 11, 27, 1, '0'),
+(16, 11, 26, 1, '0'),
+(17, 11, 13, 1, '0'),
+(18, 11, 22, 1, '0'),
+(19, 11, 24, 1, '0');
 
 -- --------------------------------------------------------
 
@@ -79,7 +149,15 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `customer_id`, `charges`, `created_at`, `updated_at`) VALUES
-(1, 4, '2500', '2019-05-04 15:57:34', '2019-05-04 15:57:34');
+(1, 4, '2500', '2019-05-04 15:57:34', '2019-05-04 15:57:34'),
+(4, 1, '3530', '2019-05-10 18:06:11', '2019-05-10 18:06:11'),
+(5, 1, '3530', '2019-05-10 18:09:04', '2019-05-10 18:09:04'),
+(6, 1, '399', '2019-06-10 13:37:39', '2019-06-10 13:37:39'),
+(7, 1, '199', '2019-06-10 14:29:17', '2019-06-10 14:29:17'),
+(8, 1, '508', '2019-06-10 15:09:22', '2019-06-10 15:09:22'),
+(9, 1, '30', '2019-06-10 15:09:53', '2019-06-10 15:09:53'),
+(10, 1, '100', '2019-06-10 15:10:18', '2019-06-10 15:10:18'),
+(11, 1, '4827', '2019-06-11 18:09:35', '2019-06-11 18:09:35');
 
 -- --------------------------------------------------------
 
@@ -117,7 +195,16 @@ INSERT INTO `products` (`id`, `title`, `description`, `image`, `category`, `pric
 (15, 'The Laws of Human Nature', 'THIS IS A DIGITAL VERSION\r\n\r\n                                       PRODUCT WILL BE DELIVERED TO THE EMAIL ON PAYPAL\r\n                                             ALLOW FOR 2-6 HOURS AFTER PURCHASE\r\n                                                           NO REFUNDS', 'https://i.ebayimg.com/images/g/vQMAAOSwWkFcZINZ/s-l500.jpg', 5, 99, '2019-04-20 11:43:20'),
 (16, 'ASTROPHYSICS for PEOPLE in a HURRY ', 'ASTROPHYSICS for PEOPLE in a HURRY by Neil de Grasse Tyson  PDF High Quality \r\n\r\nThis is a PDF version so PLEASE after purchase send a valid email address in order to send it to you.\r\nOnce you receive the email you may download it to your computer from Google Drive or OneDrive.\r\nShipping : - I ship within 24 hours after receiving payment\r\nPDF is sent to the given Paypal e-mail if  you want it diliver to a different email please drop a message\r\n\r\n           Thank you for your purchase.', 'https://img13.androidappsapk.co/300/8/1/4/com.wAstrophysicsforPeopleinaHurry_6309256.png', 5, 70, '2019-04-20 11:47:19'),
 (17, 'Furiously Happy', 'Furiously Happy : A Funny Book about Horrible Things by Jenny Lawson (2015, Hardcover)', 'https://i.ebayimg.com/images/g/aZ8AAOSwB3BZ6cwy/s-l640.jpg', 5, 530, '2019-04-20 11:49:33'),
-(18, 'Abnormal Psychology', 'Abnormal Psychology An Integrative Approach 7th Edition Ebook/PDF ', 'https://i.ebayimg.com/images/g/kX0AAOSwJQVcQVJn/s-l500.jpg', 5, 3000, '2019-04-20 11:52:42');
+(18, 'Abnormal Psychology', 'Abnormal Psychology An Integrative Approach 7th Edition Ebook/PDF ', 'https://i.ebayimg.com/images/g/kX0AAOSwJQVcQVJn/s-l500.jpg', 5, 3000, '2019-04-20 11:52:42'),
+(19, 'Black Watch', 'Black color beautiful wrist watch.', 'https://i.imgur.com/gqxZlBc.jpg', 1, 299, '2019-06-09 18:26:58'),
+(20, 'Black Hoodie', 'Black color hoodie, beautiful Design.', 'https://i.imgur.com/Xc52iVG.jpg', 1, 199, '2019-06-09 18:26:58'),
+(21, 'Clock', 'Beautifull Clock', 'https://i.imgur.com/iuAu44j.jpg', 1, 99, '2019-06-09 18:26:58'),
+(22, 'Men\'s Sweater Shirt', 'Beautiful Men\'s sweater with different colors.', 'https://i.imgur.com/bb11VxG.jpg', 1, 100, '2019-06-09 18:26:58'),
+(23, 'Black Alarm Clock', 'Beautiful black colored alarm.', 'https://i.imgur.com/vEE9f0p.jpg', 1, 80, '2019-06-09 18:26:58'),
+(24, 'Lamp', 'Beautiful Lamp with modern design', 'https://i.imgur.com/E3KVTZc.jpg', 1, 99, '2019-06-09 18:30:49'),
+(25, 'Black Shades', 'Beautiful Sun glasses', 'https://i.imgur.com/9fI8Jug.jpg', 1, 49, '2019-06-09 18:30:49'),
+(26, 'Polo Blue Shirt ', 'Polo Blue shirt ', 'https://i.imgur.com/VzfTrbT.jpg', 1, 30, '2019-06-09 18:30:49'),
+(27, 'Long Dress ', 'Beautiful Long dress for women', 'https://i.ibb.co/0J8Bq5q/nf0022-1.jpg', 1, 349, '2019-06-09 18:30:49');
 
 -- --------------------------------------------------------
 
@@ -142,7 +229,8 @@ INSERT INTO `product_categories` (`id`, `category`, `parent_category`) VALUES
 (4, 'Sports', NULL),
 (5, 'Books', NULL),
 (6, 'Tech', NULL),
-(7, 'Video Games', NULL);
+(7, 'Video Games', NULL),
+(8, 'phones-and-tables', NULL);
 
 -- --------------------------------------------------------
 
@@ -161,11 +249,24 @@ CREATE TABLE `product_properties` (
 --
 
 --
+-- Indexes for table `address`
+--
+ALTER TABLE `address`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `user_id` (`user_id`);
+
+--
 -- Indexes for table `customers`
 --
 ALTER TABLE `customers`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`);
+
+--
+-- Indexes for table `glogin`
+--
+ALTER TABLE `glogin`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `ordered_products`
@@ -202,34 +303,40 @@ ALTER TABLE `product_properties`
 --
 
 --
+-- AUTO_INCREMENT for table `address`
+--
+ALTER TABLE `address`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `ordered_products`
 --
 ALTER TABLE `ordered_products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `product_categories`
 --
 ALTER TABLE `product_categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `product_properties`

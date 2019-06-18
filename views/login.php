@@ -18,11 +18,11 @@
 			<div class="social_login">
 			
 				<div class="google">
-					<a href="<?php echo APPROOT ?>/glogin.php">
-						<img src="<?php echo APPROOT ?>/views/assets/glogin.png" alt="">
+					<a href="<?php echo APPROOT ?>/glogin.php" class="btn btn-block btn-primary">
+						Login using <b>Google</b>
 					</a>
 				</div>
-					<p>or</p>
+					<p class="lined"><b></b> or <b></b></p>
 			</div>
 
 			<div class="form_group">

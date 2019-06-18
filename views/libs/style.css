@@ -1443,3 +1443,21 @@ padding: 10px;}
 	height: 100px;
 	overflow: scroll;
 }
+
+
+
+.lined
+{
+	display: flex;
+	margin: 40px;
+	
+}
+.lined b
+{
+  flex-grow: 1;
+	height: 2px;
+	background: lightgray;
+	position: relative;
+	top: 12px;
+	margin: 0 10px;
+}

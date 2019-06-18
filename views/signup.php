@@ -15,8 +15,21 @@
 		<?php } else {?>
 
 		<?php } ?>
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 		<h3 class="heading">Create Your Account</h3>
 		<form action="<?php echo APPROOT?>/signup/authenticate" method="post">
+
+			<div class="social_login">
+				
+				<div class="google">
+					<a href="<?php echo APPROOT ?>/glogin.php" class="btn btn-block btn-primary ">
+						Signup using <b>Google</b>
+					</a>
+				</div>
+				<p class="lined"><b></b> or <b></b></p>
+			</div>
+
 
 			<div class="form_group">
 				<label for="first_name">
@@ -69,18 +82,18 @@
 
 
 			<div class="form_group">
+				<div class="g-recaptcha" data-sitekey="6Lc6hqkUAAAAALEupdHrmpN3scSj1RakTIqKCmmm">
+					
+				</div>
+			</div>
+
+
+
+			<div class="form_group">
 				<input type="submit" value="Sign UP" name="reg">
 			</div>
 
-			<div class="social_login">
-				<p>or</p>
-				<div class="google">
-					<a href="<?php echo APPROOT ?>/glogin.php">
-						<img src="<?php echo APPROOT ?>/views/assets/glogin.png" alt="">
-					</a>
-				</div>
-
-			</div>
+			
 
 			<div class="extra_links">
 				<p>Already have an account? <a href="<?php echo APPROOT; ?>/login">Login</a>
