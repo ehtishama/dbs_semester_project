@@ -10,13 +10,14 @@
     public function index()
     {
 
-
+      
 
       if(isset($_SESSION['cart']))
         $data = $this -> model -> getCartData($_SESSION['cart']);
       else $data['products'] = [];
 
-      //  $data["title" => "Cart Page - Ecom shop online"];
+      // $data["title" => "Cart Page - Ecom shop online"];
+      $data["title"] = "Card Page -- Ecoom shop online";
 
       $this -> loadView('cart', $data);
     }
@@ -120,6 +121,7 @@
               $data['cart'] = $this -> model -> getCartData($_SESSION['cart']);
 
         }
+        $data['title'] = "Order Summary -- Ecom Online shopping";
         $this -> loadView("cart", $data);
 
 
@@ -135,55 +137,109 @@
 
     public function placeOrder()
     {
+        $totalAmount = ($this -> model -> getCartData($_SESSION['cart']))['total'];
+
+        // validate user
         if(! (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true ))
         {
             header("Location: " . APPROOT . "/login?nextpage=cart");
             die();
         }
 
-        // put order into the database
-        if(isset($_SESSION['cart']))
-            {// put data into orders table
-            $products = $this -> model -> getCartData($_SESSION['cart']);
-            $this -> model -> db -> begin_transaction();
-            $customerId = $_SESSION['user']['id'];
-            $total = $products['total'];
-            $orderQuery = "Insert into
-            orders (id,   customer_id, charges, created_at, updated_at)
-            values (NULL, $customerId, $total, NULL, NULL)";
+        //strip processing and order data saving
+        if( isset($_POST['stripeToken']) && isset($_SESSION['cart']) )
+        {
+          $stripeToken = $_POST['stripeToken']; // acquired from stripe.js
+          \Stripe\Stripe :: setApiKey("sk_test_DjydLfQsRUxDObO5QeShusFt00bIeoTbpK");
 
-            $this -> model -> db -> query($orderQuery);
-            echo $this -> model -> db -> error;
-            $lastInsertId = $this -> model -> db -> insert_id;
+          // create stripe charge with following attributes
+          // -- total_amount
+          // -- ??
 
-            // put data into ordered products table
-            foreach ($products['products'] as $product) {
-                $orderId = $lastInsertId;
-                $prodId = $product['id'];
-                $quantity = $product['quantity'];
-                $discount = 0;
-                $orderedProductQuery = "INSERT INTO
-                ordered_products(id, order_id, prod_id, quantity, discount)
-                values          (NULL, $orderId, $prodId, $quantity, $discount)";
-                $this -> model -> db -> query($orderedProductQuery);
-                echo $this -> model -> db -> error;
+          try {
+              $response = \Stripe\Charge :: create([
+                "amount" => $totalAmount * 100,
+                "currency" => "usd",
+                "source" => "$stripeToken", // obtained with Stripe.js
+                "description" => "Your order on ecom."
 
-            }
-            $this -> model -> db -> commit();
-            // clear the current cart
-            $_SESSION['cart'] = array();
+              ]);
 
-            // redirect
-            header("Location: " . APPROOT . "/profile");
+              // payment has been made successfully
+              $paymentId = $response -> id;
 
 
+
+        
+              // put data into orders table
+              $products = $this -> model -> getCartData($_SESSION['cart']);
+              $this -> model -> db -> begin_transaction();
+              $customerId = $_SESSION['user']['id'];
+              $total = $products['total'];
+
+              $orderQuery = "Insert into
+              orders (id,   customer_id, charges, created_at, updated_at)
+              values (NULL, $customerId, $total, NULL, NULL)";
+
+              $this -> model -> db -> query($orderQuery);
+              echo $this -> model -> db -> error;
+              $lastInsertId = $this -> model -> db -> insert_id;
+
+              // put data into ordered products table
+              foreach ($products['products'] as $product) 
+              {
+                  $orderId = $lastInsertId;
+                  $prodId = $product['id'];
+                  $quantity = $product['quantity'];
+                  $discount = 0;
+                  $orderedProductQuery = "INSERT INTO
+                  ordered_products(id, order_id, prod_id, quantity, discount)
+                  values          (NULL, $orderId, $prodId, $quantity, $discount)";
+                  $this -> model -> db -> query($orderedProductQuery);
+                  echo $this -> model -> db -> error;
+
+              }
+              $this -> model -> db -> commit();
+
+              // save payment information
+              $orderId = $lastInsertId;
+              $paymentId;
+              $this -> model -> db -> query("
+                INSERT INTO stripe_payments(id, order_id) 
+                values('$paymentId', $orderId)
+                ");
+              $error =  $this -> model -> db -> error;
+
+
+              // clear the current cart
+              $_SESSION['cart'] = array();
+
+              // redirect
+              if(empty($error))
+                header("Location: " . APPROOT . "/profile");
+              else echo $error;
+        
+
+
+                    
+          } catch (Exception $e) {
+            echo "Something went wrong... Please try again...";
+            echo $e -> getMessage();
+
+          }          
 
         }
 
 
-
     }
 
-  }
+
+
+
+
+
+
+
+  } //end of controller
 
  ?>

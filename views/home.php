@@ -16,26 +16,50 @@
 			<div class="one">
 				<div class="inner">
 					<img src="<?php echo $data['best_selling'][0]['image'] ?>">
-					<p class="title"><?php echo $data['best_selling'][0]['title'] ?></p>
+					<p class="title">
+						<a href="
+						<?php echo APPROOT . "/products/product/" . $data['best_selling'][0]['id'] ?>
+						">
+							<?php echo $data['best_selling'][0]['title'] ?>
+						</a>
+					</p>
 					<p class="price">$<?php echo $data['best_selling'][0]['price'] ?></p>
 				</div>
 			</div>
 			<div class="two">
 				<div class="inner">
 					<img src="<?php echo $data['best_selling'][1]['image'] ?>">
-					<p class="title"><?php echo $data['best_selling'][1]['title'] ?></p>
+					<p class="title">
+						<a href="
+						<?php echo APPROOT . "/products/product/" . $data['best_selling'][1]['id'] ?>
+						">
+							<?php echo $data['best_selling'][1]['title'] ?>
+						</a>
+					</p>
 					<p class="price">$<?php echo $data['best_selling'][1]['price'] ?></p>
 				</div>
 			</div>
 			<div class="three">
 				<img src="<?php echo $data['best_selling'][2]['image'] ?>">
-					<p class="title"><?php echo $data['best_selling'][2]['title'] ?></p>
+					<p class="title">
+						<a href="
+						<?php echo APPROOT . "/products/product/" . $data['best_selling'][2]['id'] ?>
+						">
+							<?php echo $data['best_selling'][2]['title'] ?>
+						</a>
+					</p>
 					<p class="price">$<?php echo $data['best_selling'][2]['price'] ?></p>
 			</div>
 			<div class="four">
 				<div class="inner">
 					<img src="<?php echo $data['best_selling'][3]['image'] ?>">
-					<p class="title"><?php echo $data['best_selling'][3]['title'] ?></p>
+					<p class="title">
+						<a href="
+						<?php echo APPROOT . "/products/product/" . $data['best_selling'][3]['id'] ?>
+						">
+							<?php echo $data['best_selling'][3]['title'] ?>
+						</a>
+					</p>
 					<p class="price">$<?php echo $data['best_selling'][3]['price'] ?></p>
 				</div>
 			</div>

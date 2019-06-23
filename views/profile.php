@@ -60,7 +60,7 @@ require_once("views/libs/header.php");
 
                 <?php foreach ($data['orders'] as $order){ ?>
                 <tr>
-                    <td><?php echo $order['id'] ?></td>
+                    <td><?php echo $order['order_id'] ?></td>
                     <td><?php echo $order['prod_id'] ?></td>
                     <td><?php echo $order['title'] ?></td>
                     <td><?php echo $order['quantity'] ?></td>
@@ -90,6 +90,7 @@ require_once("views/libs/header.php");
     </div>
 
     <div class="tab reviews_page" id="payments" style="display: none;">
+
         <div class="main_area">
             <div class="card">
 					<div class="card_img">
@@ -101,14 +102,37 @@ require_once("views/libs/header.php");
                              Cash On Delivery
      					</div>
                         <div class="card_body">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            <p>
+                                Worried about the privacy while paying online? Well, you can pay cash once the product is delivered to your doorstep. 
+                                Cash on Delivery allows you to shop whatever you want and pay only when it is delivered to you. 
+                            </p>
                         </div>
 
 					</div>
 			</div>
-            <div class="btn btn_primary btn_right">
-                Add
+            
+            <div class="card">
+                    <div class="card_img" style="background-image: url(<?php echo APPROOT ?>/views/assets/credit_card.png);">
+
+                    </div>
+
+                     <div class="card_text">
+                         <div class="card_heading">
+                             Credit Card Payments
+                        </div>
+                        <div class="card_body">
+                                <p>
+                                    We accept all kinds of credit card payments through Stripe Payment Processor. Please note that we do not 
+                                    store your credit card information in our databases. The information you type here transmitted to the stripe
+                                    servers through encryption and they do all the processing stuff. <br>
+                                    By using this method you agree to out <b>Terms and Services Policy.</b>
+
+                                </p>
+                        </div>
+
+                    </div>
             </div>
+            
         </div>
     </div>
 

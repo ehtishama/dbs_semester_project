@@ -8,6 +8,7 @@
     ],
     "require": {
         "facebook/graph-sdk": "^5.7",
-        "google/apiclient": "^2.2"
+        "google/apiclient": "^2.2",
+        "stripe/stripe-php": "^6.38"
     }
 }

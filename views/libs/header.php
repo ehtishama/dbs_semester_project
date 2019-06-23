@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="width=device-width initial-scale=1">
 	<title><?php echo isset($data['title'])? $data['title'] : 'home' ?></title>
 	<link rel="shortcut icon" type="image/ico" href="views/assets/favicon.png">
-	<link href="https://fonts.googleapis.com/css?family=Anton|Varela+Round" rel="stylesheet">
-
-	<link rel="stylesheet" href="<?php echo APPROOT ?>/views/libs/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo APPROOT ?>/views/libs/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo APPROOT ?>/views/libs/style.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo APPROOT ?>/views/libs/slider/css/style.css">
+	
 
 </head>
 <body>
+	<script src="https://js.stripe.com/v3/"></script>
 
 	<div class="header">
 		<div class="header_upper">

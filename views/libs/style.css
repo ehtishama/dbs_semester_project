@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Varela+Round&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 
+
 :root{
   --logo-color: #5AD974;
 }
@@ -8,7 +9,7 @@
 /* general rules for unity in components */
 form
 {
-  background: white;
+ 	background: white;
 	width: 100%;
 	padding:50px  70px;
 	margin: 10px auto;
@@ -63,7 +64,8 @@ a, a:hover
 .header
 {
 	background-color: white;
-	padding: 20px 0 0 0;
+	padding-top: 5px;
+	/*! border-bottom: 1px solid rgba(200, 200, 200, .4); */
 }
 
 .header .header_upper
@@ -71,10 +73,12 @@ a, a:hover
 	display: flex;
 	/*justify-content: space-between;*/
 	width: 80%;
-	margin: 0 auto;
-	padding:0 0 0 0;
+	margin: auto;
+	padding:0 0 0px 0;
 	align-items: center;
 
+	border-bottom: 1px solid rgba(200, 200, 200, .4);
+	margin-bottom: 22px;
 }
 
 .header .header_upper input
@@ -86,9 +90,9 @@ a, a:hover
 }
 .header .header_upper .search_bar
 {
-/* 	flex-grow: 1; */
+flex-grow: 1;
   display: flex;
-	margin-left: auto;
+	/*! margin-left: auto; */
 }
 .search_bar form
 {
@@ -126,22 +130,21 @@ a, a:hover
 
 .header .search_bar input[type="text"]
 {
-	border: 1px solid rgba(128, 128, 128, .4);
+	border: 1px solid rgba(128, 128, 128, .2);
 	box-sizing: border-box;
 	padding: 5px 15px;
-	border-radius: 50px;	
-	width: 110px;
+	border-radius: 4px;	
+	/*! width: 110px; */
 	margin: 0;
 	transition: all 500ms ease-out;
 	font-size: 16px;
-	/*background: rgba(145, 145, 145, .15);*/
+	background: #EDF2F7;
 	
 
 }
 .header .search_bar input[type="text"]:focus
 {
 	background-color: rgba(155, 155, 155, .12);
-	width: 190px;
 	border:1px solid #2D2667;
 	
 }
@@ -296,6 +299,16 @@ a, a:hover
 	margin-top: 10px;
 }
 
+.best_selling a
+{
+	color: white;
+}
+.best_selling a:hover
+{
+  color: lightblue;
+
+}
+
 .body_wrapper{
 	width: 80%;
 	margin: 0 auto;
@@ -400,7 +413,7 @@ a, a:hover
 	justify-content: space-between;
 	position: relative;
 	width: 100%;
-	overflow-x: scroll;
+	overflow-x: hidden;
 
 }
 .updated_products
@@ -550,12 +563,17 @@ a, a:hover
 {
   visibility: visible;
 }
+
 /* styling for signup,php form starts here, sign in page */
+form .form_group
+{
+	margin-bottom: 20px;
+}
 
 .sign_up_form
 {
 	background: white;
-	width: 650px;
+	max-width: 850px;
 	padding:50px  70px;
 	margin: 10px auto;
 	border-radius: 5px;
@@ -568,7 +586,7 @@ a, a:hover
 {
   /*! margin: 0px 0 40px; */
 	font-weight: 400;
-  text-align: center;
+  	text-align: center;
 }
 
 
@@ -577,11 +595,16 @@ a, a:hover
 	width: 100%;
 	border: 1px solid lightgray;
 	padding: 8px;
-	margin: 1px 0 20px 0;
+	margin: 1px 0 0px 0;
 	font-size: 14px;
 
 
 
+}
+
+.sign_up_form input[type="text"], .sign_up_form input[type="password"]
+{
+	background-color: rgba(155, 155, 155, .2);
 }
 
 .sign_up_form form input[placeholder]
@@ -598,7 +621,7 @@ a, a:hover
 .sign_up_form form label
 {
 	color: #333;
-	font-size: 12px;
+	font-size: 14px;
 
 }
 
@@ -777,6 +800,7 @@ padding: 10px;}
    }
 }
 
+/*reuseable components*/
 .alert
 {
 
@@ -806,6 +830,38 @@ padding: 10px;}
 
 }
 
+.card
+{
+	padding: 10px;
+	display: flex;
+	flex-direction: row;
+	margin: 10px;
+}
+.card .card_heading
+{
+	font-weight: bold;
+	
+}
+.card .card_img
+{
+	width: 100px;
+	height: 100px;
+	background-image: url("../assets/cash_on_delivery.png");
+	background-size: cover;
+	background-position: center;
+	flex-shrink: 0;
+
+}
+.card .card_body
+{
+	color: #333;
+
+}
+
+.card .card_text 
+{
+	padding: 0 10px;
+}
 
 /* styling for cart page starts here */
 .cart_page .cart
@@ -895,7 +951,10 @@ padding: 10px;}
 
 }
 
-
+.mb-1
+{
+	margin-bottom: 2rem;
+}
 
 /* styling for profile page starts here */
 .profile_page
@@ -1106,9 +1165,11 @@ padding: 10px;}
 /* order page */
 .invoice_card
 {
-  width: 80%;
+  	width: 80%;
 	margin: 20px auto;
+	flex-direction: column;
 	
+  	font-size: 1em;
 }
 .invoice_card .card-header
 {
@@ -1129,7 +1190,7 @@ padding: 10px;}
 .invoice_table tr
 {
 	
-	font-size: .7rem;
+	/*! font-size: .7rem; */
 	border-top: none;
 }
 .noline td
@@ -1145,7 +1206,7 @@ padding: 10px;}
 
 .invoice_table .imp_row
 {
-	font-size: 1rem;
+	/*! font-size: 1rem; */
 }
 
 .dist_container
@@ -1454,10 +1515,47 @@ padding: 10px;}
 }
 .lined b
 {
-  flex-grow: 1;
+  	flex-grow: 1;
 	height: 2px;
 	background: lightgray;
+	
 	position: relative;
-	top: 12px;
+	top: calc(50% - 2px);
+	
 	margin: 0 10px;
+}
+
+
+
+/*stripe css*/
+/**
+ * The CSS shown here will not be introduced in the Quickstart guide, but shows
+ * how you can use CSS to style your Element's container.
+ */
+.StripeElement {
+  box-sizing: border-box;
+
+  height: 40px;
+
+  padding: 10px 12px;
+
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: white;
+
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
 }

@@ -23,6 +23,7 @@ class ProfileModel extends Model
       INNER JOIN products
       ON ordered_products.prod_id = products.id
       WHERE orders.customer_id = $userId
+      ORDER BY order_id DESC
 
       ";
       $table = array();

@@ -130,7 +130,21 @@ $(document).ready(function(){
   $("#next_product").click(function(){
     $(".updated_products")[0].style.left -= -265;  
   })
+
+
+  var next_product = $("#next_product")
+  var prev_product = $("#prev_product")
+
+  var products = $(".products")[0]
+
+  next_product.click(function(){
+    products.scrollBy(264, 0)
+  })
   
+  prev_product.click(function(){
+    products.scrollBy(-264, 0)
+  })
+
 })
 
 
