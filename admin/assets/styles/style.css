@@ -1,0 +1,133 @@
+*{
+	box-sizing: border-box;
+}
+
+html, body
+{
+	height: 100%;
+	font-family: Ubuntu, Roboto, sans-serif;
+}
+li svg
+{
+	width: 24px;
+	height: 24px;
+}
+li svg
+{
+	stroke-width: 2px;
+	stroke: gray;
+}
+li.selected, li.selected svg
+{
+	color: white;
+
+	stroke: white;
+	stroke-width: 2px;
+	font-weight: bold;
+
+}
+
+table
+{
+	
+	
+	width: 100%;
+}
+table th
+{
+	text-align: left;
+}
+table td, table th
+{
+	padding: 10px;
+	text-align: left;
+	font-size: 12px;
+	
+}
+table tr:nth-child(even)
+{
+	/*background: rgba(128, 127, 128, 0.07);*/
+}
+table thead
+{
+	
+	color: black;
+	
+}
+table tr
+{
+	padding: 5px;
+}
+
+.product_name
+{
+	width: 50%;
+}
+a .counter
+{
+	position: absolute;
+	display: inline-block;
+	background: yellow;
+	top: -10px;
+	left: -10px;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	color: black;
+	font-size: 12px;
+	text-align: center;
+	line-height: 20px;
+	font-weight: bold;
+}
+.highlight
+{
+	/*background: linear-gradient(135deg, #f650a1 0%,#ff7479 100%);*/
+	color: white;
+}
+
+aside ul li ul
+{
+	max-height: 0;
+	overflow: hidden;
+	
+	-webkit-transition: max-height 0.8s;
+	-moz-transition: max-height 0.8s;
+	transition: max-height 0.8s;
+
+	/* overflow-y: scroll; */
+}
+aside ul li:hover ul{
+	max-height: 100px;
+	
+	
+	
+	
+}
+
+.notifications:before
+{
+	content: "";
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	transform: rotate(45deg);
+	background-color: white;
+	border: 1px solid rgba(128, 128, 128, .4);
+	right: 5px;
+	top: -4px;
+	z-index: -1
+}
+
+
+.modal{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+
+	transform: translate(-50%, -50%);
+}
+/*some gradients
+linear-gradient(135deg, #f9df87 1%,#f38480 100%) 								yellowish
+linear-gradient(135deg,rgba(30,187,240,0.85) 30%,rgba(57,223,170,0.85) 100%) 	skyblue
+linear-gradient(135deg, #ea34c2 1%,#678fe7 100%) 								purple
+linear-gradient(135deg, #f650a1 0%,#ff7479 100%) 								pink*/

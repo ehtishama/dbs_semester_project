@@ -66,7 +66,7 @@
 			
 		</div>
 
-		<!-- products in a grid form container -->
+		<!-- for adding filters like things -->
 		<div class="sidebar">
 
 		</div>
@@ -77,8 +77,12 @@
 			<div class="title_line">
 				<p>Newly and Updated</p>
 				<b></b>
-				<i id="prev_product" class="btn btn-light">Back</i>
-				<i id="next_product" class="btn btn-light">Next</i>
+				<i id="prev_product" class="btn btn-light">
+					<svg role="img" xmlns="http://www.w3.org/2000/svg" width="48px" height="48px" viewBox="0 0 24 24" aria-labelledby="arrowLeftIconTitle" stroke="#000" stroke-width="1" stroke-linecap="square" stroke-linejoin="miter" fill="none" color="#000"> <title id="arrowLeftIconTitle">Arrow Left</title> <path d="M9 6l-6 6 6 6"/> <path d="M21 12H4"/> <path stroke-linecap="round" d="M3 12h1"/> </svg>
+				</i>
+				<i id="next_product" class="btn btn-light">
+					<svg role="img" xmlns="http://www.w3.org/2000/svg" width="48px" height="48px" viewBox="0 0 24 24" aria-labelledby="arrowRightIconTitle" stroke="#000" stroke-width="1" stroke-linecap="square" stroke-linejoin="miter" fill="none" color="#000"> <title id="arrowRightIconTitle">Arrow Right</title> <path d="M15 18l6-6-6-6"/> <path d="M3 12h17"/> <path stroke-linecap="round" d="M21 12h-1"/> </svg>
+				</i>
 			</div>
 
 			<div class="products updated_products">
