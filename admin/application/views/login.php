@@ -1,5 +1,8 @@
 
-<div class="form_container p-16 m-4 mx-auto bg-white shadow-lg w-2/4 rounded-lg">	
+<h2 class="text-center font-bold text-gray-400 my-8">
+	ECOM - version 0.1.0
+</h2>
+<div class="form_container p-16 m-4 mx-auto bg-white shadow-lg w-1/3 rounded-lg">	
 	<?php echo form_open("login") ?>
 		<img src="<?php echo base_url() ?>assets/images/padlock.png" class="h-16 w-16 rounded-full border mx-auto mb-8">
 

@@ -59,6 +59,22 @@ $route['insert-product'] = 'products/insert';
 $route['all-products'] = 'products/view_all_products';
 $route['update-product/(:num)'] = "products/edit_product/$1";
 
+$route['product-categories'] = 'categories_controller';
+$route['categories/update'] = 'categories_controller/update';
+$route['categories/insert'] = 'categories_controller/insert';
+$route['categories/remove/(:num)'] = 'categories_controller/remove/$1';
+
+$route['orders/(:num)'] = "orders/single_order/$1";
+$route['orders/update-status/(:num)'] = "orders/update_status/$1";
+
+$route['users'] = "user_controller";
+
+$route['shipping'] = "shipping_controller/add_new_carrier";
+$route['shipping/add-new-carrier'] = "shipping_controller/add_new_carrier";
+
+$route['payments'] = "payment_controller";
+$route['payments/update'] = "payment_controller/update";
+
 
 $route['pages'] = 'pages/view';
 

@@ -8,12 +8,14 @@
                 "sublinks" => array(
                                     array("title" => "All Products", "link" => "all-products"),
                                     array("title" => "Add new Product", "link" => "insert-product"),
+                                    array("title" => "Categories", "link" => "product-categories"),
                     )
             ),
             array("title" => "Orders",       "link" => "orders", "icon" => "svg/cat.svg"),
+            array("title" => "Payment Processors",       "link" => "payments", "icon" => "svg/payment.svg"),
             array("title" => "Analysis",    "link" => "analysis", "icon" => "svg/time.svg"),
-            array("title" => "Users",       "link" => "users", "icon" => "svg/people.svg")
-
+            array("title" => "Users",       "link" => "users", "icon" => "svg/people.svg"),
+            array("title" => "Shipping", "link" => "shipping", "icon" => "svg/truck.svg")
         );
     }
 
@@ -48,4 +50,37 @@
         return $new_filename . "." . $ext;
     }
 
+    /*
+    *   Function: m_upload_image()
+    *   Description: 
+    *       uplaods the picture submitted via form to a specified location.
+    *   $name is value of 'name' attribute on input field
+    */
+    function m_upload_image($name, $upload_path = "uploads/")
+    {
+        if(empty($name))
+            return false;
+
+        $ci =& get_instance();
+        $ci -> load -> library("upload");
+
+
+        $config['upload_path']          = $upload_path;
+        $config['allowed_types']        = 'gif|jpg|png|jpeg';
+        $config['max_size']             = 500;
+        $config['max_width']            = 1024  * 4;
+        $config['max_height']           = 768   * 4;
+        
+        $filename = $_FILES[$name]['name']; // look for $_FILE global array
+        $new_filename = m_sanitize_filename($filename);
+
+        $config['file_name']             = $new_filename;
+
+        $ci -> upload -> initialize($config);
+        if($ci -> upload -> do_upload($name))
+            return $upload_path . $new_filename;
+        else 
+            return false;
+
+    }
  ?>

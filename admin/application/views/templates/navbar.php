@@ -72,7 +72,7 @@
 
 			</a>
 			<div class="profile ml-2 self-center">
-				<img src="assets/avatar.jpeg" 
+				<img src="<?php echo base_url() ?>assets/avatar.jpeg" 
 				class="inline w-8 h-8 border-2 shadow-lg rounded-full border-white">
 				<span class="text-sm text-gray-600 font-bold">
 					<a href="#" class="relative" id="username-chevron">

@@ -93,7 +93,7 @@
 					<div class="product">
 						<a href="<?php echo APPROOT?>/products/product/<?php echo $product['id']?>">
 							<div class="img">
-								<img src="<?php echo $product['image'] ?>">
+								<img src="<?php echo APPROOT . "/admin/" . $product['image'] ?>">
 							</div>
 							<div class="product_info">
 								<p class="title"><?php echo $product['title'] ?></p>

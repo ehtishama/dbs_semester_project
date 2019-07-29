@@ -97,7 +97,7 @@ aside ul li ul
 	/* overflow-y: scroll; */
 }
 aside ul li:hover ul{
-	max-height: 100px;
+	max-height: 145px;
 	
 	
 	
@@ -125,6 +125,11 @@ aside ul li:hover ul{
 	left: 50%;
 
 	transform: translate(-50%, -50%);
+}
+
+.completed
+{
+	color: limegreen;
 }
 /*some gradients
 linear-gradient(135deg, #f9df87 1%,#f38480 100%) 								yellowish

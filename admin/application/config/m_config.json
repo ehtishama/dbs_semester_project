@@ -1,0 +1,57 @@
+{
+    "payment-methods": [
+        {
+            "name": "Stripe",
+            "pkey": "",
+            "skey": ""
+        }
+    ],
+    "0": {
+        "payment-methods": [
+            {
+                "name": "Stripe",
+                "pkey": "",
+                "skey": ""
+            }
+        ],
+        "payment_methods": [
+            {
+                "name": "Paypal",
+                "pkey": "",
+                "skey": ""
+            }
+        ]
+    },
+    "1": {
+        "payment-methods": [
+            {
+                "name": "Stripe",
+                "pkey": "",
+                "skey": ""
+            }
+        ],
+        "0": {
+            "payment-methods": [
+                {
+                    "name": "Stripe",
+                    "pkey": "",
+                    "skey": ""
+                }
+            ],
+            "payment_methods": [
+                {
+                    "name": "Paypal",
+                    "pkey": "",
+                    "skey": ""
+                }
+            ]
+        },
+        "payment_methods": [
+            {
+                "name": "Paypal",
+                "pkey": "",
+                "skey": ""
+            }
+        ]
+    }
+}

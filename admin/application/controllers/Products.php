@@ -96,6 +96,7 @@ class Products extends CI_Controller
             }
             $full_path = $this -> upload -> data("full_path");
 
+
             // generate thumbnails
             // file uploaded, generate thumbnails now
             $this -> load -> library("image_lib");
@@ -144,6 +145,7 @@ class Products extends CI_Controller
         $this -> data['title'] = "Insert New Product";
         $this -> data['sidebar_links'] = sidebar_links();
 
+        // WTF this does?
         if($this -> helper()){
             
             // load model and store data

@@ -21,7 +21,7 @@ function toggleDisplay(element)
 
 		}
 		else element.style.display = "none";	
-	}
+	}else console.log("no element provided");
 	
 }
 
@@ -71,13 +71,42 @@ clickDisplayToggle(msg_icon, msg_dropdown)
 clickDisplayToggle(chevron, user_dropdown)
 clickDisplayToggle(navigation_bell, navigation_dropdown)
 
+document.querySelectorAll('[data-action="toggle-display"]').forEach((element) => {
+	let targetElement = $_(element.dataset.target);
+	clickDisplayToggle(element, targetElement);
+});
 
 
 
-// writing modals
+document.querySelectorAll('[data-action="edit"]').forEach((element) => {
+	let targetElement = $_(element.dataset.target)
+	element.addEventListener("click", (event) => {
+		targetElement.style.backgroundColor = "rgba(255,244,74,.45)";
+		targetElement.focus();
+		element.innerText =  "Save";
+	})
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  modals
 var model_actions = $__("model-action");
 var modal_crosses = $__("modal-cross");
-
 if(model_actions)
 {
 	for (var i = model_actions.length - 1; i >= 0; i--) {
@@ -94,7 +123,6 @@ if(model_actions)
 		}
 	}
 }
-
 
 if(modal_crosses)
 {
