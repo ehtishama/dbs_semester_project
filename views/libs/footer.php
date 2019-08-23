@@ -3,23 +3,26 @@
 	<div class="footer">
 		<div class="footer-wrapper">
 			<div class="section logo">
-				<img src="" alt="LOGO">
+				<a href="<?php echo APPROOT ?>">
+					<img class="w-64 px-4"
+					src="<?php echo APPROOT . "/views/assets/logo_green.png" ?>" alt="LOGO">
+				</a>
 			</div>
 			<div class="section links">
 
-				<ul>
-					<li> <a href="#">Home</a> </li>
-					<li> <a href="#">About Us</a> </li>
-					<li> <a href="#">Contact</a> </li>
-					<li> <a href="#">Disclaimer</a> </li>
+				<ul class="text-thin">
+					<li> <a href="<?php echo APPROOT ?>">Home</a> </li>
+					<li> <a href="<?php echo APPROOT ?>/about-us">About Us</a> </li>
+					<li> <a href="<?php echo APPROOT ?>/contact">Contact</a> </li>
+					<li> <a href="<?php echo APPROOT ?>/disclaimer">Disclaimer</a> </li>
 				</ul>
 			</div>
-			<div class="section links">
+			<div class="section links text-thin">
 				<ul>
-					<li> <a href="#">Shop</a> </li>
-					<li> <a href="#">Our Partners</a> </li>
-					<li> <a href="#">Location</a> </li>
-					<li> <a href="#">Terms and Conditions</a> </li>
+					<li> <a href="<?php echo APPROOT ?>/shop">Shop</a> </li>
+					<li> <a href="<?php echo APPROOT ?>/partners">Our Partners</a> </li>
+					<li> <a href="<?php echo APPROOT ?>/location">Location</a> </li>
+					<li> <a href="<?php echo APPROOT ?>"/terma-and-conditions>Terms and Conditions</a> </li>
 				</ul>
 			</div>
 			<div class="section social-links ">
@@ -31,8 +34,8 @@
 
 	</div>
 
+	 <script type="text/javascript" src="<?php echo APPROOT ?>/views/libs/script.js"></script> 
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
-	<script type="text/javascript" src="<?php echo APPROOT ?>/views/libs/script.js"></script>
 	
 	
 </body>

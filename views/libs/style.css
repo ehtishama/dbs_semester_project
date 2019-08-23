@@ -7,15 +7,6 @@
 }
 
 /* general rules for unity in components */
-form
-{
- 	background: white;
-	width: 100%;
-	padding:50px  70px;
-	margin: 10px auto;
-	border-radius: 5px;
-	
-}
 input, select
 {
 	width: 100%;
@@ -43,8 +34,7 @@ form input[placeholder]
 
 body
 {
-	font-family: sans-serif;
-	color: #424242;
+	font-family: Ubuntu, sans-serif;
 	margin: 0;
 	padding: 0;
 	min-height: 100vh;
@@ -73,7 +63,7 @@ a, a:hover
 	padding: 10px;
 	align-items: center;
 	border-bottom: 1px solid rgba(200, 200, 200, .4);
-	margin-bottom: 22px;
+	
 }
 
 .header .header_upper input
@@ -88,6 +78,7 @@ a, a:hover
 .search_bar form
 {
 	padding: 0;
+	width: 100%;
 }
 .header .header_upper .logo
 {
@@ -125,6 +116,7 @@ a, a:hover
 	transition: all 500ms ease-out;
 	font-size: 16px;
 	background: #EDF2F7;
+	width: 100%;
 	
 
 }
@@ -159,6 +151,18 @@ a, a:hover
 	stroke: gray;
 	stroke-width: 2px;
 	margin-right: 20px;
+}
+.counter
+{
+	
+	position: absolute;
+	top: -15px;
+	left: -10px;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	line-height: 23px;
+	text-align: center;
 }
 
 .header_upper .username
@@ -217,26 +221,6 @@ a, a:hover
 }
 
 
-.header_upper .login a
-{
-	
-	font-weight: bold;
-	color: white;
-	background: linear-gradient(45deg, rgba(90,217,112,1), rgba(29,253,224,1));
-	border: none;
-	border-radius: 50px;
-	min-width: 100px;
-	box-shadow: 3px 3px 8px 0px lightgray;
-	margin-left: 10px;
-	transition: all 500ms ease;
-	font-size: 16px;
-}
-
-.header_upper .login a:hover
-{
-
-	box-shadow: 1px 1px 8px 0px lightgray;
-}
 
 .header_lower
 {
@@ -359,73 +343,63 @@ a, a:hover
 {
 	flex-grow: 1;
 }
-.products-wrapper p
-{
-	
-	display: inline-block;
-	font-size: 18px;
-	font-weight: bold;
-	text-align: left;
-	
-	
-/* 	color: transparent; */
 
-}
-.products-wrapper p:hover
-{
-	text-decoration: none;
-	cursor: pointer;
-	text-decoration: underline;
-	
-	
-	
-}
+
+
 .products-wrapper
 {
   	
-	margin: 50px auto;
+	margin: 100px auto;
 }
 
 .products{
-	display: flex;
-	margin: 2px auto;
+	
+	
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-row-gap: 50px;
+	justify-items: center;
+	
+	margin: 22px auto;
 	border-radius: 1px;
-	flex-wrap: nowrap;
-	justify-content: space-between;
+	
 	position: relative;
 	width: 100%;
-	overflow-x: hidden;
-
-}
-.updated_products
-{
 	
+
+	grid-column-gap: 10px;
 }
+
 
 .products .product
 {
-	background: white url(../assets/background2.svg) no-repeat center;
-	background: black;
+	
 	border-radius: 1px;
-	box-shadow: 0px 0px 6px lightgray;
+	
 	width: 240px;
-	overflow: hidden;
-	border: 1px solid lightgray; 
+	
+	
 	position: relative;
 	flex-shrink: 0;
-	margin-right: 20px;	
+	margin-bottom: 60px;
 	background-size: cover;
+
+	/*! grid-row: 1; */
+	/*! grid-column: 1; */
 }
 .products .product:hover
 {
-	box-shadow: 2px 2px 14px rgba(0, 0, 128, .15);
+	
 }
 .products .product .img
 {
 	width: 100%;
 	height: 320px;
-	/*! margin-bottom: 16px; */
+	border: 1px solid lightgray; 
 	overflow: hidden;
+	background: black;
+	
+	
 	
 }
 .products .product .img img
@@ -433,19 +407,13 @@ a, a:hover
 	height: 100%;
 	width: 100%;
 	object-fit: center;
-	overflow: hidden;
-	transition: all 500ms ease-in;
-	
-	
-
+	transition: all 200ms ease-in;
 }
 .product .product_info{
-	position: absolute;
-	bottom: 0;
 	padding: 20px;
-	background: rgba(255, 255, 255, .9);
-	overflow: hidden;
 	width: 100%;
+	background: #e2e8f0;
+	height: 100%;
 }
 .product:hover .product_info
 {
@@ -453,24 +421,24 @@ a, a:hover
 }
 .products .product .title
 {
-	font-size: 12px;
-	font-weight: bold;
-	margin: 0;
+	font-size: 16px;
+	font-weight: normal;
+	font-family: Ubuntu;
 	color: black;	
-/* 	display: none; */
+	letter-spacing: .5px;
+  
 	
 }
 
 .products .product .price
 {
 	font-size: 13px;
-	margin: 0;
-	color: #ed4040;
 	font-family: Arial;
 	display: block;
-/* 	display: none; */
-	
-
+	font-weight: 200;
+	font-size: 16px;
+	letter-spacing: 2px;
+	color: gray;
 }
 .products .product .prod_extra_links
 {
@@ -649,17 +617,7 @@ form .social_login .google
 }
 
 /* styling for product page starts here */
-.product_page .container
-{
-	width: 960px;
-	margin: 20px auto;
-	display: flex;
-	background: white;
-	padding: 10px;
-	border: radius: 16px;
-	box-shadow: 0px 0px 3px lightgray;
 
-}
 .product_img{
   width: 580px;
 	height: 400px;
@@ -934,10 +892,6 @@ padding: 10px;}
 
 }
 
-.mb-1
-{
-	margin-bottom: 2rem;
-}
 
 /* styling for profile page starts here */
 .profile_page
@@ -1023,18 +977,19 @@ padding: 10px;}
 
 .profile_page .main_area .personal_profile .personal_profile_head
 {
-  font-size: 17px;
+  font-size: 37px;
 	color: black;
+  margin-bottom: 30px;
 }
 
 .profile_page .main_area p
 {
 	padding: 3px;
-	font-size: 12px;
+	font-size: 22px;
 }
 .profile_page .main_area .personal_profile .personal_profile_head a
 {
-  font-size: 12px;
+  font-size: 22px;
 	color: green;
 }
 
@@ -1516,23 +1471,21 @@ padding: 10px;}
  * how you can use CSS to style your Element's container.
  */
 .StripeElement {
-  box-sizing: border-box;
-
+ /* box-sizing: border-box;
   height: 40px;
-
-  padding: 10px 12px;
-
-  border: 1px solid transparent;
+  padding: 14px 12px;
+  border: 2px solid gray;
   border-radius: 4px;
   background-color: white;
 
   box-shadow: 0 1px 3px 0 #e6ebf1;
-  -webkit-transition: box-shadow 150ms ease;
+  -webkit-transition: box-shadow 150ms ease;*/
   transition: box-shadow 150ms ease;
 }
 
 .StripeElement--focus {
-  box-shadow: 0 1px 3px 0 #cfd7df;
+  /*box-shadow: 0 1px 3px 0 #cfd7df;*/
+  
 }
 
 .StripeElement--invalid {
@@ -1541,4 +1494,30 @@ padding: 10px;}
 
 .StripeElement--webkit-autofill {
   background-color: #fefde5 !important;
+}
+
+
+/*media queries*/
+@media only screen and (max-width: 768px) {
+    /* tablets and desktop */
+}
+
+@media only screen and (max-width: 767px) {
+    .products{
+    	grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+    /* portrait phones */
+    .products{
+    	grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 480px) {
+	.products{
+		grid-template-columns: 1fr;
+	}
+
 }

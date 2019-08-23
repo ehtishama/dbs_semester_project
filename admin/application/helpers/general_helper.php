@@ -3,6 +3,7 @@
     {
         return array(
             array("title" => "Dashboard",   "link" => "dashboard", "icon" => "svg/window.svg"),
+            array("title" => "Inbox",   "link" => "inbox", "icon" => "svg/inbox.svg"),
             array("title" => "Products",    "link" => "products", "icon" => "svg/stack.svg", 
 
                 "sublinks" => array(
@@ -12,10 +13,11 @@
                     )
             ),
             array("title" => "Orders",       "link" => "orders", "icon" => "svg/cat.svg"),
-            array("title" => "Payment Processors",       "link" => "payments", "icon" => "svg/payment.svg"),
+            array("title" => "Payment Processors",       "link" => "payments", "icon" => "svg/dolar.svg"),
             array("title" => "Analysis",    "link" => "analysis", "icon" => "svg/time.svg"),
-            array("title" => "Users",       "link" => "users", "icon" => "svg/people.svg"),
-            array("title" => "Shipping", "link" => "shipping", "icon" => "svg/truck.svg")
+            array("title" => "Customers",       "link" => "users", "icon" => "svg/people.svg"),
+            array("title" => "Shipping", "link" => "shipping", "icon" => "svg/transport.svg"),
+            array("title" => "Settings", "link" => "settings", "icon" => "svg/settings.svg")
         );
     }
 

@@ -13,7 +13,7 @@
 		<table class="">
 				<thead class="ronded-full bg-gray-400">
 					<th>#</th>
-					<th>User id</th>
+					
 					<th>username</th>
 					<th>Email</th>
 					<th></th>
@@ -28,9 +28,7 @@
 						<td class="">
 							<?php echo $count++;  ?>
 						</td>
-						<td>
-							<?php echo $user['id'] ?>		
-						</td>
+						
 						
 						
 						<td class="font-bold">
@@ -41,12 +39,17 @@
 						</td>
 						<td class=""><?php echo $user['email'] ?></td>
 						<td>
-							<button class="bg-blue-600 text-white p-1 rounded hover:bg-blue-500">
+							<button class="bg-blue-400 text-white p-1 px-2 rounded hover:bg-blue-500">
 								send messsage
 							</button>
 						</td>
-						<td class="font-bold text-yellow-600">
-							Delete
+						<td class="font-bold">
+							<a 
+							href="<?php echo base_url() . '/users/profile/' . $user['id']  ?>">
+								<button class="bg-blue-400 text-white p-1 rounded hover:bg-blue-500 px-2">
+									view profile
+								</button>
+							</a>
 						</td>
 					</tr>
 				<?php 

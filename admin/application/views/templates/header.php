@@ -8,4 +8,4 @@
 	<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 	
 </head>
-<body class="bg-gray-200 h-full">
+<body class="bg-gray-300 h-full">

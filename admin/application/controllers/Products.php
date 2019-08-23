@@ -18,14 +18,15 @@ class Products extends CI_Controller
 
 
         $this -> data['title'] = 'Product';
+        $this -> data['categories'] = $this -> db -> get("product_categories") -> result_array();
         
     }
 
     private function helper()
     {
-        if($this -> input -> post("product_submit")):
         
 
+        if($this -> input -> post("product_submit")):
             // form validation
             $this -> load -> library("form_validation");
 
@@ -49,9 +50,9 @@ class Products extends CI_Controller
             **************************************/         
 
             
-            
-            // path calculation
-            // ***********************************
+            /*************************************
+                1.      path calculation
+            **************************************/
             $username = $this -> ion_auth -> user() -> row() -> username;
             
             $month = date('m');
@@ -63,7 +64,7 @@ class Products extends CI_Controller
                 mkdir($upload_path, 0777, true);
             }
 
-            // config for the picture
+            // 2. config for the picture
             // ***********************************
             $config['upload_path']          = $upload_path;
 
@@ -73,19 +74,19 @@ class Products extends CI_Controller
             $config['max_width']            = 1024  * 4;
             $config['max_height']           = 768   * 4;
 
-            // sanitize file name
+            // 3. sanitize file name
             // ***********************************
             $filename = $_FILES['image']['name'];
             $new_filename = m_sanitize_filename($filename); // defined in general_helper
             $config['file_name'] = $new_filename;
             
 
-            // upload library with configurations
+            // 4. loading upload library with configurations
             //***********************************
             $this -> load -> library('upload', $config);
 
 
-            // upload file
+            // 5.  upload file
             //***********************************
             if(! $this -> upload -> do_upload('image'))
             {
@@ -97,7 +98,7 @@ class Products extends CI_Controller
             $full_path = $this -> upload -> data("full_path");
 
 
-            // generate thumbnails
+            // 6. generate thumbnails
             // file uploaded, generate thumbnails now
             $this -> load -> library("image_lib");
             $thumb_config = array(
@@ -162,16 +163,6 @@ class Products extends CI_Controller
         $this -> load -> view("insert_product", $this -> data);
     }
 
-    public function view_all_products()
-    {
-        $this -> load -> model("Product");
-        $this -> data['products'] = $this -> Product -> get_all();
-
-        $this -> load -> view("all_products.php", $this -> data);
-
-        // print_r($data['products']);
-    }
-
     public function edit_product($id)
     {
         if($this -> helper())
@@ -209,6 +200,27 @@ class Products extends CI_Controller
         $this -> load -> view("update_product", $this -> data);
     }
 
+    public function view_all_products()
+    {
+        $this -> load -> model("Product");
+        $this -> data['products'] = $this -> Product -> get_all();
+
+        $this -> load -> view("all_products.php", $this -> data);
+
+        // print_r($data['products']);
+    }
+
+    function delete_product($id)
+    {
+        $this -> db -> set("status", "trash") 
+        -> from("products")
+        -> where("id = $id");
+
+        $this -> db -> update();
+        // $this -> db -> error();
+        
+        redirect("all-products");
+    }
 
 
 }

@@ -20,7 +20,7 @@
 
 			return $data;				
 		}
-		public function getRecentProducts($n)
+		public function getRecentProducts($n = 20)
 		{
 			$q = "SELECT * FROM products ORDER BY id DESC LIMIT $n";
 			$result = $this -> db -> query($q);
@@ -30,6 +30,10 @@
 
 			while($row = $result -> fetch_assoc())
 			{
+				$image_path = $row['image'];
+				if(!filter_var($image_path, FILTER_VALIDATE_URL))
+					$row['image'] = APPROOT . "/admin/" . $image_path;
+
 				$temp[] = $row;
 			}
 			$data['products'] = $temp;

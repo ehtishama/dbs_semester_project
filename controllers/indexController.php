@@ -15,7 +15,7 @@
 			$args['title'] = 'Ecom - Shop Online with ease.';
 			
 			$this -> model = $this -> model('prodModel'); // initiating model property
-			$data = $this -> model -> getRecentProducts(18);
+			$data = $this -> model -> getRecentProducts(20);
 
 			$trenGames = $this -> model -> getProdByCat(7);
 			$trenBooks = $this -> model -> getProdByCat(5);

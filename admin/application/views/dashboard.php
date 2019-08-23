@@ -1,3 +1,4 @@
+	
 		<!-- header -->
 		<?php $this -> load -> view("templates/header.php");?>
 
@@ -113,13 +114,16 @@
 					<div class="flex">
 						<div class="recent-activity  p-8 mx-2  text-sm text-gray-600 w-auto">
 							<h2 class="text-lg font-bold text-gray-700 mb-4">Recent Activity</h2>
-							<ul class="bg-gray-100">
-								<li>
-									<p class="p-2 mt-2  rounded "> <span class="font-bold">someone</span>  did something that you may want to look.</p>
-								</li>
-								<li>
-									<p class="p-2 mt-2  rounded "> <span class="font-bold">someone</span>  did something that you may want to look.</p>
-								</li>
+							<ul class="bg-gray-100 p-4 shadow" >
+								<?php foreach ($highlights['recent_activities'] as $activity): ?>
+									<li class="hover:bg-gray-300">
+									<p class="p-2 mt-2">
+										<?php echo $activity['activity']; ?>
+									</p>
+								</li>	
+								<?php endforeach ?>
+								
+								
 								
 							</ul>
 

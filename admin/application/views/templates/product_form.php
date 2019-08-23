@@ -1,18 +1,15 @@
 <?php 
-	
-
-
 /*
 	******************************************************************
-	*
-	* 	Product Form View
+	*   ::View
+	* 	Product Form
 	*	This form assumes that
 	*	--- form helper is loaded
 	*	
 	*	while loading this form you must provide
 	*	--- action 
-	*	--- title, desc, price, tags (could be empty)
-	*	--- btn_title
+	*	--- title, desc, price, tags (tags could be empty)
+	*	--- submit title
 	*	in data array as key => valye
 	*
 	*
@@ -58,8 +55,12 @@
         <div class="form-group mb-4">
             <label class="font-bold">Category</label>
             <select name="category" class="w-full p-2 mt-2 border shadow rounded bg-gray-300">
-                <option value="accessories">Accessories</option>
-                <option value="cellphones">Cell Phones</option>
+                <?php foreach ($categories as $category): ?>
+                <option value="<?php echo $category['category_id'] ?>">
+                    <?php echo $category['category'] ?>
+                </option>
+                <?php endforeach; ?>
+
             </select>
         </div>
 

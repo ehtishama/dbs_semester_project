@@ -58,6 +58,7 @@ $route['signup'] = 'authentication/signup';
 $route['insert-product'] = 'products/insert';
 $route['all-products'] = 'products/view_all_products';
 $route['update-product/(:num)'] = "products/edit_product/$1";
+$route['delete-product/(:num)'] = "products/delete_product/$1";
 
 $route['product-categories'] = 'categories_controller';
 $route['categories/update'] = 'categories_controller/update';
@@ -68,6 +69,8 @@ $route['orders/(:num)'] = "orders/single_order/$1";
 $route['orders/update-status/(:num)'] = "orders/update_status/$1";
 
 $route['users'] = "user_controller";
+$route['users/profile/(:num)'] = "user_controller/profile/$1";
+$route['users/send-mail/(:num)'] = "user_controller/send_mail/$1";
 
 $route['shipping'] = "shipping_controller/add_new_carrier";
 $route['shipping/add-new-carrier'] = "shipping_controller/add_new_carrier";
@@ -75,7 +78,11 @@ $route['shipping/add-new-carrier'] = "shipping_controller/add_new_carrier";
 $route['payments'] = "payment_controller";
 $route['payments/update'] = "payment_controller/update";
 
+$route['inbox'] = "inbox_controller";
+$route['inbox/user/(:num)'] = "inbox_controller/user/$1";
+$route['inbox/send-message'] = "inbox_controller/send_message";
 
+$route['settings'] = "settings_controller";
 $route['pages'] = 'pages/view';
 
 $route['404_override'] = '';

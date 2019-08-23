@@ -32,11 +32,15 @@
 
 		public function auth($args = [])
 		{
+			// if form has been submitted
+			if(!isset($_POST['login']))
+				header("Location: " . APPROOT . "/login");
+
 			// if already logged in, no need to come here
 			$this -> redirect();
 
 			$nextPage = "";
-			if(isset($args[2]))
+			if(isset($args[2])) // query string containing uri to visit after user logs in 
 			{
 				$query = explode("=", $args[2]);
 

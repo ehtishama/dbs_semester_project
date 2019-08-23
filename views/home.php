@@ -9,10 +9,10 @@
 
 ?>
 
-	<div class="body_wrapper">
+	<div class="container mx-auto">
 
 		<!-- featured products -->
-		<div class="best_selling" id="content">
+		<div class="best_selling container mx-auto" id="content">
 			<div class="one">
 				<div class="inner">
 					<img src="<?php echo $data['best_selling'][0]['image'] ?>">
@@ -74,32 +74,34 @@
 		<!-- for newly and updated products -->
 		<div class="products-wrapper">
 
-			<div class="title_line">
+			<div class="font-bold text-2xl p-4">
 				<p>Newly and Updated</p>
-				<b></b>
-				<i id="prev_product" class="btn btn-light">
-					<svg role="img" xmlns="http://www.w3.org/2000/svg" width="48px" height="48px" viewBox="0 0 24 24" aria-labelledby="arrowLeftIconTitle" stroke="#000" stroke-width="1" stroke-linecap="square" stroke-linejoin="miter" fill="none" color="#000"> <title id="arrowLeftIconTitle">Arrow Left</title> <path d="M9 6l-6 6 6 6"/> <path d="M21 12H4"/> <path stroke-linecap="round" d="M3 12h1"/> </svg>
-				</i>
-				<i id="next_product" class="btn btn-light">
-					<svg role="img" xmlns="http://www.w3.org/2000/svg" width="48px" height="48px" viewBox="0 0 24 24" aria-labelledby="arrowRightIconTitle" stroke="#000" stroke-width="1" stroke-linecap="square" stroke-linejoin="miter" fill="none" color="#000"> <title id="arrowRightIconTitle">Arrow Right</title> <path d="M15 18l6-6-6-6"/> <path d="M3 12h17"/> <path stroke-linecap="round" d="M21 12h-1"/> </svg>
-				</i>
 			</div>
 
 			<div class="products updated_products">
-
 				<?php foreach($data['products'] as $product){?>
 
 
 					<div class="product">
 						<a href="<?php echo APPROOT?>/products/product/<?php echo $product['id']?>">
 							<div class="img">
-								<img src="<?php echo APPROOT . "/admin/" . $product['image'] ?>">
-							</div>
-							<div class="product_info">
-								<p class="title"><?php echo $product['title'] ?></p>
-								<p class="price">$<?php echo $product['price']?></p>
+								<img src="<?php echo $product['image'] ?>">
 							</div>
 						</a>
+						<!-- product info -->
+						<div class="py-2">
+							<p class="text-gray-900 font-bold text-base capitalize block">
+								<?php echo $product['title'] ?>		
+							</p>
+							<p class="text-gray-600 text-sm font-bold block">
+								$<?php echo $product['price']?>
+							</p>
+							<button
+							onclick="addToCart(<?php echo $product['id'] ?>);"
+							class="block w-full text-center px-3 py-2 my-3 bg-gray-600 hover:bg-gray-500 text-white cursor-pointer shadow-md rounded">
+									Add to cart
+							</button>
+						</div>
 						
 						<div class="prod_extra_links">
 							<ul>
@@ -129,6 +131,7 @@
 			</div>
 		</div>
 
+		<!-- features -->
 		<section class="features">
 			<div class="feature">
 				<span class="icon">
@@ -162,9 +165,10 @@
 				<p>Shop without any worries, If anything goes wrong we provide a 100% money back guarantee. </p>
 			</div>
 		</section>
-	
+
+
 		<!-- some products from some category -->
-		<div class="products-wrapper">
+<!-- 		<div class="products-wrapper">
 			<p>Trending Video Games</p>
 			<div class="products tren">
 
@@ -187,10 +191,10 @@
 				</a>
 				<?php } ?>
 			</div>
-		</div>
+		</div> -->
 
 		<!-- some products from some category -->
-		<div class="products-wrapper">
+<!-- 		<div class="products-wrapper">
 			<p>Trending in Books</p>
 			<div class="products tren">
 				<?php foreach($data['tren2'] as $product){?>
@@ -208,9 +212,9 @@
 				</a>
 				<?php } ?>
 			</div>
-		</div>
+		</div> -->
 
-		
+
 	</div>
 		
 	<!-- notification container -->

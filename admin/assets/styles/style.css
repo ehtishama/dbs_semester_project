@@ -103,7 +103,6 @@ aside ul li:hover ul{
 	
 	
 }
-
 .notifications:before
 {
 	content: "";
@@ -119,13 +118,7 @@ aside ul li:hover ul{
 }
 
 
-.modal{
-	position: absolute;
-	top: 50%;
-	left: 50%;
 
-	transform: translate(-50%, -50%);
-}
 
 .completed
 {
@@ -136,3 +129,77 @@ linear-gradient(135deg, #f9df87 1%,#f38480 100%) 								yellowish
 linear-gradient(135deg,rgba(30,187,240,0.85) 30%,rgba(57,223,170,0.85) 100%) 	skyblue
 linear-gradient(135deg, #ea34c2 1%,#678fe7 100%) 								purple
 linear-gradient(135deg, #f650a1 0%,#ff7479 100%) 								pink*/
+
+
+/*styling for modal*/
+.modal_show
+{
+  display: block;
+}
+
+.modal_hide
+{
+	display: none;
+}
+
+.modal
+{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background: rgba(0,0,0,.3);
+	scroll-behavior: none;
+
+}
+.modal_dialog
+{
+	background: white;	
+	
+  	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	box-shadow: 0px 13px 14px 1px gray;
+
+	
+	font-family: Ubuntu;
+	min-width: 400px;
+}
+.modal_top
+{
+	padding: 15px;
+	border-bottom: 1px solid lightgray;
+}
+.modal_body
+{
+	font-weight: lighter;
+	margin: 0 auto;
+	display: flex;
+	
+	flex-direction: column;
+	
+}
+.modal_body p
+{
+  margin: 10px;
+}
+.modal_body .content
+{
+	max-width: 50%;
+}
+
+.chat-box
+{
+	height: calc(100vh - 50px - 2rem);
+}
+.chat-box .msgs
+{
+	scrollbar-width: none;
+}
+.chat-box .msgs::-webkit-scroll-bar
+{
+	display: none;
+}
+

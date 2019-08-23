@@ -38,11 +38,14 @@ class Orders_model extends CI_Model
     	return $this -> db -> get() -> result_array();
     }
 
+    /**
+     * returns the shipment address of an order specified by order_id
+     */
     public function address($order_id)
     {
         $this -> db -> select("*")
                     -> from("address")
-                    -> join("orders", "orders.customer_id = address.user_id")
+                    -> join("orders", "orders.shipment_address = address.address_id")
                     -> where("orders.id = $order_id");
 
         return $this -> db -> get() -> result_array()[0];
@@ -61,6 +64,21 @@ class Orders_model extends CI_Model
     public function available_shipment_carriers()
     {
         return $this -> db -> get('shipment_providers') -> result_array();
+    }
+
+    /** 
+    * returns all the orders placed by a specific customers
+    * $customer_id specifies a unique customer
+    */
+     
+    public function orders_by_customer($customer_id)
+    {
+        $this -> db -> select("*")
+            -> from("orders")
+            -> where("customer_id = $customer_id")
+            ;
+
+        return $this -> db -> get() -> result_array();
     }
 
 }

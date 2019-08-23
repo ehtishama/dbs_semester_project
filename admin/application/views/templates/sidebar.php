@@ -1,4 +1,4 @@
-<aside class="bg-white w-1/4 min-h-screen flex flex-col text-white px-3 ml-2 border shadow">
+<aside class="bg-white w-1/4 min-h-screen flex flex-col text-white px-3 ml-2 shadow-lg rounded">
     <div class="scroll_wrapper h-full">
         <ul class="scroll-y">
 
@@ -45,7 +45,7 @@
                 <path stroke-linecap="round" d="M21 12h-1"/>
                 <path d="M15 4v16H4V4z"/>
             </svg>
-                <span class="ml-2 text-black self-center text-lg">Logout</span>	
+                <span class="ml-2 self-center text-lg">Logout</span>	
             </a>
         </div>
     </div>

@@ -31,7 +31,9 @@ class Product extends CI_Model
     {
         $query = $this -> db -> select("*")
                                 ->from("products")
-                                -> order_by("id", "desc");
+                                -> order_by("id", "desc")
+                                -> join("product_categories", 
+                                    "products.category = product_categories.category_id", "left");
         $result = $query -> get() -> result_array();
         return $result;
     }

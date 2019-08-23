@@ -1,0 +1,1 @@
+<?php define("m_URL", "http://localhost/ecom") ?>

@@ -31,20 +31,22 @@
 			-> limit(10);
 			$top_selling_products = $this -> db -> get() -> result_array();
 
-
+			$recent_activity = $this -> db -> get("activities") -> result_array();
 			$highlights = array(
 				"sales"  			=> $salesThisMonth,
 				"orders" 			=> $ordersThisMonth,
 				"customers" 		=> $customersThisMonth, 
 				"recent_orders" 	=> $recentOrders,
-				"top_products" 		=> $top_selling_products
+				"top_products" 		=> $top_selling_products,
+				"recent_activities" => $recent_activity
+
 			);
 
 			return $highlights;
 			
 			
 
-			$recentActivity;
+			
 		}
 	}
 

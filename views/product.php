@@ -6,40 +6,41 @@
 		$product = $data['product'];
 
  ?>
-	<div class="product_page">
-		<div class="container">
-
-
-			 <div class="product_img">
-			    <img src="<?php echo $product['image'] ?>" alt="">
-			 </div>
-
-			<div class="product_info">
-			    <div class="product_title">
-			    	<?php echo $product['title'] ?>
-			    </div>
-
-				<div class="product_price">
-					$<?php echo $product['price'] ?>
-				</div>
-			    <div class="product_model">SKU: 21354654</div>
-
-			    <div class="product_descr"> 
-			    	<?php echo $product['description'] ?> 
-			    </div>
-
-				<form action="<?php echo APPROOT ?>/cart/add_cart/<?php echo $product['id'] ?>" method="post">
-					<div class="product_quantity">Quantity:<br>
-				     	<input type="number" value="1" name="quantity" min="1" max="10">
+ 	<div class="product-page bg-white mx-auto p-4 mt-4" > 
+		<div class="flex justify-center">
+			<div class="product_img mr-8">
+				<img src="<?php echo $product['image'] ?>">
+			</div>
+			<div>
+				<div class="product_info">
+				    <div class="product_title">
+				    	<?php echo $product['title'] ?>
 				    </div>
 
-					<div onclick="addToCart(<?php echo $product['id'] ?>);" class="add_to_cart">
-							Add to Cart
+					<div class="product_price">
+						$<?php echo $product['price'] ?>
 					</div>
-				</form>
+				    <div class="product_model">SKU: 21354654</div>
 
+					<form action="<?php echo APPROOT ?>/cart/add_cart/<?php echo $product['id'] ?>" method="post">
+						<div class="product_quantity">Quantity:<br>
+					     	<input type="number" value="1" name="quantity" min="1" max="10">
+					    </div>
+
+						<div onclick="addToCart(<?php echo $product['id'] ?>);" class="bg-black text-white font-bold p-2 text-center">
+								Add to Cart
+						</div>
+					</form>
+				</div>
 			</div>
-  		</div>
+		</div>
+
+		<div class="product_descr w-full mt-8 text-gray-800 text-base"> 
+			<h2 class="text-2xl font-bold">Description</h2>
+			<p>
+				<?php echo $product['description'] ?> 
+			</p>
+		</div>
 	</div>
 
 <?php } else {?>

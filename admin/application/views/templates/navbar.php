@@ -1,6 +1,7 @@
-<nav class="main_nav bg-white text-white p-4 flex sticky z-10-xl border">
+<nav class="main_nav bg-white  p-4 flex sticky z-10-xl text-gray-800">
 			<div class="logo">
-				<a href="<?php echo base_url(); ?>" class="text-gray-600 font-bold text-xl mx-16">Admin Panel</a>
+				<a href="<?php echo base_url(); ?>" class="font-bold text-xl mx-16">
+				Admin Panel</a>
 			</div>
 			<input type="serach" name="" class="border border-gray-300 bg-gray-300 rounded px-5 p-1 mx-5 flex-grow text-gray-700" placeholder="Search ">
 
@@ -13,19 +14,7 @@
 					<path stroke-linejoin="round" d="M10.5,4.5 C12.1666667,4.5 13.8333333,4.5 15.5,4.5 C17.5,4.5 18.8333333,3.83333333 19.5,2.5 L19.5,18.5 C18.8333333,17.1666667 17.5,16.5 15.5,16.5 C13.8333333,16.5 12.1666667,16.5 10.5,16.5 L10.5,16.5 C7.1862915,16.5 4.5,13.8137085 4.5,10.5 L4.5,10.5 C4.5,7.1862915 7.1862915,4.5 10.5,4.5 Z" transform="rotate(90 12 10.5)"/> 
 					<path d="M11,21 C12.1045695,21 13,20.1045695 13,19 C13,17.8954305 12.1045695,17 11,17" transform="rotate(90 12 19)"/> 
 				</svg>
-				<span class="counter">2</span>
-				<div id="navigation-dropdown" class="notifications absolute p-2 bg-white w-64 rounded my-1 right-0 text-sm border">
-					<ul>
-						<li class="text-gray-700 p-2 border-b">
-							<img src="assets/avatar.jpeg" class="rounded-full h-8 w-8 mr-2 inline">
-							<span>New Registered user</span>
-						</li>
-						<li class="text-gray-700 p-2">
-							<img src="assets/avatar.jpeg" class="rounded-full h-8 w-8 mr-2 inline">
-							<span>Alex commented on post </span>
-						</li>
-					</ul>
-				</div>
+				<?php $this -> load -> view("templates/notifications") ?>
 			</a>
 			<a href="#" class="ml-2 block relative self-center">
 				<svg id="message-icon" role="img" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" 
@@ -53,7 +42,6 @@
 							</div>		
 						</li>
 						<li class="mt-4 hover:bg-gray-200">
-							
 							<div class="flex">
 								<img src="./assets/avatar.jpeg" class="w-8 h-8 border shadow rounded-full self-center mx-2">
 								<div class="w-full">
@@ -75,7 +63,7 @@
 				<img src="<?php echo base_url() ?>assets/avatar.jpeg" 
 				class="inline w-8 h-8 border-2 shadow-lg rounded-full border-white">
 				<span class="text-sm text-gray-600 font-bold">
-					<a href="#" class="relative" id="username-chevron">
+					<span href="#" class="relative cursor-pointer" id="username-chevron">
 						<?php echo $this -> ion_auth -> user() -> row() -> username; ?>
 						
 						<svg  class="inline" role="img" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" aria-labelledby="chevronDownIconTitle" stroke="gray" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" fill="none" color="#000"> 
@@ -95,7 +83,7 @@
 								
 							</ul>
 						</div>
-					</a>
+					</span>
 				</span>
 			</div>
 		</nav>

@@ -1,28 +1,36 @@
+/* select element by id*/
 function $_(id)
 {
 	return document.getElementById(id);
 }
 
+/* select element by class name*/
 function $__(className)
 {
 	return document.getElementsByClassName(className);
 }
 
+/** 
+*	toggleDisplay(element)
+*	toggles the display property of an element
+*		
+*
+*/
+
 function toggleDisplay(element)
 {
-	if(element){
-		if (element.style.display == "none") 
-		{
-			if(currentlyVisible)
-				currentlyVisible.style.display = "none";
-			
-			element.style.display = "block";
-			currentlyVisible = element;
+	if(!element)
+		return;
+	if (element.style.display == "none") 
+	{
+		if(currentlyVisible)
+			currentlyVisible.style.display = "none";
+		
+		element.style.display = "block";
+		currentlyVisible = element;
 
-		}
-		else element.style.display = "none";	
-	}else console.log("no element provided");
-	
+	}
+	else element.style.display = "none";	
 }
 
 
@@ -87,6 +95,77 @@ document.querySelectorAll('[data-action="edit"]').forEach((element) => {
 	})
 
 });
+
+// tracks the current displayed modal so that it can be closed 
+let active_modal = null			
+
+function displayModal(modalId)
+{
+	let modal = document.getElementById(modalId)
+
+	if(!modal)
+		return;
+
+	// disable body scrolling
+	document.body.style.overflowY = "hidden";
+	
+	modal.classList.remove("modal_hide")
+	modal.classList.add("modal_show")
+
+	
+
+	active_modal = modal
+	console.log(modal.classList)
+}
+
+
+			
+/**
+*	initModalTriggers()
+*	registers click listener on elements with [data-action = modal]
+*	onclick, modal pointed by date-target is shown
+*	sets the global variable active_modal to current shown modal
+*/
+
+function initModalTriggers()
+{
+	let modalTriggers = 
+	document.querySelectorAll("[data-action='modal']");
+
+	modalTriggers.forEach(t => {
+		t.addEventListener("click", event => {
+			event.preventDefault()
+			let modalId = event.target.dataset.target
+			displayModal(modalId)
+		})
+	})
+}
+
+/**
+*	initModalClosers()
+*	registers click listener on elements with [data-close = modal]
+*	onclick, modal pointed by `active_modal` global variable is closed
+*/
+function initModalClosers()
+{
+	let modalClosers = 
+	document.querySelectorAll("[data-close='modal']");	
+
+	modalClosers.forEach( c => {
+		c.addEventListener("click", event => {
+			event.preventDefault()
+			active_modal.classList.remove("modal_show")
+			active_modal.classList.add("modal_hide")
+
+			// enable scrollin on body
+			document.body.style.overflowY = "scroll"
+		})
+	})
+}
+
+initModalTriggers();
+initModalClosers();
+
 
 
 

@@ -1,7 +1,5 @@
 var APPROOT = "http://localhost/ecom";
 
-
-
 function addToCart(prodId) {
   // make a call to /cart/add/id
 
@@ -18,10 +16,6 @@ function addToCart(prodId) {
     }
 
   }
-
-
-
-
 }
 
 function removeProduct(prodId, row, price) {
@@ -46,7 +40,6 @@ function removeProduct(prodId, row, price) {
 }
 
 function showAlert(msg) {
-    console.log("showing alert");
   var alertDiv = document.createElement("div");
   alertDiv.className += "alert";
   alertDiv.className += " alert-success";
@@ -102,12 +95,7 @@ function profilePageMenu(tabClicked, divId) {
     console.log(tabClicked);
     tabClicked.parentNode.getElementsByClassName("selected")[0].classList.remove("selected");
     tabClicked.classList.add("selected");
-
-
 }
-
-
-
 
 function notify(notification) {
 	console.log("Appending");
@@ -126,28 +114,33 @@ function notify(notification) {
 	$("#notification_container").append(element);
 }
 
-$(document).ready(function(){
-  $("#next_product").click(function(){
-    $(".updated_products")[0].style.left -= -265;  
-  })
-
-
-  var next_product = $("#next_product")
-  var prev_product = $("#prev_product")
-
-  var products = $(".products")[0]
-
-  next_product.click(function(){
-    products.scrollBy(264, 0)
-  })
+/** 
+*   function updateProductQuantity()
+*   parameters 
+*   @productId, @quantity
+*   It updates the quantity of a product that is in the cart
+**/
+function updateProductQuantity(id, quantity){
+  // make an ajax request to the server
+  // provide product id and the new quantity
+  // on receiving response call updateCart()
   
-  prev_product.click(function(){
-    products.scrollBy(-264, 0)
-  })
+  let url = APPROOT + "/cart/update_quantity/" + id + '/' +  quantity;
+  ajax(url, response => {
+    window.location.href = window.location.href;
+  });
+}
 
-})
+function ajax(url, callback){
+  let xhr = new XMLHttpRequest;
+  xhr.open("GET", url, true)
+  xhr.onreadystatechange = function(){
+    if(xhr.readyState == 4 && xhr.status == 200)
+      callback(xhr.response)
+  }
+  xhr.send();
 
-
+}
 
 
 

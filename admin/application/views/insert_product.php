@@ -54,6 +54,13 @@
             <div class="form-group mb-4">
                 <label class="font-bold">Category</label>
                 <select name="category" class="w-full p-2 mt-2 border shadow rounded bg-gray-300">
+                    <?php foreach ($categories as $category): ?>
+                        <option value="<?php echo $category['category_id'] ?>"
+                        >
+                        <?php echo  $category['category'] ?>
+                            
+                        </option>
+                    <?php endforeach ?>
                     <option value="accessories">Accessories</option>
                     <option value="cellphones">Cell Phones</option>
                 </select>
