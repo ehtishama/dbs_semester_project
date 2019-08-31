@@ -1,9 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Varela+Round&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 
-
+*{
+	box-sizing: border-box;
+}
 :root{
   --logo-color: #5AD974;
+}
+.w-128
+{
+	width: 32rem;
+}
+.w-72{
+	width: 22rem;
+}
+.w-med
+{
+	width: 420px;
 }
 
 /* general rules for unity in components */
@@ -15,10 +28,7 @@ input, select
 	/*! margin: 1px 0 20px 0; */
 	font-size: 14px;
 }
-form input:focus {
 
-  border: 2px solid #4285f4;
-}
 form input[placeholder]
 {
 	color: black;
@@ -59,6 +69,7 @@ a, a:hover
 {
 	display: flex;
 	width: 100%;
+	height: 60px;
 	margin: auto;
 	padding: 10px;
 	align-items: center;
@@ -83,7 +94,6 @@ a, a:hover
 .header .header_upper .logo
 {
 	width: 185px;
-	height: 72px;
 	text-align: center;
 	align-self: end;
 	background: url("../assets/logo_black.png") no-repeat;
@@ -156,13 +166,14 @@ a, a:hover
 {
 	
 	position: absolute;
-	top: -15px;
-	left: -10px;
-	width: 25px;
-	height: 25px;
-	border-radius: 50%;
-	line-height: 23px;
-	text-align: center;
+    top: -10px;
+    left: -10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    line-height: 18px;
+    text-align: center;
+    font-size: 12px;
 }
 
 .header_upper .username
@@ -181,12 +192,12 @@ a, a:hover
 {
 	opacity: 0;
 	height: 0;
-  position: absolute;
+  	position: absolute;
 	min-width: 200px;
 	right: 2px;
 	background: white;
 	padding: 5px;
-  z-index: 3;
+  	z-index: 3;
 	border-radius: 3px;
 	box-shadow: 3px 3px 12px lightgray;
 	transition: all 500ms ease-out;
@@ -346,11 +357,7 @@ a, a:hover
 
 
 
-.products-wrapper
-{
-  	
-	margin: 100px auto;
-}
+
 
 .products{
 	
@@ -373,12 +380,7 @@ a, a:hover
 
 .products .product
 {
-	
-	border-radius: 1px;
-	
 	width: 240px;
-	
-	
 	position: relative;
 	flex-shrink: 0;
 	margin-bottom: 60px;
@@ -394,11 +396,10 @@ a, a:hover
 .products .product .img
 {
 	width: 100%;
-	height: 320px;
-	border: 1px solid lightgray; 
+	height: 230px;
 	overflow: hidden;
-	background: black;
-	
+	border-radius: 4px;
+
 	
 	
 }
@@ -406,7 +407,8 @@ a, a:hover
 {
 	height: 100%;
 	width: 100%;
-	object-fit: center;
+	object-fit: cover;
+	
 	transition: all 200ms ease-in;
 }
 .product .product_info{
@@ -444,8 +446,8 @@ a, a:hover
 {
 	opacity: 0;
 	position: absolute;
-	top: 10px;
-	left: 10px;
+    top: 23px;
+    left: 24px;
 	background: white;
 	margin: 0;
 	border-radius: 2px;
@@ -457,9 +459,8 @@ a, a:hover
 }
 .products .product:hover .img img
 {
-  	transform: scale(1.1, 1.1);
 	filter: blur(1px);
-  	mix-blend-mode: hard-light;
+  
 }
 
 .products .product .prod_extra_links ul
@@ -1520,4 +1521,66 @@ padding: 10px;}
 		grid-template-columns: 1fr;
 	}
 
+}
+
+
+
+
+/*modal styling*/
+.modal{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	min-height: 100%;
+	background-color: rgba(0,0,0,.3);
+	opacity: 0;
+	display: none;
+}
+.modal #modal-body{
+/* 	display: none; */
+}
+.block{
+	display: block
+}
+.fadeOut{
+	animation: fadeOut 400ms linear 1 forwards;
+}
+.fadeIn{
+	animation: fadeIn 400ms linear 1 forwards;
+}
+.slideDown{
+	animation: slideDown 400ms linear 1 forwards;
+}
+@keyframes fadeOut{
+	from{
+		opacity: 1;
+	}
+	99%{
+		opacity: 0;
+	}
+	to{
+		display: none;
+	}
+	
+}
+@keyframes fadeIn{
+	from {
+		opacity: 0;
+	}
+	to{
+		opacity: 1;
+	}
+	
+}
+
+@keyframes slideDown{
+	from{
+		opacity: 0;
+		transform: translate(0, -100%);
+	}
+	to{
+		opacity: 1;
+		transform: translate(0,  0);
+	}
 }

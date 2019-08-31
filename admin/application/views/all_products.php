@@ -40,14 +40,15 @@
 	 							<span class="font-200 mr-1">
 	 								<a href="
 	 								<?php  echo m_URL . "/products/product/" . $product["id"] ?>
-	 								" target="blank">View
+	 								" target="blank">
+	 									View
 	 								</a>
 	 							</span>
 	 							<span class="font-200 text-red-800">
 	 								<a href="#"
 	 								 	data-p_id = "<?php echo $product['id'] ?>" 
 	 									data-target="product-trash-modal-<?php echo $product['id']?>" data-action="modal">
-	 									Trash
+	 										Trash
 	 								</a>
 	 							</span>
 	 						</div>

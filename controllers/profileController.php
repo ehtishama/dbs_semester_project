@@ -17,6 +17,31 @@ class ProfileController extends Controller
     $profile = $this -> model -> loadProfile();
     $this -> loadView("profile", $this -> data);
   }
+  public function update_profile()
+  {
+    if(!m_empty_validation($_POST))
+    {
+      echo json_encode(["status" => "failed", "msg" => "It looks like some of fields are empty."]);echo "";
+      return;
+    }
+
+    $firstname = m_post("firstname");
+    $lastname = m_post("lastname");
+    $email = m_post("email");
+
+    $user_id = $_SESSION['user']['id'];
+    $response = 
+    $this -> model -> updateProfile($user_id, $firstname, $lastname, $email);
+    if($response)
+    {
+      // update the session
+      $_SESSION['user']['first_name'] = $firstname;
+      $_SESSION['user']['last_name'] = $lastname;
+      $_SESSION['user']['email'] = $email;
+      echo json_encode(["status" => "success", "msg" => "The Profile has been updated"]);
+    }else 
+      echo json_encode(["status" => "failed", "msg" => "There was an error while updating your profile."]);
+  }
 
   public function orders(){
     $this -> data['title'] = "My Orders - Ecom";

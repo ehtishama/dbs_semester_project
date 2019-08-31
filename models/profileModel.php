@@ -156,5 +156,18 @@ class ProfileModel extends Model
     else echo "Success";
 
   }
+  public function updateProfile($id, $firstname, $lastname, $email)
+  {
+    $update_query = 
+    "UPDATE customers SET first_name = '$firstname', last_name = '$lastname', email='$email'
+    WHERE id = $id
+    ";
+
+     $this -> db -> query($update_query);
+     echo $this -> db -> error;
+     if($this -> db -> errno)
+      return false;
+    else return true;
+  }
 
 };

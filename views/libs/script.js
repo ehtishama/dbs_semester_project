@@ -1,10 +1,8 @@
 var APPROOT = "http://localhost/ecom";
 
-function addToCart(prodId) {
+function addToCart(prodId, quantity = 1) {
   // make a call to /cart/add/id
-
-
-  var url = APPROOT + "/cart/add_cart/" + prodId;
+  var url = APPROOT + "/cart/add_cart/" + prodId + "/" + quantity;
   var request = new XMLHttpRequest();
   request.open("GET", url);
   request.send();
@@ -145,4 +143,49 @@ function ajax(url, callback){
 
 
 
+(function(){
+  let openModalTriggers = document.querySelectorAll("[data-action='open-modal']")
+  let closeModalTriggers = document.querySelectorAll("[data-action='close-modal']")
 
+  openModalTriggers.forEach(btn => {
+    btn.addEventListener("click", event => {
+      openModal(event.target.dataset.target)
+    })
+
+  })
+
+  closeModalTriggers.forEach(btn => {
+    btn.addEventListener("click", event => {
+      let modalId = event.target.dataset.target
+      closeModal(modalId)
+      
+      
+    })
+
+  })
+
+  function openModal(modalId){    
+      let modal = document.getElementById(modalId)
+      if(modal)
+      {
+        modal.classList.add("block", "fadeIn")
+        let modalBody = modal.querySelector("#modal-body")
+        modalBody.classList.add("slideDown")
+        modal.addEventListener("click", () => {
+          closeModal(modalId)
+        })
+        
+      } 
+
+  }
+
+  function closeModal(modalId, t = 400){
+    let modal = document.getElementById(modalId)
+    if(modal){
+      modal.classList.remove("fadeIn")
+      modal.classList.add("fadeOut")
+      setTimeout(() => modal.classList.remove("block", "fadeOut"), t)
+    }
+  }
+
+})();

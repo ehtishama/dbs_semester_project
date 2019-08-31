@@ -12,7 +12,7 @@
 	<div class="container mx-auto">
 
 		<!-- featured products -->
-		<div class="best_selling container mx-auto" id="content">
+<!-- 		<div class="best_selling container mx-auto" id="content">
 			<div class="one">
 				<div class="inner">
 					<img src="<?php echo $data['best_selling'][0]['image'] ?>">
@@ -63,8 +63,7 @@
 					<p class="price">$<?php echo $data['best_selling'][3]['price'] ?></p>
 				</div>
 			</div>
-			
-		</div>
+		</div> -->
 
 		<!-- for adding filters like things -->
 		<div class="sidebar">
@@ -73,16 +72,9 @@
 
 		<!-- for newly and updated products -->
 		<div class="products-wrapper">
-
-			<div class="font-bold text-2xl p-4">
-				<p>Newly and Updated</p>
-			</div>
-
 			<div class="products updated_products">
 				<?php foreach($data['products'] as $product){?>
-
-
-					<div class="product">
+					<div class="product p-6 rounded-lg bg-white shadow-lg hover:shadow">
 						<a href="<?php echo APPROOT?>/products/product/<?php echo $product['id']?>">
 							<div class="img">
 								<img src="<?php echo $product['image'] ?>">
@@ -98,7 +90,7 @@
 							</p>
 							<button
 							onclick="addToCart(<?php echo $product['id'] ?>);"
-							class="block w-full text-center px-3 py-2 my-3 bg-gray-600 hover:bg-gray-500 text-white cursor-pointer shadow-md rounded">
+							class="block w-full text-center px-3 py-2 my-3 bg-indigo-600 hover:bg-gray-500 text-white cursor-pointer shadow-md rounded">
 									Add to cart
 							</button>
 						</div>

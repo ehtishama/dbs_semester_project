@@ -6,10 +6,10 @@
 		$product = $data['product'];
 
  ?>
- 	<div class="product-page bg-white mx-auto p-4 mt-4" > 
+ 	<div class=" container product-page bg-white mx-auto p-4 mt-4" > 
 		<div class="flex justify-center">
 			<div class="product_img mr-8">
-				<img src="<?php echo $product['image'] ?>">
+				<img src="<?php echo m_create_img_url($product['image']) ?>">
 			</div>
 			<div>
 				<div class="product_info">
@@ -26,7 +26,7 @@
 						<div class="product_quantity">Quantity:<br>
 					     	<input type="number" value="1" name="quantity" min="1" max="10">
 					    </div>
-
+					    <!-- add logic so that quantity can also be added with the product -->
 						<div onclick="addToCart(<?php echo $product['id'] ?>);" class="bg-black text-white font-bold p-2 text-center">
 								Add to Cart
 						</div>

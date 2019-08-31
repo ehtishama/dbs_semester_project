@@ -100,5 +100,13 @@
 			return $row['image'] = APPROOT . "/admin/" . $image_path;
 		else return $image_path;
 	}
+	function m_empty_validation($arr)
+	{
+		foreach ($arr as $element) {
+			if(empty($element))
+				return false;
+		}
+		return true;
+	}
 
 ?>
