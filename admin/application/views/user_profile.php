@@ -35,20 +35,7 @@
 								</span>	
 								<?php echo $profile['username'] ?>
 							</div>
-				<div class="address flex-grow">
-					<p class="font-bold mb-2 text-gray-800"># Customer Address</p>
-							<p class="street">
-								<span class="w-16 inline-block text-gray-600">
-									street
-								</span>
-								<?php echo $profile['street'] ?>
-							</p>
-							<p class="city"><span class="w-16 inline-block text-gray-600">city</span>	<?php echo $profile['city'] ?>
-							</p>
-							<p class="state"><span class="w-16 inline-block text-gray-600">postal</span>	<?php echo $profile['postal_code'] ?></p>
-							<p class="country"><span class="w-16 inline-block text-gray-600">country</span>	<?php echo $profile['country'] ?>
-						</p>
-				</div>
+				
 			</div>
 
 			<div class="send_message mt-8">

@@ -6,6 +6,13 @@
 	<link rel="shortcut icon" type="image/ico" href="views/assets/favicon.png">
 	<link rel="stylesheet" type="text/css" href="<?php echo APPROOT ?>/views/libs/style.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo APPROOT ?>/admin/assets/styles/tailwind.min.css">
+
+	<!-- //slick -->
+	 <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
+
+    <!-- //jquery -->	
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
 	
 
 </head>
@@ -42,7 +49,9 @@
 						 <path d="M13 5V11"/>
 					</svg>
 				</a>
-				<span class="inline-block shadow bg-indigo-600 text-white font-bold counter">
+				<span class="inline-block shadow bg-indigo-600 text-white font-bold counter"
+				id="cart_counter"
+				>
 					<?php 
 						if(isset($_SESSION['cart']))
 							$counter = count($_SESSION['cart']);
@@ -80,7 +89,7 @@
 
 			<div class="login">
 					<a 
-					class="inline-block p-3 px-8 bg-indigo-600 text-white text-center font-bold rounded-full shadow hover:bg-indigo-700 hover:shadow-lg"
+					class="inline-block p-3 px-12 bg-indigo-600 text-white text-center font-thin rounded-full shadow hover:bg-indigo-700 hover:shadow-lg"
 					href="<?php echo APPROOT ?>/login"
 					> Login</a>
 

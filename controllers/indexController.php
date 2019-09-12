@@ -13,9 +13,17 @@
 		public function index($args = [])
 		{
 			$args['title'] = 'Ecom - Shop Online with ease.';
-			
+			if(isset($args['query']) && isset($args['query']['page']))
+			{
+				$pageNo = $args['query']['page'];
+
+			}
+			else $pageNo = 1;
+			$perPage = 16;
+
+
 			$this -> model = $this -> model('prodModel'); // initiating model property
-			$data = $this -> model -> getRecentProducts(20);
+			$data = $this -> model -> getRecentProducts($pageNo, $perPage);
 
 			$trenGames = $this -> model -> getProdByCat(7);
 			$trenBooks = $this -> model -> getProdByCat(5);
@@ -33,7 +41,7 @@
 
 			$args['best_selling'] = $this -> model -> fiveMostSoldProducts();
 			$args['categories'] = $this -> model -> getCategoriesList();
-
+			$args['pagination_links'] = $this -> model -> paginationLinks();
 
 
 

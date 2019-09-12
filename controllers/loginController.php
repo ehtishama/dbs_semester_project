@@ -32,7 +32,7 @@
 
 		public function auth($args = [])
 		{
-			// if form has been submitted
+			// if form is not submitted
 			if(!isset($_POST['login']))
 				header("Location: " . APPROOT . "/login");
 
@@ -40,17 +40,10 @@
 			$this -> redirect();
 
 			$nextPage = "";
-			if(isset($args[2])) // query string containing uri to visit after user logs in 
+			// query string containing uri to visit after user logs in 
+			if(isset($args['query']['nextPage']))
 			{
-				$query = explode("=", $args[2]);
-
-				if(count($query) == 2)
-				{
-					// write a function that converts a = b to an associative array of 'a' => 'b'
-					if(strtolower($query[0]) == "nextpage")
-						$nextPage = $query[1];
-
-				}
+				$nextPage = $args['query']['nextPage'];
 			}
 
 			$username = $_POST['username'];
@@ -65,6 +58,7 @@
 				$_SESSION['user'] = $user -> fetch_assoc();
 
 				// redirect to other page
+				
 				header("Location:" . APPROOT . "/"  . $nextPage);
 
 			}
@@ -72,6 +66,8 @@
 			{
 				// write some errors
 				// show the login page again
+				if(isset($args['query']))
+					$data['query'] = $args['query'];
 				$data['error'] = true;
 				$data['errors'] = ['invalid username or password'];
 				$this -> loadView('login', $data);

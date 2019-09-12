@@ -13,7 +13,7 @@ function $__(className)
 /** 
 *	toggleDisplay(element)
 *	toggles the display property of an element
-*		
+*	
 *
 */
 
@@ -33,6 +33,12 @@ function toggleDisplay(element)
 	else element.style.display = "none";	
 }
 
+/**	Click Display Toggle
+*	@param action, type Element Node
+*	@param target, type Element Node
+*	register click event to action element
+*	 such that whenever it is clicked target display is toggled.
+*/
 
 function clickDisplayToggle(action, target)
 {
@@ -67,12 +73,27 @@ var navigation_dropdown = $_("navigation-dropdown");
 var msg_dropdown = $_("message-dropdown");
 var msg_icon = $_("message-icon");
 
+navigation_bell.addEventListener("click", function(){
+	// make an ajax request to /view-all-notifications
+	// show response
+	console.log("making request, please wait")
+	let xhr = new XMLHttpRequest()
+	xhr.open("GET", "view-all-notifications")
+	xhr.onload = function(){
+		console.log(xhr.response)
+	}
+	xhr.send();
+
+
+})
+
 
 
 hideElement(user_dropdown)
 hideElement(navigation_dropdown)
 hideElement(msg_dropdown)
 
+// currentle visible dropdown, so you select other dropdown this can be closed
 var currentlyVisible = null;
 
 clickDisplayToggle(msg_icon, msg_dropdown)

@@ -12,7 +12,9 @@
 
 <div class="container mx-auto my-2 py-8 pt-16 bg-white flex justify-around">
 	<div class="w-1/3">
-		<form id="payment-form" method="post" action="<?php echo APPROOT . "/cart/placeorder" ?>">
+		<form id="payment-form" method="post" action="<?php echo APPROOT . "/cart/placeorder" ?>"
+			class="checkoutform"
+			>
 			<!-- Billing Details -->
 			<div class="text-gray-700">
 				<h2 class="text-lg font-bold mb-2">Shipping Details</h2>

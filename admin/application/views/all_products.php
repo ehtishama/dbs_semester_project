@@ -10,6 +10,7 @@
  		<table class="">
  			<thead class="border">
  				<th class="p-6"><input type="checkbox" name=""></th>
+ 				
  				<th class="p-6">Title</th>
  				<th class="p-6">Category</th>
  				<th class="p-6">Price</th>
@@ -28,7 +29,9 @@
 	 					<td class="p-6 text-blue-700  w-2/3">
 	 						
 	 						<div class="title font-bold text-base">
-	 						<?php echo $product['title']; ?>
+	 							<img src="<?php echo $product['image']; ?>" class="h-8 w-8 mx-auto">
+	 							<?php echo $product['title']; ?>
+	 						
 	 						</div>
 	 						<div class="actions mt-1">
 	 							<span class="font-200 mr-1">
@@ -66,7 +69,7 @@
 							Please Cofirm
 						</p>
 						<div class="modal_body p-4">
-							<p class="moal_content">Are you sure, this product will be deleted?</p>
+							<p class="moal_content pb-2">Are you sure, this product will be deleted?</p>
 							<div class="action_button self-end">
 								<a href="#"
 								class="inline-block p-2 px-4 bg-gray-600 text-white rounded shadow" data-close="modal">Cancel</a>

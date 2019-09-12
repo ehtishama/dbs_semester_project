@@ -1,69 +1,33 @@
-
 <?php
 	// add user validation and redirection
 	// data array contains all the products to be shown on the homepage
 	// print_r($data['best_selling']);
-
 	require_once("views/libs/header.php");
 	require_once("views/libs/categories_horizontal.php");
-
 ?>
+	<!-- carousel -->
+	<div class="carousel_wrapper px-8">
+		<div class="carousel">
+		    <div class="slide relative">
+	    		<img class="block w-full h-full object-center" src="<?php echo APPROOT ?>/views/assets/carousel/1.jpg" >
+		    	
+		    	
+		    </div>
+		    <div class="slide">
+		    	<img class="block w-full h-full object-center" src="<?php echo APPROOT ?>/views/assets/carousel/2.jpg" >
+		    </div>
+		    <div class="slide">
+		    	<img class="block w-full h-full object-center" src="<?php echo APPROOT ?>/views/assets/carousel/3.jpg" >
+		    </div>
+
+		</div>
+	</div>		
+
 
 	<div class="container mx-auto">
 
 		<!-- featured products -->
-<!-- 		<div class="best_selling container mx-auto" id="content">
-			<div class="one">
-				<div class="inner">
-					<img src="<?php echo $data['best_selling'][0]['image'] ?>">
-					<p class="title">
-						<a href="
-						<?php echo APPROOT . "/products/product/" . $data['best_selling'][0]['id'] ?>
-						">
-							<?php echo $data['best_selling'][0]['title'] ?>
-						</a>
-					</p>
-					<p class="price">$<?php echo $data['best_selling'][0]['price'] ?></p>
-				</div>
-			</div>
-			<div class="two">
-				<div class="inner">
-					<img src="<?php echo $data['best_selling'][1]['image'] ?>">
-					<p class="title">
-						<a href="
-						<?php echo APPROOT . "/products/product/" . $data['best_selling'][1]['id'] ?>
-						">
-							<?php echo $data['best_selling'][1]['title'] ?>
-						</a>
-					</p>
-					<p class="price">$<?php echo $data['best_selling'][1]['price'] ?></p>
-				</div>
-			</div>
-			<div class="three">
-				<img src="<?php echo $data['best_selling'][2]['image'] ?>">
-					<p class="title">
-						<a href="
-						<?php echo APPROOT . "/products/product/" . $data['best_selling'][2]['id'] ?>
-						">
-							<?php echo $data['best_selling'][2]['title'] ?>
-						</a>
-					</p>
-					<p class="price">$<?php echo $data['best_selling'][2]['price'] ?></p>
-			</div>
-			<div class="four">
-				<div class="inner">
-					<img src="<?php echo $data['best_selling'][3]['image'] ?>">
-					<p class="title">
-						<a href="
-						<?php echo APPROOT . "/products/product/" . $data['best_selling'][3]['id'] ?>
-						">
-							<?php echo $data['best_selling'][3]['title'] ?>
-						</a>
-					</p>
-					<p class="price">$<?php echo $data['best_selling'][3]['price'] ?></p>
-				</div>
-			</div>
-		</div> -->
+		
 
 		<!-- for adding filters like things -->
 		<div class="sidebar">
@@ -74,7 +38,7 @@
 		<div class="products-wrapper">
 			<div class="products updated_products">
 				<?php foreach($data['products'] as $product){?>
-					<div class="product p-6 rounded-lg bg-white shadow-lg hover:shadow">
+					<div class="product p-6 rounded-lg bg-white shadow hover:shadow-lg">
 						<a href="<?php echo APPROOT?>/products/product/<?php echo $product['id']?>">
 							<div class="img">
 								<img src="<?php echo $product['image'] ?>">
@@ -123,6 +87,14 @@
 			</div>
 		</div>
 
+		<!-- pagination links -->
+		<div class="pagination mb-4 text-center">
+			<?php foreach($data['pagination_links'] as $link): ?>
+				<a href="?<?php echo $link['link']; ?>" class="inline-block p-1 px-2 bg-white m-1 shadow text-lg">
+					<?php echo $link['count'] ?>
+				</a>
+			<?php endforeach; ?>
+		</div>
 		<!-- features -->
 		<section class="features">
 			<div class="feature">
@@ -157,56 +129,6 @@
 				<p>Shop without any worries, If anything goes wrong we provide a 100% money back guarantee. </p>
 			</div>
 		</section>
-
-
-		<!-- some products from some category -->
-<!-- 		<div class="products-wrapper">
-			<p>Trending Video Games</p>
-			<div class="products tren">
-
-				<?php foreach($data['tren1'] as $product){?>
-
-				<a href="<?php echo APPROOT?>/products/product/<?php echo $product['id']?>">
-					<div class="product">
-
-					<div class="img">
-						<img src="<?php echo $product['image'] ?>">
-					</div>
-					<div class="product_info"> 
-						<p class="title"><?php echo $product['title'] ?></p>
-						<p class="price">$<?php echo $product['price']?></p>
-					</div>
-
-
-
-					</div>
-				</a>
-				<?php } ?>
-			</div>
-		</div> -->
-
-		<!-- some products from some category -->
-<!-- 		<div class="products-wrapper">
-			<p>Trending in Books</p>
-			<div class="products tren">
-				<?php foreach($data['tren2'] as $product){?>
-
-				<a href="<?php echo APPROOT?>/products/product/<?php echo $product['id']?>">
-					<div class="product">
-						<div class="img">
-							<img src="<?php echo $product['image'] ?>">
-						</div>
-						<div class="product_info">
-							<p class="title"><?php echo $product['title'] ?></p>
-							<p class="price">PKR <?php echo $product['price']?></p>
-						</div>
-					</div>
-				</a>
-				<?php } ?>
-			</div>
-		</div> -->
-
-
 	</div>
 		
 	<!-- notification container -->
@@ -214,18 +136,20 @@
 		<div class="notification" id="notification_test" style="display: none;">
 			<span class="cross">X</span>
 			<div class="notification_content">
-						<p class="head"></p>
-						<p class="body"></p>
+				<p class="head"></p>
+				<p class="body"></p>
 			</div>
 		</div>
 	</div>
-	
 
+	<script type="text/javascript" src="http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>  
 
-
-	
-	
-
-	
-<?php
-	require_once("views/libs/footer.php");
+	<script type="text/javascript">
+		$(document).ready(function(){
+		  $('.carousel').slick({
+		  	autoplay: true,
+		  	autoplaySpeed: 3000
+		  });
+		});
+	</script>	
+	<?php require_once("views/libs/footer.php"); ?>

@@ -6,11 +6,15 @@ function addToCart(prodId, quantity = 1) {
   var request = new XMLHttpRequest();
   request.open("GET", url);
   request.send();
+  let cartCounter = document.getElementById("cart_counter");
+  let cartCounterValue = cartCounter.innerText;
+  cartCounterValue = Number(cartCounterValue) +  1;
+
 
   request.onreadystatechange = function() {
     if (request.readyState == 4 && request.status == 200) {
       notify({"head": "Notification", "body": "The product has been added to the cart, Keep Shopping"});
-
+      cartCounter.innerText = cartCounterValue;
     }
 
   }

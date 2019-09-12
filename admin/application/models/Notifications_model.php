@@ -11,6 +11,19 @@ class Notifications_model extends CI_Model {
 
 		return $this -> db -> get()-> result_array();
 	}
+	public function insert_notification($notification_text){
+		$row = array("user_id" => 0, "notification_text" => $notification_text);
+		$this -> db -> insert("notifications", $row);
+	}
+	public function view_notification($notification_id){
+		$this -> db -> set("is_viewed", 0)
+		-> where("id = $notification_id");
+		$this -> db -> update();
+	}
+	public function view_all_notifications(){
+		$this -> db -> set("is_viewed", 1);
+		$this -> db -> update("notifications");
+	}
 	
 
 }

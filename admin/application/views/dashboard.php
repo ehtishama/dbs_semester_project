@@ -60,10 +60,10 @@
 								</thead>
 
 							<?php
-								$count = 1;
+								
 								foreach ($highlights['recent_orders'] as $order): ?> 
 								<tr class="">
-									<td><?php echo $count++; ?></td>
+									
 									<td>$<?php echo $order['id'] ?></td>
 									
 									<td class="font-bold w-full">
@@ -85,7 +85,7 @@
 
 							<table class="p-8 rounded shadow border bg-gray-100">
 								<thead class="ronded-full bg-gray-400">
-									<th>#</th>
+									
 									<th>Id</th>
 									<th>Name</th>
 									<th>Price</th>
@@ -93,14 +93,14 @@
 									
 								</thead>
 								<?php
-								$count = 1;
+								
 								 foreach ($highlights['top_products'] as $product): ?>
 								<tr class="">
-									<td><?php echo $count ++; ?></td>
+									
 									<td><?php echo $product['id'] ?></td>
 									
 									<td class="font-bold w-full">
-										<img src="assets/avatar.jpeg" class="inline rounded h-10 w-10 mr-4">
+										<img src="<?php echo $product['image'] ?>" class="inline rounded h-10 w-10 mr-4">
 										<?php echo $product['title'] ?>
 									</td>
 									<td>$<?php echo $product['price'] ?></td>

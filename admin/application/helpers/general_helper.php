@@ -4,7 +4,7 @@
         return array(
             array("title" => "Dashboard",   "link" => "dashboard", "icon" => "svg/window.svg"),
             array("title" => "Inbox",   "link" => "inbox", "icon" => "svg/inbox.svg"),
-            array("title" => "Products",    "link" => "products", "icon" => "svg/stack.svg", 
+            array("title" => "Products",    "link" => "all-products", "icon" => "svg/stack.svg", 
 
                 "sublinks" => array(
                                     array("title" => "All Products", "link" => "all-products"),

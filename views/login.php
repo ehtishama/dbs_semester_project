@@ -2,8 +2,9 @@
 	require_once("views/libs/header.php");
  ?>
 
+
 	<div class="p-8 m-2 bg-white shadow-lg w-med mx-auto rounded-lg">
-		<form method="post" action="<?php echo APPROOT ?>/login/auth/<?=@$data['query']?>" 
+		<form method="post" action="<?php echo APPROOT ?>/login/auth/?nextPage=<?php echo @$data['query']['nextPage'] ?>" 
 			class=" mx-auto"
 			>
 			<div class="logo">

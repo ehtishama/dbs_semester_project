@@ -5,7 +5,7 @@
 			</div>
 			<input type="serach" name="" class="border border-gray-300 bg-gray-300 rounded px-5 p-1 mx-5 flex-grow text-gray-700" placeholder="Search ">
 
-
+			<!-- notifications -->
 			<a href="#" class="ml-auto relative self-center" >
 				<svg role="img" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" 
 				viewBox="0 0 24 24" aria-labelledby="bellIconTitle" 
@@ -16,6 +16,8 @@
 				</svg>
 				<?php $this -> load -> view("templates/notifications") ?>
 			</a>
+
+			<!-- messages -->
 			<a href="#" class="ml-2 block relative self-center">
 				<svg id="message-icon" role="img" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" 
 				aria-labelledby="envelopeAltIconTitle" stroke="gray" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" color="#000">
@@ -57,8 +59,9 @@
 
 					</ul>
 				</div>
-
 			</a>
+
+			<!-- profile -->
 			<div class="profile ml-2 self-center">
 				<img src="<?php echo base_url() ?>assets/avatar.jpeg" 
 				class="inline w-8 h-8 border-2 shadow-lg rounded-full border-white">

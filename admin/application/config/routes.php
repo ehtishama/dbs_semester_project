@@ -85,5 +85,7 @@ $route['inbox/send-message'] = "inbox_controller/send_message";
 $route['settings'] = "settings_controller";
 $route['pages'] = 'pages/view';
 
+$route['view-all-notifications'] = "notifications_controller/view_all_notifications";
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

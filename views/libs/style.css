@@ -18,6 +18,10 @@
 {
 	width: 420px;
 }
+.carousel .slide img{
+	height: 500px;
+	object-fit: contain;
+}
 
 /* general rules for unity in components */
 input, select
@@ -28,7 +32,9 @@ input, select
 	/*! margin: 1px 0 20px 0; */
 	font-size: 14px;
 }
-
+.checkoutform input[type="text"], .checkoutform input[type="password"]{
+	padding: 8px;
+}
 form input[placeholder]
 {
 	color: black;

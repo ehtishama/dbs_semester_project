@@ -9,28 +9,23 @@ class Router
 
 	public function __construct()
 	{
-		if(isset($_GET['url']))
-		{
+		$this -> args['query'] = '';
+		if(isset($_GET['url'])){
 			$url 		= 	$_GET['url'];
-			// echo $url;
 			$this -> breakURL($url);
-
 		}
-		else
-		{
+		else{
 
 			$this -> controller 	= 'indexController';
 			$this -> method 		= 'index';
 			$this -> args 			= [];
-
 		}
 
 		$urlPieces = explode("?", $_SERVER['REQUEST_URI']);
-		if(count($urlPieces) == 2)
-		{
-
+		if(count($urlPieces) == 2){
 			$query = $urlPieces[1];
-			$this -> args['query'] = $query;
+			$query = parse_str($query, $result);
+			$this -> args['query'] = $result;
 		}
 
 		$this -> init();

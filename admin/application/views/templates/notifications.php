@@ -1,6 +1,12 @@
-<?php $notifications = m_fetch_admin_notifications(); ?>
+<?php
+	 $data = m_fetch_admin_notifications();
+	 $notifications = $data['notifications'];
+	 $not_seen = $data['not_seen'];
+ ?>
+<?php if($not_seen): ?>
+<span class="counter"><?php echo $not_seen ?></span>
+<?php endif; ?>
 
-<span class="counter"><?php echo count($notifications) ?></span>
 <div id="navigation-dropdown" class="notifications absolute p-2 bg-white w-64 rounded my-1 right-0 text-sm border">
 	<ul>
 		<?php foreach ($notifications as $notification): ?>

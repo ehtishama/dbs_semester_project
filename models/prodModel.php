@@ -20,14 +20,17 @@
 
 			return $data;				
 		}
-		public function getRecentProducts($n = 20)
+		public function getRecentProducts($pageNo  = 1, $perPage = 16)
 		{
-			$q = "SELECT * FROM products ORDER BY id DESC LIMIT $n";
+			$productsToSkip = ($pageNo - 1) * 15;
+
+			$q = "SELECT * FROM products ORDER BY id DESC LIMIT $productsToSkip, $perPage";
+			
 			$result = $this -> db -> query($q);
 
 
 			$data['products_success'] = true;
-
+			$temp = [];
 			while($row = $result -> fetch_assoc())
 			{
 				$image_path = $row['image'];
@@ -132,6 +135,20 @@
 			return $this -> select("SELECT * FROM products WHERE `title` LIKE '%$keyword%'");
 		}
 
+		public function paginationLinks($productsPerPage = 15){
+			$totalProducts = $this -> db -> query("SELECT count(*) as count from products")
+			 -> fetch_assoc()['count'];
+			 $links = [];
+			 for($i = 1; $i < $totalProducts; $i++)
+			 {
+			 	$temp['count'] = $i;
+			 	$temp['link'] = "page=" . $i;
+
+			 	$links[] = $temp;
+			 	$totalProducts -= $productsPerPage; 
+			 }
+			 return $links;
+		}
 
 	}
 
